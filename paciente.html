@@ -296,12 +296,12 @@ function buscar(){
     const st = dia!==null ? statusDia(p,dia) : null;
     const badge = st ? `<span class="status-badge ${st.classe}">${st.texto}</span>` : '';
     
-    // Mini calendário da semana atual (dias 0-6 por padrão, ou semana do dia selecionado)
-    let semanaInicio = dia!==null ? Math.floor(dia/7)*7 : 0;
-    let diasSemana='';
-    for(let d=semanaInicio;d<Math.min(semanaInicio+7,31);d++){
+    // Calendário do mês inteiro
+    let diasMes='';
+    for(let d=0;d<31;d++){
       const cod=p.dias[d]||'';
-      diasSemana+=`<div class="dia-item"><div class="dia-num">${d+1}</div><div class="dia-cod ${classeJ(cod)}">${cod?cod.replace(/\d+/g,''):'·'}</div></div>`;
+      const fds=[0,1,2,6,7,8,9,13,14,15,16,20,21,22,23,27,28,29,30].includes(d);
+      diasMes+=`<div class="dia-item"><div class="dia-num" style="${fds?'color:#b7950b':''}">${d+1}<br><span style="font-size:8px">${DIAS_SEM[d]}</span></div><div class="dia-cod ${classeJ(cod)}">${cod?cod.replace(/\d+/g,''):'·'}</div></div>`;
     }
 
     const diasTrab=Object.values(p.dias).filter(d=>d&&!d.startsWith('FE')&&!d.startsWith('AF')&&d!=='DSR'&&!d.startsWith('FD')).length;
@@ -318,8 +318,8 @@ function buscar(){
         ${badge}
       </div>
       <div class="prof-card-detalhes" id="det-${i}">
-        <div style="font-size:12px;color:var(--cinza-texto);margin-bottom:6px;margin-top:4px">Escala da semana (dias ${semanaInicio+1}–${Math.min(semanaInicio+7,31)})</div>
-        <div class="semana-grid">${diasSemana}</div>
+        <div style="font-size:12px;color:var(--cinza-texto);margin-bottom:6px;margin-top:4px">Escala completa — Maio 2026</div>
+        <div class="semana-grid" style="grid-template-columns:repeat(7,1fr)">${diasMes}</div>
         <div class="detalhes-info">
           <div class="det-item"><div class="det-label">Dias escalados</div><div class="det-valor">${diasTrab}</div></div>
           <div class="det-item"><div class="det-label">Especialidade</div><div class="det-valor" style="font-size:12px">${p.cargo}</div></div>
