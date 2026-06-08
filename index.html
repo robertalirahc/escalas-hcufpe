@@ -133,6 +133,29 @@ tbody tr:hover td.td-nome{background:#fafbfd}
   </div>
   <div class="filtros">
     <div class="fg">
+      <label>Mês</label>
+      <select id="filtro-mes">
+        <option value="Maio 2026">Maio 2026</option>
+        <option value="Abril 2026">Abril 2026</option>
+        <option value="Março 2026">Março 2026</option>
+      </select>
+    </div>
+    <div class="fg">
+      <label>Unidade</label>
+      <select id="filtro-unidade" onchange="aplicarFiltros()">
+        <option value="">Todas</option>
+        <option value="fisiomulti">Fisioterapia Enfermaria</option>
+        <option value="fisionn">Fisioterapia UNN</option>
+        <option value="fisiouti">Fisioterapia UTI Adulto</option>
+        <option value="fisioambu">Ambulatório de Fisioterapia</option>
+        <option value="fono">Fonoaudiologia</option>
+        <option value="to">Terapia Ocupacional</option>
+        <option value="nutri">Nutrição Clínica</option>
+        <option value="ucrianca">Unidade da Criança</option>
+        <option value="uue">Urgência e Emergência</option>
+      </select>
+    </div>
+    <div class="fg">
       <label>Categoria</label>
       <select id="filtro-categoria" onchange="aplicarFiltros()">
         <option value="">Todas</option>
@@ -146,12 +169,11 @@ tbody tr:hover td.td-nome{background:#fafbfd}
     </div>
     <div class="fg">
       <label>Buscar trabalhador</label>
-      <input type="text" id="filtro-nome" placeholder="Nome ou SIAPE..." oninput="aplicarFiltros()" style="min-width:200px">
+      <input type="text" id="filtro-nome" placeholder="Nome ou SIAPE..." oninput="aplicarFiltros()" style="min-width:180px">
     </div>
-    <button class="btn" onclick="exportarPDF()">Exportar PDF</button>
-    <button class="btn-sm" onclick="limparFiltros()">Limpar filtros</button>
+    <button class="btn" onclick="exportarPDFUnidade()">Exportar PDF</button>
+    <button class="btn-sm" onclick="limparFiltros()">Limpar</button>
   </div>
-  <div class="unid-tabs" id="unid-tabs-container"></div>
   <div id="blocos-unidades"></div>
 </div>
 
@@ -350,37 +372,13 @@ function init(){
   document.getElementById('total-profs').textContent=PROFS.length;
   const afas=PROFS.filter(p=>Object.values(p.dias).some(d=>d&&(d.startsWith('AFIN')||d.startsWith('AFEB')||d.startsWith('FE')))).length;
   document.getElementById('total-afas').textContent=afas;
-  // Multi unidades por SIAPE
   const siapeCount={};
   PROFS.forEach(p=>{if(p.siape&&p.siape!=='######'){siapeCount[p.siape]=(siapeCount[p.siape]||[]);siapeCount[p.siape].push(p.unidade);}});
   const multi=Object.values(siapeCount).filter(v=>[...new Set(v)].length>1).length;
   document.getElementById('total-multi').textContent=multi||'—';
 
-  // Tabs de unidades
-  const tabsEl=document.getElementById('unid-tabs-container');
-  const blocosEl=document.getElementById('blocos-unidades');
-  UNIDADES.forEach((u,i)=>{
-    const tab=document.createElement('div');
-    tab.className='unid-tab'+(i===0?' ativo':'');
-    tab.textContent=u.nome;
-    tab.onclick=()=>{
-      document.querySelectorAll('.unid-tab').forEach(t=>t.classList.remove('ativo'));
-      tab.classList.add('ativo');
-      document.querySelectorAll('.bloco-unid').forEach(b=>b.style.display='none');
-      document.getElementById('bloco-'+u.id).style.display='block';
-      unidadeAtiva=u.id;
-      limparFiltros();
-    };
-    tabsEl.appendChild(tab);
-    const bloco=document.createElement('div');
-    bloco.className='bloco-unid';
-    bloco.id='bloco-'+u.id;
-    bloco.style.display=i===0?'block':'none';
-    const profs=PROFS.filter(p=>p.unidade===u.id);
-    bloco.innerHTML=renderTabelaUnidade(u,profs);
-    blocosEl.appendChild(bloco);
-    if(i===0) unidadeAtiva=u.id;
-  });
+  // Renderizar todas as unidades inicialmente
+  aplicarFiltros();
 
   // Seletor de dias
   const selDia=document.getElementById('sel-dia');
@@ -549,56 +547,95 @@ function renderAuditoria(){
 let unidadeAtiva = null;
 
 function aplicarFiltros(){
+  const unidSel = document.getElementById('filtro-unidade').value;
   const cat = document.getElementById('filtro-categoria').value.toLowerCase();
   const nome = document.getElementById('filtro-nome').value.toLowerCase().trim();
-  if(!unidadeAtiva) return;
-  const u = UNIDADES.find(x=>x.id===unidadeAtiva);
-  if(!u) return;
-  let profs = PROFS.filter(p=>p.unidade===unidadeAtiva);
-  if(cat) profs = profs.filter(p=>p.cargo.toLowerCase().includes(cat));
-  if(nome) profs = profs.filter(p=>p.nome.toLowerCase().includes(nome)||(p.siape&&p.siape.includes(nome)));
-  const bloco = document.getElementById('bloco-'+unidadeAtiva);
-  bloco.innerHTML = renderTabelaUnidade(u, profs);
+  const blocos = document.getElementById('blocos-unidades');
+
+  // Quais unidades mostrar
+  const unidsParaMostrar = unidSel ? UNIDADES.filter(u=>u.id===unidSel) : UNIDADES;
+
+  blocos.innerHTML = '';
+  unidsParaMostrar.forEach(u=>{
+    let profs = PROFS.filter(p=>p.unidade===u.id);
+    if(cat) profs = profs.filter(p=>p.cargo.toLowerCase().includes(cat));
+    if(nome) profs = profs.filter(p=>p.nome.toLowerCase().includes(nome)||(p.siape&&p.siape.includes(nome)));
+    if(!profs.length && (cat||nome)) return; // omite unidade sem resultados
+    const bloco = document.createElement('div');
+    bloco.innerHTML = renderTabelaUnidade(u, profs);
+    blocos.appendChild(bloco);
+  });
 }
 
 function limparFiltros(){
+  document.getElementById('filtro-unidade').value='';
   document.getElementById('filtro-categoria').value='';
   document.getElementById('filtro-nome').value='';
   aplicarFiltros();
 }
 
-// ===== EXPORTAR PDF =====
-function exportarPDF(){
+// ===== EXPORTAR PDF DA UNIDADE SELECIONADA =====
+function exportarPDFUnidade(){
+  const unidSel = document.getElementById('filtro-unidade').value;
+  const cat = document.getElementById('filtro-categoria').value.toLowerCase();
+  const nome = document.getElementById('filtro-nome').value.toLowerCase().trim();
+  const mes = document.getElementById('filtro-mes').value;
+
+  const unidsParaExportar = unidSel ? UNIDADES.filter(u=>u.id===unidSel) : UNIDADES;
+
   const estilo = `<style>
-    body{font-family:Arial,sans-serif;font-size:10px;color:#000}
-    h2{font-size:13px;margin-bottom:6px;color:#1a3a5c}
-    table{width:100%;border-collapse:collapse;margin-bottom:16px}
-    th{background:#1a3a5c;color:white;padding:4px 3px;font-size:9px;text-align:center}
-    th.th-nome{text-align:left;padding-left:6px;min-width:140px}
-    td{padding:3px;text-align:center;border-bottom:1px solid #eee;font-size:9px}
-    td.td-nome{text-align:left;padding-left:6px;font-weight:bold}
-    .bj{display:inline-block;padding:1px 3px;border-radius:2px;font-size:8px;font-weight:bold}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,sans-serif;font-size:9px;color:#000;padding:12px}
+    h1{font-size:13px;color:#1a3a5c;margin-bottom:2px}
+    .sub{font-size:10px;color:#666;margin-bottom:14px}
+    h2{font-size:11px;color:#1a3a5c;margin:14px 0 4px;border-bottom:1px solid #ccc;padding-bottom:3px}
+    table{width:100%;border-collapse:collapse;margin-bottom:4px;table-layout:fixed}
+    th{background:#1a3a5c;color:white;padding:3px 2px;font-size:8px;text-align:center;overflow:hidden}
+    th.th-nome{text-align:left;padding-left:6px;width:160px}
+    th.th-info{width:60px}
+    td{padding:2px;text-align:center;border-bottom:1px solid #eee;font-size:8px;overflow:hidden}
+    td.td-nome{text-align:left;padding-left:6px;font-weight:bold;font-size:8px}
+    .bj{display:inline-block;padding:1px 2px;border-radius:2px;font-size:7px;font-weight:bold}
     .jM{background:#e8f0fb;color:#1a3a5c}.jT{background:#fff3e0;color:#7b4a00}
-    .jD{background:#e1f5ee;color:#0f6e56}.jN{background:#1a3a5c;color:#aaa}
+    .jD{background:#e1f5ee;color:#0f6e56}.jN{background:#1a3a5c;color:#ccc}
     .jFE{background:#fdecea;color:#c0392b}.jAFIN,.jAFEB{background:#fef9e7;color:#b7950b}
     .jCH{background:#f0ebfe;color:#6c3fc5}.jAB,.jDSR,.jFD{background:#f0f2f6;color:#666}
-    @media print{body{margin:0}h2{page-break-before:always}h2:first-child{page-break-before:avoid}}
+    .jDN{background:#d4edda;color:#155724}
+    .fds{background:#f0f0f0}
+    @media print{@page{size:A4 landscape;margin:8mm} body{padding:0}}
   </style>`;
 
-  let conteudo = estilo + `<h1 style="font-size:15px;color:#1a3a5c;margin-bottom:4px">Escalas de Trabalho — HC-UFPE</h1><p style="font-size:11px;color:#666;margin-bottom:20px">Maio 2026 · Gerado em ${new Date().toLocaleDateString('pt-BR')}</p>`;
+  let conteudo = `<h1>Escalas de Trabalho — Hospital das Clínicas / UFPE</h1><div class="sub">${mes} · Gerado em ${new Date().toLocaleDateString('pt-BR')}</div>`;
 
-  UNIDADES.forEach(u=>{
-    const profs = PROFS.filter(p=>p.unidade===u.id);
+  unidsParaExportar.forEach(u=>{
+    let profs = PROFS.filter(p=>p.unidade===u.id);
+    if(cat) profs = profs.filter(p=>p.cargo.toLowerCase().includes(cat));
+    if(nome) profs = profs.filter(p=>p.nome.toLowerCase().includes(nome)||(p.siape&&p.siape.includes(nome)));
     if(!profs.length) return;
-    conteudo += `<h2>${u.nome}</h2>`;
-    conteudo += `<table><thead><tr><th class="th-nome">Profissional</th><th>Cargo</th><th>CH</th>`;
-    for(let i=0;i<31;i++) conteudo+=`<th>${i+1}</th>`;
+
+    conteudo += `<h2>${u.nome} — ${profs.length} profissional(is)</h2>`;
+    conteudo += `<table><thead><tr>
+      <th class="th-nome">Profissional / SIAPE</th>
+      <th class="th-info">Cargo</th>
+      <th class="th-info">Vínculo</th>
+      <th class="th-info">CH</th>`;
+    for(let i=0;i<31;i++){
+      const fds=[0,1,2,6,7,8,9,13,14,15,16,20,21,22,23,27,28,29,30].includes(i);
+      conteudo+=`<th class="${fds?'fds':''}" style="width:18px">${i+1}</th>`;
+    }
     conteudo+=`</tr></thead><tbody>`;
     profs.forEach(p=>{
-      conteudo+=`<tr><td class="td-nome">${p.nome}</td><td>${p.cargo}</td><td>${p.ch}h</td>`;
+      conteudo+=`<tr>
+        <td class="td-nome">${p.nome}<br><span style="font-weight:normal;color:#666">${p.siape}</span></td>
+        <td>${p.cargo}</td>
+        <td>${p.vinculo||'—'}</td>
+        <td>${p.ch}h</td>`;
       for(let i=0;i<31;i++){
         const cod=p.dias[i]||'';
-        conteudo+=cod?`<td><span class="bj ${classeJ(cod)}">${cod}</span></td>`:`<td>·</td>`;
+        const fds=[0,1,2,6,7,8,9,13,14,15,16,20,21,22,23,27,28,29,30].includes(i);
+        conteudo+=cod
+          ?`<td class="${fds?'fds':''}"><span class="bj ${classeJ(cod)}">${cod}</span></td>`
+          :`<td class="${fds?'fds':''}"><span style="color:#ddd">·</span></td>`;
       }
       conteudo+=`</tr>`;
     });
@@ -606,9 +643,9 @@ function exportarPDF(){
   });
 
   const win=window.open('','_blank');
-  win.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Escalas HC-UFPE — Maio 2026</title>'+conteudo+'</head><body>'+conteudo+'</body></html>');
+  win.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Escalas HC-UFPE — ${mes}</title>${estilo}</head><body>${conteudo}</body></html>`);
   win.document.close();
-  setTimeout(()=>win.print(),500);
+  setTimeout(()=>win.print(),600);
 }
 
 function mostrarTela(id,el){
