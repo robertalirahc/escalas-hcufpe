@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escalas de Trabalho — HC-UFPE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #1a3a5c;
+    --azul-med: #2a5c9e;
+    --azul-claro: #e8f0fb;
+    --verde: #0f6e56;
+    --verde-claro: #e1f5ee;
+    --cinza-bg: #f4f5f7;
+    --cinza-borda: #d4d8e0;
+    --cinza-texto: #5a6275;
+    --branco: #ffffff;
+    --vermelho-claro: #fdecea;
+    --vermelho: #c0392b;
+    --amarelo-claro: #fef9e7;
+    --amarelo: #b7950b;
+    --roxo-claro: #f0ebfe;
+    --roxo: #6c3fc5;
+    --fonte: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--fonte); background: var(--cinza-bg); color: #1a2030; font-size: 14px; }
+
+  /* HEADER */
+  header { background: var(--azul); color: white; padding: 0 2rem; display: flex; align-items: center; gap: 1.5rem; height: 60px; }
+  .logo-box { background: var(--azul-med); border-radius: 6px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px; letter-spacing: 0.5px; }
+  header h1 { font-size: 15px; font-weight: 500; letter-spacing: 0.3px; }
+  header span { font-size: 13px; color: #8ab0d8; margin-left: auto; }
+
+  /* TABS */
+  .tabs { background: var(--branco); border-bottom: 1.5px solid var(--cinza-borda); display: flex; gap: 0; padding: 0 2rem; }
+  .tab { padding: 12px 20px; font-size: 13px; font-weight: 500; color: var(--cinza-texto); cursor: pointer; border-bottom: 2.5px solid transparent; transition: all 0.15s; }
+  .tab:hover { color: var(--azul-med); }
+  .tab.ativo { color: var(--azul-med); border-bottom-color: var(--azul-med); }
+
+  /* LAYOUT PRINCIPAL */
+  .container { max-width: 1280px; margin: 0 auto; padding: 1.5rem 2rem; }
+
+  /* FILTROS */
+  .filtros { background: var(--branco); border: 1px solid var(--cinza-borda); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-end; flex-wrap: wrap; }
+  .filtro-group { display: flex; flex-direction: column; gap: 4px; }
+  .filtro-group label { font-size: 11px; font-weight: 600; color: var(--cinza-texto); text-transform: uppercase; letter-spacing: 0.06em; }
+  .filtro-group select, .filtro-group input { border: 1px solid var(--cinza-borda); border-radius: 5px; padding: 6px 10px; font-size: 13px; font-family: var(--fonte); color: #1a2030; background: white; min-width: 160px; }
+  .btn { background: var(--azul-med); color: white; border: none; border-radius: 5px; padding: 7px 18px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: var(--fonte); }
+  .btn-outline { background: white; color: var(--azul-med); border: 1px solid var(--azul-med); border-radius: 5px; padding: 6px 14px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: var(--fonte); }
+
+  /* SEÇÃO */
+  .secao { margin-bottom: 2rem; }
+  .secao-titulo { font-size: 13px; font-weight: 600; color: var(--azul); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+  .secao-titulo::after { content: ''; flex: 1; height: 1px; background: var(--cinza-borda); }
+
+  /* CARDS RESUMO */
+  .cards-resumo { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
+  .card-r { background: var(--branco); border: 1px solid var(--cinza-borda); border-radius: 8px; padding: 1rem 1.25rem; }
+  .card-r .label { font-size: 11px; color: var(--cinza-texto); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .card-r .valor { font-size: 24px; font-weight: 600; color: var(--azul); }
+  .card-r .sub { font-size: 12px; color: var(--cinza-texto); margin-top: 2px; }
+
+  /* TABELA ESCALA */
+  .wrapper-tabela { background: var(--branco); border: 1px solid var(--cinza-borda); border-radius: 8px; overflow: hidden; }
+  .cabecalho-unidade { padding: 12px 16px; background: var(--azul); color: white; display: flex; align-items: center; justify-content: space-between; }
+  .cabecalho-unidade h3 { font-size: 14px; font-weight: 500; }
+  .cabecalho-unidade span { font-size: 12px; color: #8ab0d8; }
+  .table-scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  thead tr th { background: #f0f2f6; font-weight: 600; color: var(--cinza-texto); padding: 7px 6px; text-align: center; border-bottom: 1.5px solid var(--cinza-borda); white-space: nowrap; }
+  thead tr th.th-nome { text-align: left; padding-left: 14px; min-width: 200px; position: sticky; left: 0; background: #f0f2f6; z-index: 2; }
+  thead tr th.th-info { min-width: 80px; }
+  thead tr .fim-semana { background: #e8edf5; }
+  tbody tr { border-bottom: 1px solid #eef0f4; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #fafbfd; }
+  tbody tr td { padding: 7px 6px; text-align: center; vertical-align: middle; }
+  tbody tr td.td-nome { text-align: left; padding-left: 14px; font-weight: 500; position: sticky; left: 0; background: white; z-index: 1; }
+  tbody tr:hover td.td-nome { background: #fafbfd; }
+  tbody tr td.td-cargo { font-size: 11px; color: var(--cinza-texto); }
+  .badge-jornada { display: inline-block; padding: 2px 5px; border-radius: 3px; font-family: var(--mono); font-size: 10px; font-weight: 500; white-space: nowrap; }
+  .j-M { background: #e8f0fb; color: #1a3a5c; }
+  .j-T { background: #fff3e0; color: #7b4a00; }
+  .j-D { background: #e1f5ee; color: #0f6e56; }
+  .j-N { background: #1a3a5c; color: #8ab0d8; }
+  .j-FE { background: #fdecea; color: var(--vermelho); }
+  .j-AFIN, .j-AFEB { background: #fef9e7; color: var(--amarelo); }
+  .j-CH { background: var(--roxo-claro); color: var(--roxo); }
+  .j-AB { background: #f0f2f6; color: #444; }
+  .j-DSR { background: #f0f2f6; color: #888; }
+  .j-FD { background: #f9f0e6; color: #8b5e2d; }
+  .fim-semana-cell { background: #f5f7fb; }
+  .sem-dado { color: #ccc; font-size: 10px; }
+  .total-row td { background: #f0f2f6 !important; font-weight: 600; font-size: 11px; }
+  .total-label { text-align: left; padding-left: 14px; color: var(--cinza-texto); font-style: italic; font-size: 11px; }
+
+  /* VISÃO POR TRABALHADOR */
+  .worker-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1rem; }
+  .worker-card { background: var(--branco); border: 1px solid var(--cinza-borda); border-radius: 8px; overflow: hidden; }
+  .worker-header { padding: 12px 14px; border-bottom: 1px solid var(--cinza-borda); display: flex; align-items: center; gap: 10px; }
+  .avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--azul-claro); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: var(--azul-med); flex-shrink: 0; }
+  .worker-nome { font-size: 13px; font-weight: 600; }
+  .worker-cargo { font-size: 11px; color: var(--cinza-texto); margin-top: 1px; }
+  .worker-body { padding: 12px 14px; }
+  .worker-unidades { display: flex; flex-direction: column; gap: 8px; }
+  .worker-unid { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; padding: 8px 10px; background: var(--cinza-bg); border-radius: 5px; border-left: 3px solid var(--azul-med); }
+  .worker-unid.alerta { border-left-color: var(--vermelho); background: var(--vermelho-claro); }
+  .unid-nome { font-size: 12px; font-weight: 500; }
+  .unid-ch { font-family: var(--mono); font-size: 12px; color: var(--azul-med); font-weight: 600; }
+  .unid-ch.excesso { color: var(--vermelho); }
+  .worker-total { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--cinza-borda); display: flex; justify-content: space-between; align-items: center; }
+  .total-ch-label { font-size: 11px; color: var(--cinza-texto); text-transform: uppercase; letter-spacing: 0.05em; }
+  .total-ch-valor { font-family: var(--mono); font-size: 16px; font-weight: 600; color: var(--azul); }
+  .total-ch-valor.excesso { color: var(--vermelho); }
+  .alerta-badge { font-size: 10px; background: var(--vermelho); color: white; padding: 2px 7px; border-radius: 99px; font-weight: 600; }
+  .ok-badge { font-size: 10px; background: var(--verde); color: white; padding: 2px 7px; border-radius: 99px; font-weight: 600; }
+
+  /* TELA VAZIA */
+  .tela { display: none; }
+  .tela.ativa { display: block; }
+
+  /* PAGINAÇÃO unidades */
+  .unid-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1rem; }
+  .unid-tab { padding: 5px 12px; border-radius: 99px; border: 1px solid var(--cinza-borda); font-size: 12px; font-weight: 500; cursor: pointer; background: white; color: var(--cinza-texto); transition: all 0.12s; }
+  .unid-tab:hover { border-color: var(--azul-med); color: var(--azul-med); }
+  .unid-tab.ativo { background: var(--azul); color: white; border-color: var(--azul); }
+
+  /* Legenda */
+  .legenda { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 14px; background: #fafbfd; border-top: 1px solid var(--cinza-borda); }
+  .leg-item { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--cinza-texto); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-box">HC</div>
+  <h1>Escalas Mensais de Trabalho — Hospital das Clínicas / UFPE</h1>
+  <span>Maio 2026 &nbsp;·&nbsp; Transparência Pública</span>
+</header>
+
+<div class="tabs">
+  <div class="tab ativo" onclick="mostrarTela('unidades', this)">Por Unidade</div>
+  <div class="tab" onclick="mostrarTela('trabalhador', this)">Por Trabalhador</div>
+  <div class="tab" onclick="mostrarTela('auditoria', this)">Visão de Auditoria</div>
+</div>
+
+<div class="container">
+
+  <!-- FILTROS -->
+  <div class="filtros">
+    <div class="filtro-group">
+      <label>Mês</label>
+      <select><option>Maio 2026</option><option>Abril 2026</option><option>Março 2026</option></select>
+    </div>
+    <div class="filtro-group">
+      <label>Unidade</label>
+      <select id="sel-unidade" onchange="filtrarUnidade()">
+        <option value="todas">Todas as unidades</option>
+        <option value="umulti">Unidade Multiprofissional</option>
+        <option value="ucrianca">Unidade da Criança e do Adolescente</option>
+        <option value="uue">Unidade de Urgência e Emergência</option>
+      </select>
+    </div>
+    <div class="filtro-group">
+      <label>Categoria</label>
+      <select>
+        <option>Todas</option>
+        <option>Fisioterapeuta</option>
+        <option>Fonoaudiólogo(a)</option>
+        <option>Nutricionista</option>
+        <option>Terapeuta Ocupacional</option>
+        <option>Médico(a)</option>
+      </select>
+    </div>
+    <div class="filtro-group">
+      <label>Buscar trabalhador</label>
+      <input type="text" placeholder="Nome ou SIAPE..." style="min-width:200px">
+    </div>
+    <button class="btn">Filtrar</button>
+    <button class="btn-outline">Exportar PDF</button>
+  </div>
+
+  <!-- TELA: POR UNIDADE -->
+  <div class="tela ativa" id="tela-unidades">
+    <div class="cards-resumo">
+      <div class="card-r"><div class="label">Unidades com escala</div><div class="valor">12</div><div class="sub">Maio 2026</div></div>
+      <div class="card-r"><div class="label">Total de profissionais</div><div class="valor">187</div><div class="sub">escalados no mês</div></div>
+      <div class="card-r"><div class="label">Em férias / afastados</div><div class="valor">23</div><div class="sub">este mês</div></div>
+      <div class="card-r"><div class="label">Escalas validadas</div><div class="valor">10</div><div class="sub">2 pendentes</div></div>
+    </div>
+
+    <div class="unid-tabs" id="unid-tabs">
+      <div class="unid-tab ativo" onclick="mostrarUnidade('fisiomulti', this)">Fisioterapia Enfermaria</div>
+      <div class="unid-tab" onclick="mostrarUnidade('fisionn', this)">Fisioterapia UNN</div>
+      <div class="unid-tab" onclick="mostrarUnidade('fisiouti', this)">Fisioterapia UTI Adulto</div>
+      <div class="unid-tab" onclick="mostrarUnidade('fono', this)">Fonoaudiologia</div>
+      <div class="unid-tab" onclick="mostrarUnidade('to', this)">Terapia Ocupacional</div>
+      <div class="unid-tab" onclick="mostrarUnidade('nutri', this)">Nutrição Clínica</div>
+    </div>
+
+    <!-- FISIOTERAPIA ENFERMARIA -->
+    <div id="bloco-fisiomulti" class="bloco-unidade">
+      <div class="wrapper-tabela">
+        <div class="cabecalho-unidade">
+          <h3>Fisioterapia Enfermaria — UMULTI</h3>
+          <span>Maio 2026 · 13 profissionais (Equipe Geral) + 4 (DIP)</span>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th class="th-nome">Profissional</th>
+                <th class="th-info">Cargo</th>
+                <th class="th-info">Vínculo</th>
+                <th class="th-info">CH Sem</th>
+                <th class="fim-semana">Sex 1</th><th class="fim-semana">Sáb 2</th><th class="fim-semana">Dom 3</th>
+                <th>Seg 4</th><th>Ter 5</th><th>Qua 6</th><th>Qui 7</th>
+                <th class="fim-semana">Sex 8</th><th class="fim-semana">Sáb 9</th><th class="fim-semana">Dom 10</th>
+                <th>Seg 11</th><th>Ter 12</th><th>Qua 13</th><th>Qui 14</th>
+                <th class="fim-semana">Sex 15</th><th class="fim-semana">Sáb 16</th><th class="fim-semana">Dom 17</th>
+                <th>Seg 18</th><th>Ter 19</th><th>Qua 20</th><th>Qui 21</th>
+                <th class="fim-semana">Sex 22</th><th class="fim-semana">Sáb 23</th><th class="fim-semana">Dom 24</th>
+                <th>Seg 25</th><th>Ter 26</th><th>Qua 27</th><th>Qui 28</th>
+                <th class="fim-semana">Sex 29</th><th class="fim-semana">Sáb 30</th><th class="fim-semana">Dom 31</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-fisiomulti"></tbody>
+          </table>
+        </div>
+        <div class="legenda">
+          <span style="font-size:11px;font-weight:600;color:var(--cinza-texto);margin-right:4px;">Legenda:</span>
+          <span class="leg-item"><span class="badge-jornada j-M">M15</span> Matutino 6h</span>
+          <span class="leg-item"><span class="badge-jornada j-T">T15</span> Vespertino 6h</span>
+          <span class="leg-item"><span class="badge-jornada j-D">D6</span> Plantão Diurno 12h</span>
+          <span class="leg-item"><span class="badge-jornada j-N">N8</span> Plantão Noturno 12h</span>
+          <span class="leg-item"><span class="badge-jornada j-FE">FE</span> Férias</span>
+          <span class="leg-item"><span class="badge-jornada j-CH">CH</span> Comp. Horas</span>
+          <span class="leg-item"><span class="badge-jornada j-AB">AB</span> Abono</span>
+          <span class="leg-item"><span class="badge-jornada j-AFIN">AFIN</span> Afastamento INSS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUTROS BLOCOS (ocultos por padrão) -->
+    <div id="bloco-fisionn" class="bloco-unidade" style="display:none">
+      <div class="wrapper-tabela">
+        <div class="cabecalho-unidade">
+          <h3>Fisioterapia UNN — UTI Neonatal / UCINCO / UCINCA</h3>
+          <span>Maio 2026 · 14 profissionais</span>
+        </div>
+        <div class="table-scroll">
+          <table><thead><tr><th class="th-nome">Profissional</th><th class="th-info">Cargo</th><th class="th-info">Vínculo</th><th class="th-info">CH Sem</th><th class="fim-semana">Sex 1</th><th class="fim-semana">Sáb 2</th><th class="fim-semana">Dom 3</th><th>Seg 4</th><th>Ter 5</th><th>Qua 6</th><th>Qui 7</th><th class="fim-semana">Sex 8</th><th class="fim-semana">Sáb 9</th><th class="fim-semana">Dom 10</th><th>Seg 11</th><th>Ter 12</th><th>Qua 13</th><th>Qui 14</th><th class="fim-semana">Sex 15</th><th class="fim-semana">Sáb 16</th><th class="fim-semana">Dom 17</th><th>Seg 18</th><th>Ter 19</th><th>Qua 20</th><th>Qui 21</th><th class="fim-semana">Sex 22</th><th class="fim-semana">Sáb 23</th><th class="fim-semana">Dom 24</th><th>Seg 25</th><th>Ter 26</th><th>Qua 27</th><th>Qui 28</th><th class="fim-semana">Sex 29</th><th class="fim-semana">Sáb 30</th><th class="fim-semana">Dom 31</th></tr></thead>
+          <tbody id="tbody-fisionn"></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <div id="bloco-fisiouti" class="bloco-unidade" style="display:none">
+      <div class="wrapper-tabela">
+        <div class="cabecalho-unidade">
+          <h3>Fisioterapia UTI Adulto</h3>
+          <span>Maio 2026 · 18 profissionais</span>
+        </div>
+        <div class="table-scroll">
+          <table><thead><tr><th class="th-nome">Profissional</th><th class="th-info">Cargo</th><th class="th-info">Vínculo</th><th class="th-info">CH Sem</th><th class="fim-semana">Sex 1</th><th class="fim-semana">Sáb 2</th><th class="fim-semana">Dom 3</th><th>Seg 4</th><th>Ter 5</th><th>Qua 6</th><th>Qui 7</th><th class="fim-semana">Sex 8</th><th class="fim-semana">Sáb 9</th><th class="fim-semana">Dom 10</th><th>Seg 11</th><th>Ter 12</th><th>Qua 13</th><th>Qui 14</th><th class="fim-semana">Sex 15</th><th class="fim-semana">Sáb 16</th><th class="fim-semana">Dom 17</th><th>Seg 18</th><th>Ter 19</th><th>Qua 20</th><th>Qui 21</th><th class="fim-semana">Sex 22</th><th class="fim-semana">Sáb 23</th><th class="fim-semana">Dom 24</th><th>Seg 25</th><th>Ter 26</th><th>Qua 27</th><th>Qui 28</th><th class="fim-semana">Sex 29</th><th class="fim-semana">Sáb 30</th><th class="fim-semana">Dom 31</th></tr></thead>
+          <tbody id="tbody-fisiouti"></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <div id="bloco-fono" class="bloco-unidade" style="display:none">
+      <div class="wrapper-tabela">
+        <div class="cabecalho-unidade"><h3>Serviço de Fonoaudiologia</h3><span>Maio 2026 · 20 profissionais</span></div>
+        <div class="table-scroll"><table><thead><tr><th class="th-nome">Profissional</th><th class="th-info">Cargo</th><th class="th-info">Vínculo</th><th class="th-info">CH Sem</th><th class="fim-semana">Sex 1</th><th class="fim-semana">Sáb 2</th><th class="fim-semana">Dom 3</th><th>Seg 4</th><th>Ter 5</th><th>Qua 6</th><th>Qui 7</th><th class="fim-semana">Sex 8</th><th class="fim-semana">Sáb 9</th><th class="fim-semana">Dom 10</th><th>Seg 11</th><th>Ter 12</th><th>Qua 13</th><th>Qui 14</th><th class="fim-semana">Sex 15</th><th class="fim-semana">Sáb 16</th><th class="fim-semana">Dom 17</th><th>Seg 18</th><th>Ter 19</th><th>Qua 20</th><th>Qui 21</th><th class="fim-semana">Sex 22</th><th class="fim-semana">Sáb 23</th><th class="fim-semana">Dom 24</th><th>Seg 25</th><th>Ter 26</th><th>Qua 27</th><th>Qui 28</th><th class="fim-semana">Sex 29</th><th class="fim-semana">Sáb 30</th><th class="fim-semana">Dom 31</th></tr></thead>
+        <tbody id="tbody-fono"></tbody></table></div>
+      </div>
+    </div>
+
+    <div id="bloco-to" class="bloco-unidade" style="display:none">
+      <div class="wrapper-tabela">
+        <div class="cabecalho-unidade"><h3>Serviço de Terapia Ocupacional</h3><span>Maio 2026 · 11 profissionais</span></div>
+        <div class="table-scroll"><table><thead><tr><th class="th-nome">Profissional</th><th class="th-info">Cargo</th><th class="th-info">Vínculo</th><th class="th-info">CH Sem</th><th class="fim-semana">Sex 1</th><th class="fim-semana">Sáb 2</th><th class="fim-semana">Dom 3</th><th>Seg 4</th><th>Ter 5</th><th>Qua 6</th><th>Qui 7</th><th class="fim-semana">Sex 8</th><th class="fim-semana">Sáb 9</th><th class="fim-semana">Dom 10</th><th>Seg 11</th><th>Ter 12</th><th>Qua 13</th><th>Qui 14</th><th class="fim-semana">Sex 15</th><th class="fim-semana">Sáb 16</th><th class="fim-semana">Dom 17</th><th>Seg 18</th><th>Ter 19</th><th>Qua 20</th><th>Qui 21</th><th class="fim-semana">Sex 22</th><th class="fim-semana">Sáb 23</th><th class="fim-semana">Dom 24</th><th>Seg 25</th><th>Ter 26</th><th>Qua 27</th><th>Qui 28</th><th class="fim-semana">Sex 29</th><th class="fim-semana">Sáb 30</th><th class="fim-semana">Dom 31</th></tr></thead>
+        <tbody id="tbody-to"></tbody></table></div>
+      </div>
+    </div>
+
+    <div id="bloco-nutri" class="bloco-unidade" style="display:none">
+      <div class="wrapper-tabela">
+        <div class="cabecalho-unidade"><h3>Serviço de Nutrição Clínica</h3><span>Maio 2026 · 35 profissionais</span></div>
+        <div class="table-scroll"><table><thead><tr><th class="th-nome">Profissional</th><th class="th-info">Cargo</th><th class="th-info">Vínculo</th><th class="th-info">CH Sem</th><th class="fim-semana">Sex 1</th><th class="fim-semana">Sáb 2</th><th class="fim-semana">Dom 3</th><th>Seg 4</th><th>Ter 5</th><th>Qua 6</th><th>Qui 7</th><th class="fim-semana">Sex 8</th><th class="fim-semana">Sáb 9</th><th class="fim-semana">Dom 10</th><th>Seg 11</th><th>Ter 12</th><th>Qua 13</th><th>Qui 14</th><th class="fim-semana">Sex 15</th><th class="fim-semana">Sáb 16</th><th class="fim-semana">Dom 17</th><th>Seg 18</th><th>Ter 19</th><th>Qua 20</th><th>Qui 21</th><th class="fim-semana">Sex 22</th><th class="fim-semana">Sáb 23</th><th class="fim-semana">Dom 24</th><th>Seg 25</th><th>Ter 26</th><th>Qua 27</th><th>Qui 28</th><th class="fim-semana">Sex 29</th><th class="fim-semana">Sáb 30</th><th class="fim-semana">Dom 31</th></tr></thead>
+        <tbody id="tbody-nutri"></tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TELA: POR TRABALHADOR -->
+  <div class="tela" id="tela-trabalhador">
+    <div class="secao">
+      <div class="secao-titulo">Profissionais com escala em múltiplas unidades</div>
+      <div class="worker-grid" id="worker-grid-multi"></div>
+    </div>
+    <div class="secao" style="margin-top:2rem">
+      <div class="secao-titulo">Todos os profissionais — Maio 2026</div>
+      <div class="worker-grid" id="worker-grid-todos"></div>
+    </div>
+  </div>
+
+  <!-- TELA: AUDITORIA -->
+  <div class="tela" id="tela-auditoria">
+    <div class="cards-resumo">
+      <div class="card-r" style="border-left: 3px solid var(--vermelho)"><div class="label">Alertas de CH</div><div class="valor" style="color:var(--vermelho)">3</div><div class="sub">profissionais com excesso</div></div>
+      <div class="card-r" style="border-left: 3px solid var(--amarelo)"><div class="label">Em múltiplas unidades</div><div class="valor" style="color:var(--amarelo)">5</div><div class="sub">verificar distribuição</div></div>
+      <div class="card-r" style="border-left: 3px solid var(--verde)"><div class="label">Escalas conformes</div><div class="valor" style="color:var(--verde)">182</div><div class="sub">sem ocorrências</div></div>
+      <div class="card-r"><div class="label">Afastamentos INSS</div><div class="valor">4</div><div class="sub">no período</div></div>
+    </div>
+    <div class="wrapper-tabela">
+      <div class="cabecalho-unidade" style="background:#1a3a5c;">
+        <h3>Profissionais com ocorrências — Auditoria Maio 2026</h3>
+        <span>Exportar relatório</span>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th class="th-nome">Profissional</th>
+              <th>SIAPE</th>
+              <th>Cargo</th>
+              <th>Vínculo</th>
+              <th>CH Contratual</th>
+              <th>Unidades</th>
+              <th>CH Escalada</th>
+              <th>Diferença</th>
+              <th>Ocorrências</th>
+              <th>Situação</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-auditoria"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const DIAS = 31;
+const FDS = [0,1,2,6,7,8,9,13,14,15,16,20,21,22,23,27,28,29,30]; // índices 0-based de fim de semana
+
+function classeJornada(cod) {
+  if (!cod) return '';
+  if (cod.startsWith('FE')) return 'j-FE';
+  if (cod.startsWith('AFIN')) return 'j-AFIN';
+  if (cod.startsWith('AFEB')) return 'j-AFEB';
+  if (cod.startsWith('CH')) return 'j-CH';
+  if (cod.startsWith('AB')) return 'j-AB';
+  if (cod.startsWith('FD')) return 'j-FD';
+  if (cod === 'DSR') return 'j-DSR';
+  if (cod.startsWith('M')) return 'j-M';
+  if (cod.startsWith('T')) return 'j-T';
+  if (cod.startsWith('D')) return 'j-D';
+  if (cod.startsWith('N')) return 'j-N';
+  return 'j-AB';
+}
+
+function renderLinha(prof) {
+  const dias = prof.dias || [];
+  let html = `<tr>
+    <td class="td-nome">${prof.nome}<br><span style="font-size:10px;color:#888">${prof.siape||''}</span></td>
+    <td class="td-cargo">${prof.cargo||''}</td>
+    <td class="td-cargo">${prof.vinculo||''}</td>
+    <td style="font-family:var(--mono);font-weight:600;color:var(--azul-med)">${prof.ch||'30'}h</td>`;
+  for (let i = 0; i < 31; i++) {
+    const cod = dias[i] || '';
+    const fds = FDS.includes(i) ? ' class="fim-semana-cell"' : '';
+    if (cod) {
+      html += `<td${fds}><span class="badge-jornada ${classeJornada(cod)}">${cod}</span></td>`;
+    } else {
+      html += `<td${fds}><span class="sem-dado">·</span></td>`;
+    }
+  }
+  html += '</tr>';
+  return html;
+}
+
+// ===== DADOS REAIS dos PDFs =====
+
+const dados = {
+  fisiomulti: [
+    {nome:'Celia Katiuscia Duarte Dantas', siape:'3246958', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{2:'CH12D',3:'CH12D',5:'D6',6:'D6',7:'D6',8:'D6',9:'D6',10:'D6',11:'D6',12:'D6',14:'M15',30:'M15',0:'N8'}},
+    {nome:'Gabriela Carneiro Gomes Silva', siape:'2160403', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{0:'FE6',1:'FE6',2:'FE6',3:'FE6',4:'FE6',5:'FE6',6:'FE6',7:'FE6',8:'FE6',9:'FE6',10:'FE6',11:'FE6',12:'FE6',13:'FE6',14:'FE6',15:'FE6',16:'FE6',17:'FE6',18:'FE6',19:'FE6',20:'FE6'}},
+    {nome:'Geisiane Galvão da Silva', siape:'3246958', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'D6',4:'FE12D',5:'D6',7:'N8',8:'N8',9:'FE12N',10:'FE12N',11:'FE12N',12:'N8',13:'N8'}},
+    {nome:'Helga Cecília Muniz de Souza', siape:'1039211', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'D6',4:'D6',5:'CH12D',6:'D6',7:'AB12D',8:'FE12D',9:'FE12D',11:'N8',12:'N8',13:'N8',14:'FE12N',15:'N8'}},
+    {nome:'Karla Neves Leite', siape:'2255310', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{2:'CH12D',3:'D6',4:'D6',5:'D6',7:'N8',8:'N8',9:'N8',10:'N8',11:'N8',12:'N8',13:'N8',14:'N8'}},
+    {nome:'Keilla Vamara Bilro de Souza', siape:'2232227', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'D6',4:'D6',5:'D6',6:'D6',7:'D6',11:'N8',12:'N8',13:'N8',14:'N8',15:'N8'}},
+    {nome:'Marcela Cavalcanti Machado Silva', siape:'2315794', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'T15',4:'T15',5:'T15',6:'T15',7:'T15',8:'T15',10:'T15',11:'T15',12:'T15',13:'T15',14:'T15',15:'T15',17:'T15',18:'T15',19:'T15',20:'T15',24:'T15',25:'T15',26:'T15',27:'T15'}},
+    {nome:'Mariana Lúcia Correia Ramos Costa', siape:'1726188', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'D6',4:'D6',5:'D6',6:'D6',7:'D6',14:'M15',22:'N8',23:'N8',24:'T15',25:'T15',26:'T15',27:'T15'}},
+    {nome:'Manuela Correa de Araújo', siape:'1096491', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'T15',4:'T15',5:'T15',6:'T15',7:'T15',8:'T15',10:'T15',11:'T15',12:'T15',13:'T15',17:'T15',18:'T15',19:'T15',20:'D6',21:'CH12D'}},
+    {nome:'Thiago Henrique Mucarbel Soares', siape:'1526364', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{0:'FE12D',3:'D6',4:'D6',5:'D6',1:'FE12N',7:'N8',8:'N8',9:'N8',10:'N8',11:'N8'}},
+    {nome:'Lindbergh Barbosa Afonso (DIP)', siape:'2224742', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'D6',4:'D6',5:'D6',6:'D6',7:'D6',8:'D6',9:'D6',10:'D6',11:'D6',14:'M15',20:'M15'}},
+    {nome:'Paula Eyla Cristina Rodrigues Duarte (DIP)', siape:'2232333', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',8:'M15',10:'M15',11:'T15',12:'T15',13:'T15',14:'T15',15:'T15',17:'T15',20:'AB12D',21:'D6'}},
+    {nome:'Romero Souza Leão de Albergaria Castro (DIP)', siape:'2160400', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',8:'M15',10:'D6',11:'D6',12:'D6',13:'D6',14:'D6',15:'D6',16:'D6',17:'CH12D'}},
+    {nome:'Rosalina de Paula Ferreira Cunha (DIP)', siape:'2224352', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{0:'AB6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',8:'M15',10:'M15',11:'M15',13:'T15',14:'T15',15:'T15',16:'T15',17:'T15',18:'T15',19:'T15',20:'T15'}},
+  ],
+  fisionn: [
+    {nome:'Alessandra Real S Barbosa', siape:'2149458', cargo:'Fisioterapeuta', vinculo:'CLT', ch:30, dias:{7:'N8',8:'N8',9:'AB12D',10:'FE6',11:'FE6',12:'FE6',13:'AB12N',14:'N8',15:'N8'}},
+    {nome:'Cláudio Gonçalves de Albuquerque', siape:'1884452', cargo:'Fisioterapeuta', vinculo:'CLT', ch:30, dias:{3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',8:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',15:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
+    {nome:'Marília Izabel de Araújo Gomes', siape:'2315774', cargo:'Fisioterapeuta', vinculo:'CLT', ch:30, dias:{7:'N8',8:'N8',9:'N8',10:'D6',11:'N8',12:'D6',13:'D6',14:'N8',15:'D6',16:'N8'}},
+    {nome:'Nayla Raabe Vencao de Moura', siape:'1305639', cargo:'Fisioterapeuta', vinculo:'CLT', ch:30, dias:{3:'D6',4:'D6',5:'D6',6:'N8',7:'D6',8:'N8',9:'N8',10:'D6',11:'N8',12:'D6',13:'D6'}},
+    {nome:'Paulo Roberto Autran Gurgel do Amaral', siape:'2347467', cargo:'Fisioterapeuta', vinculo:'CLT', ch:30, dias:{7:'N8',8:'D6',9:'D6',10:'D6',11:'D6',12:'N8',13:'D6',14:'D6',15:'D6',16:'N8',17:'N8'}},
+    {nome:'Patricia Verçosa de Castro Silveira', siape:'3497706', cargo:'Fisioterapeuta', vinculo:'CLT', ch:30, dias:{7:'N8',8:'N8',9:'D6',10:'N8',11:'N8',12:'D6',13:'N8',14:'AB12D'}},
+    {nome:'Lirian Fabiani Matias Falcao Alcoforado', siape:'2149418', cargo:'Fisioterapeuta', vinculo:'CLT', ch:30, dias:{3:'D6',4:'D6',5:'AB12N',6:'AB12N',7:'D6',8:'N8',9:'N8',10:'D6',11:'N8',12:'D6',13:'D6'}},
+    {nome:'Thiago Nunes de Azevedo Ferraz de Carvalho', siape:'1189576', cargo:'Fisioterapeuta', vinculo:'CLT', ch:30, dias:{3:'D6',4:'D6',5:'AB12N',6:'D6',7:'N8',8:'D6',9:'N8',10:'N8',11:'D6'}},
+    {nome:'Alessandra Teixeira da Camara Araujo (UCINCO)', siape:'2114870', cargo:'Fisioterapeuta', vinculo:'CLT', ch:30, dias:{3:'D6',4:'D6',5:'D6',6:'D6',7:'N8',8:'D6',9:'N8',10:'D6',11:'N8'}},
+    {nome:'Karla Michelle de Lima Alves (UCINCO)', siape:'2149094', cargo:'Fisioterapeuta', vinculo:'CLT', ch:30, dias:{3:'D6',4:'N8',5:'N8',6:'D6',7:'N8',8:'N8',9:'D6',10:'N8',11:'D6',12:'D6',13:'N8'}},
+    {nome:'Silvia Elane Macena de Araújo Lima (UCINCO)', siape:'3762815', cargo:'Fisioterapeuta', vinculo:'CLT', ch:30, dias:{7:'N8',8:'D6',9:'D6',10:'D6',11:'N8',12:'D6',13:'N8',14:'N8',15:'D6',16:'N8',17:'D6'}},
+    {nome:'Winea Leila Vasconcelos Marques (UCINCO)', siape:'1775803', cargo:'Fisioterapeuta', vinculo:'CLT', ch:30, dias:{7:'N8',8:'D6',9:'N8',10:'N8',11:'D6',12:'N8',13:'N8',14:'D6',15:'N8',16:'D6'}},
+    {nome:'Yeda Soraya Medeiros (UCINCO)', siape:'1919885', cargo:'Fisioterapeuta', vinculo:'CLT', ch:30, dias:{2:'CH12D',3:'CH12N',4:'D6',5:'N8',6:'N8',7:'N8',8:'N8',9:'D6',10:'N8',11:'N8',12:'D6',13:'N8'}},
+    {nome:'Roberta Machado Barros Tenório (UCINCO)', siape:'2168114', cargo:'Fisioterapeuta', vinculo:'CLT', ch:30, dias:{3:'D6',4:'N8',5:'N8',6:'N8',7:'D6',8:'D6',9:'D6',10:'D6',11:'D6',12:'N8'}},
+  ],
+  fisiouti: [
+    {nome:'Cibelle Andrade Lima', siape:'2224327', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',30:'FD6'}},
+    {nome:'Caio César Araújo Morais', siape:'1258453', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',30:'FD6'}},
+    {nome:'Maria Gabriela de Lima Hansen', siape:'3497019', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{0:'AFIN6',1:'AFIN6',2:'AFIN6',3:'AFIN6',4:'AFIN6',5:'AFIN6',6:'AFIN6',7:'AFIN6',8:'AFIN6',9:'AFIN6',10:'AFIN6',11:'AFIN6',12:'AFIN6',13:'AFIN6',14:'AFIN6',15:'AFIN6',16:'AFIN6',17:'AFIN6',18:'AFIN6',19:'AFIN6',20:'AFIN6'}},
+    {nome:'Mayara Costa Barros', siape:'2205345', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'D6',4:'D6',5:'D6',6:'N8',7:'N8',8:'N8',10:'D6',11:'N8',12:'D6',13:'D6',14:'D6'}},
+    {nome:'Katharina Pereira de Oliveira Sa', siape:'3312259', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'D6',4:'D6',5:'D6',6:'D6',7:'N8',8:'N8',10:'D6',11:'N8',12:'D6',13:'D6',14:'D6'}},
+    {nome:'Patricia Clara Pereira dos Santos', siape:'3246864', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{7:'N8',8:'N8',9:'N8',10:'N8',11:'D6',12:'D6',14:'N8',15:'N8',16:'N8'}},
+    {nome:'Cynara Guerra de Souza', siape:'2176203', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{7:'N8',8:'N8',9:'N8',10:'N8',11:'N8',12:'D6',13:'D6',14:'N8',15:'N8',16:'D6',17:'N8'}},
+    {nome:'Renata Baltar da Silva', siape:'2241567', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{0:'FE12D',1:'FE12D',2:'FE12N',3:'FE12N',4:'FE12D',5:'FE12D',6:'FE12D',13:'N8',14:'D6'}},
+    {nome:'Roberta Kelly Mendonça dos Santos', siape:'2168111', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'D6',4:'N8',5:'N8',6:'D6',7:'D6',8:'N8',9:'N8',10:'D6',11:'N8'}},
+    {nome:'Tarciana Galvao Santiago', siape:'3243298', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{2:'AB12D',7:'N8',8:'N8',9:'D6',10:'N8',11:'D6',12:'D6',13:'D6'}},
+    {nome:'Viviane Wanderley Mastroianni', siape:'2168111', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{7:'N8',8:'D6',9:'N8',10:'D6',11:'N8',12:'D6',13:'N8',14:'D6',15:'D6'}},
+    {nome:'Jamaica Gina Eloi de Souza Guimarães', siape:'2289177', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'D6',4:'D6',5:'N8',6:'N8',7:'N8',10:'D6',11:'D6',12:'N8'}},
+    {nome:'Priscila Silva de Souza Silva', siape:'1316526', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'D6',4:'D6',5:'N8',6:'N8',7:'N8',10:'D6',11:'D6',12:'N8',13:'N8'}},
+    {nome:'Cleyton da Silva Lima', siape:'2356878', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{7:'N8',8:'N8',9:'D6',10:'N8',11:'D6',12:'N8',13:'N8',14:'N8',15:'N8'}},
+    {nome:'Washington Jose dos Santos', siape:'2347490', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{7:'N8',8:'N8',9:'D6',10:'N8',11:'D6',12:'N8',13:'D6',14:'N8',15:'N8',16:'N8'}},
+    {nome:'Cybelle da Silva Nery', siape:'2347490', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{3:'D6',4:'D6',5:'D6',6:'N8',7:'D6',8:'D6'}},
+    {nome:'Jeozadak Neves Marques', siape:'3401398', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:30, dias:{2:'AB12D',3:'D6',4:'D6',5:'D6',6:'D6',7:'D6',8:'D6',13:'N8',14:'N8'}},
+    {nome:'Pedro Henrique de Moura', siape:'1371192', cargo:'Fisioterapeuta', vinculo:'EBSERH', ch:31, dias:{3:'D6',4:'D6',5:'N8',6:'D6',8:'AB12D',9:'AB12D',10:'D6'}},
+  ],
+  fono: [
+    {nome:'Alexsandra Glória Apolonio dos Santos', siape:'1460918', cargo:'Fonoaudióloga', vinculo:'EBSERH', ch:30, dias:{0:'FD6',3:'M13',4:'M13',5:'D5',6:'M13',7:'M13',10:'M13',11:'D5',12:'M13',13:'M13',14:'M13',15:'D5',17:'M13',18:'M13',19:'M13',20:'M13',21:'D5',24:'M13'}},
+    {nome:'Érika da Rocha Mahon', siape:'1295877', cargo:'Fonoaudióloga', vinculo:'RJU', ch:30, dias:{0:'FD6',3:'M15',4:'T15',5:'M15',6:'M15',7:'M15',10:'M15',11:'T15',12:'M15',13:'M15',14:'M15',17:'M15',18:'T15',19:'M15',20:'M15',21:'M15',24:'M15',25:'T15',26:'M15',27:'M15',28:'M15'}},
+    {nome:'Fabiana dos Santos Lira', siape:'1583073', cargo:'Fonoaudióloga', vinculo:'EBSERH', ch:40, dias:{0:'FD8',3:'MT26',4:'MT26',5:'MT26',6:'MT26',7:'MT26',10:'MT26',11:'MT26',12:'MT26',13:'MT26',14:'MT26',17:'MT26',18:'MT26',19:'MT26',20:'MT26',24:'MT26',25:'MT26',26:'MT26',27:'MT26',28:'MT26'}},
+    {nome:'Ana Elizabete Magnata C Mawad', siape:'2224502', cargo:'Fonoaudióloga', vinculo:'EBSERH', ch:30, dias:{3:'M15',4:'D6',5:'D6',10:'M15',11:'D6',12:'D6',17:'M15',18:'D6',19:'D6',24:'M15',25:'D6',26:'D6'}},
+    {nome:'Daniela Vasconcelos', siape:'1113854', cargo:'Fonoaudióloga', vinculo:'RJU', ch:30, dias:{3:'D6',4:'D6',5:'M13',10:'D6',11:'D6',12:'M13',17:'D6',18:'D6',19:'M13',24:'D6',25:'D6',26:'M13'}},
+    {nome:'Elisabeth Cavalcanti Coelho', siape:'1706680', cargo:'Fonoaudióloga', vinculo:'EBSERH', ch:30, dias:{3:'D5',4:'M13',5:'D5',10:'D5',11:'M13',12:'D5',17:'D5',18:'M13',19:'D5',24:'D5',25:'M13',26:'D5'}},
+    {nome:'Karina Polo Norte Danda Soares', siape:'2168087', cargo:'Fonoaudióloga', vinculo:'EBSERH', ch:30, dias:{0:'FE6',1:'FE6',2:'FE12D',3:'FE6',10:'M15',11:'M15',12:'D5',13:'M15',14:'M15',15:'M15',17:'D5',18:'M15',19:'M15',20:'M15',21:'D5',24:'M15',25:'M15'}},
+    {nome:'Maria das Graças Duarte', siape:'2214837', cargo:'Fonoaudióloga', vinculo:'EBSERH', ch:30, dias:{0:'FD6',1:'FE6',2:'FE6',3:'FE6',4:'FE6',5:'FE6',6:'FE6',7:'FE6',8:'FE6',11:'M13',12:'M13',13:'M13',14:'M13',15:'M13',17:'M13',18:'M13',19:'M13',20:'M13',21:'M13',24:'M13',25:'M13',26:'M13',27:'M13',28:'M13'}},
+    {nome:'Patrícia Carneiro Ribeiro', siape:'2214626', cargo:'Fonoaudióloga', vinculo:'EBSERH', ch:30, dias:{3:'M17',4:'D6',5:'D6',10:'M17',11:'D6',12:'D6',17:'M17',18:'D6',19:'D6',24:'M17',25:'D6',26:'D6'}},
+    {nome:'Avelino Maciel Alves de Aguiar', siape:'2214821', cargo:'Fonoaudiólogo', vinculo:'EBSERH', ch:30, dias:{0:'FD6',3:'D6',4:'D6',5:'M17',10:'D6',11:'D6',12:'M17',17:'D6',18:'D6',19:'M17',24:'D6',25:'D6',26:'M17'}},
+    {nome:'Ana Maria Fontes Leite de Sá', siape:'2232182', cargo:'Fonoaudióloga', vinculo:'EBSERH', ch:30, dias:{0:'FD6',3:'M13',4:'M13',5:'M13',6:'M13',7:'M13',10:'M13',11:'M13',12:'M13',13:'M13',14:'M13',17:'M13',18:'M13',19:'M13',20:'M13',24:'M13',25:'M13',26:'M13',27:'M13',28:'M13'}},
+    {nome:'Rebeca Domingues Raposo (UNN)', siape:'1542425', cargo:'Fonoaudióloga', vinculo:'EBSERH', ch:40, dias:{0:'FD8',3:'MT26',4:'MT26',5:'MT26',6:'MT26',7:'MT26',10:'MT26',11:'MT26',12:'MT26',13:'MT26',14:'MT26',17:'MT26',18:'MT26',19:'MT26',20:'MT26',24:'MT26',25:'MT26',26:'MT26',27:'MT26',28:'MT26'}},
+    {nome:'Luciana Santos Gerosino da Silva (UNN)', siape:'1663621', cargo:'Fonoaudióloga', vinculo:'EBSERH', ch:30, dias:{0:'FD6',3:'T15',4:'T15',5:'T15',6:'D6',10:'T15',11:'T15',12:'T15',13:'D6',17:'T15',18:'T15',19:'T15',20:'D6',24:'T15',25:'T15',26:'T15',27:'D6'}},
+  ],
+  to: [
+    {nome:'Amanda Cavalcanti Belo', siape:'2173535', cargo:'Terapeuta Ocupacional', vinculo:'CLT', ch:30, dias:{0:'D5',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',9:'D5',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',15:'M15',17:'M15',18:'M15',19:'M15',20:'M15',21:'FE6',22:'FE6',23:'FE6'}},
+    {nome:'Ana Alice Pedro da Silva', siape:'1791454', cargo:'Terapeuta Ocupacional', vinculo:'RJU', ch:30, dias:{0:'FD0',3:'M13',4:'D5',5:'D5',10:'M13',11:'D5',12:'D5',17:'M13',18:'D5',19:'D5',24:'M13',25:'D5',26:'D5'}},
+    {nome:'Daniella Sousa de Oliveira', siape:'1109928', cargo:'Terapeuta Ocupacional', vinculo:'CLT', ch:30, dias:{0:'AFIN6',1:'AFIN6',2:'AFIN6',3:'AFIN6',4:'AFIN6',5:'AFIN6',6:'AFIN6',7:'AFIN6',8:'AFIN6',9:'AFIN6',10:'AFIN6',11:'AFIN6',12:'AFIN6'}},
+    {nome:'Débora Danielle A. dos Santos', siape:'1983027', cargo:'Terapeuta Ocupacional', vinculo:'CLT', ch:30, dias:{0:'FD6',3:'M13',4:'M13',5:'M13',6:'M16',10:'M13',11:'M13',12:'M13',13:'M13',14:'M16',17:'M13',18:'M13',19:'M13',20:'M16',21:'M13',22:'D5',23:'M13',24:'M13',25:'M16',26:'M13',27:'M13'}},
+    {nome:'Eline Vieira da Silva', siape:'1368626', cargo:'Terapeuta Ocupacional', vinculo:'CLT', ch:30, dias:{0:'FD0',3:'D6',4:'T15',5:'D6',10:'D6',11:'T15',12:'D6',17:'D6',18:'T15',19:'D6',24:'D6',25:'T15',26:'D6',27:'D5'}},
+    {nome:'Jamylle Silva de Brito', siape:'1785628', cargo:'Terapeuta Ocupacional', vinculo:'CLT', ch:30, dias:{0:'FD6',3:'D8',4:'D8',5:'M17',10:'D8',11:'D8',12:'M17',17:'D8',18:'D8',19:'M17',24:'D8',25:'D8',26:'M17'}},
+    {nome:'Luciana Silva do Nascimento', siape:'1224594', cargo:'Terapeuta Ocupacional', vinculo:'CLT', ch:30, dias:{0:'FD6',2:'AB12D',3:'D5',4:'M13',5:'D5',10:'D5',11:'M13',12:'D5',17:'D5',18:'M13',19:'D5',24:'D5',25:'M13',26:'D5'}},
+    {nome:'Naianna Ribeiro M. dos Santos', siape:'2173787', cargo:'Terapeuta Ocupacional', vinculo:'CLT', ch:30, dias:{3:'M13',4:'M13',5:'M13',6:'D5',10:'M13',11:'M13',12:'M13',13:'D5',17:'M13',18:'M13',19:'M13',20:'D5',24:'M13',25:'M13',26:'M13',27:'D5'}},
+    {nome:'Priscilla Viégas B. de Oliveira', siape:'2791634', cargo:'Terapeuta Ocupacional', vinculo:'CLT', ch:30, dias:{0:'FD0',3:'M13',4:'MT13',5:'T9',6:'D5',10:'M13',11:'MT13',12:'T9',13:'D5',17:'D5',18:'M13',19:'MT13',20:'T9',21:'D5',24:'M13',25:'MT13',26:'T9',27:'D5'}},
+    {nome:'Tatiana Caldas Neves da Silva', siape:'1902523', cargo:'Terapeuta Ocupacional', vinculo:'RJU', ch:30, dias:{3:'D8',4:'T16',5:'M17',6:'T16',7:'D8',10:'T16',11:'M17',12:'T16',13:'D8',17:'T16',18:'M17',19:'T16',20:'D8',24:'T16',25:'M17',26:'T16'}},
+    {nome:'Renata Batista Marinho de Magalhães', siape:'1785452', cargo:'Terapeuta Ocupacional', vinculo:'CLT', ch:30, dias:{0:'FD6',3:'D5',4:'M13',5:'T16',6:'T16',7:'T16',8:'T16',11:'M13',12:'T16',13:'T16',14:'T16',15:'T16',18:'M13',19:'T16',20:'T16',21:'T16',22:'AB6',23:'AB6',24:'CH6',25:'CH6',26:'CH6',27:'CH6'}},
+  ],
+  nutri: [
+    {nome:'Aline Rafaelly Apolônio da Silva', siape:'1791303', cargo:'Nutricionista', vinculo:'RJU', ch:30, dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
+    {nome:'Amanda de Azevedo Araújo', siape:'1857350', cargo:'Nutricionista', vinculo:'RJU', ch:30, dias:{7:'N8',8:'AFEB12',9:'AFEB12',10:'DSR',11:'N8',12:'N8',13:'N8',14:'N8',15:'N8',17:'N8'}},
+    {nome:'Amanda Mirelle Costa Xavier', siape:'2384838', cargo:'Nutricionista', vinculo:'EBSERH', ch:40, dias:{3:'D6',4:'D6',5:'D6',6:'D6',7:'D6',10:'D6',11:'D6',12:'D6',13:'D6',14:'D6',15:'D6',17:'D6',20:'DSR'}},
+    {nome:'Amanda Moreira de Andrade Silva', siape:'2173539', cargo:'Nutricionista', vinculo:'EBSERH', ch:40, dias:{0:'FD4',1:'FE4',2:'FE4',3:'FE4',4:'FE4',5:'FE4',10:'M10',11:'M10',12:'M10',13:'M10',14:'M10',15:'M10',17:'M10',18:'M10',19:'M10',20:'M10',24:'M10',25:'M10',26:'M10',27:'M10',28:'M10'}},
+    {nome:'Ana Elizabeth Burle de Menezes', siape:'1134556', cargo:'Nutricionista', vinculo:'RJU', ch:30, dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
+    {nome:'Helânia Virgínia Dantas dos Santos', siape:'2224548', cargo:'Nutricionista', vinculo:'EBSERH', ch:40, dias:{0:'FD8',3:'MT26',4:'MT26',5:'MT26',6:'MT26',7:'MT26',10:'MT26',11:'MT26',12:'MT26',13:'MT26',14:'MT26',17:'MT26',18:'MT26',19:'MT26',20:'MT26',24:'MT26',25:'MT26',26:'MT26',27:'MT26',28:'MT26'}},
+    {nome:'Isis Suruagy Correia Moura', siape:'1737098', cargo:'Nutricionista', vinculo:'RJU', ch:30, dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
+    {nome:'Leila Virginia da Silva Prado', siape:'2237773', cargo:'Nutricionista', vinculo:'EBSERH', ch:40, dias:{2:'AB12N',3:'N8',4:'N8',5:'N8',6:'N8',7:'N8',10:'N8',11:'N8',21:'DSR',22:'DSR',24:'N8',25:'N8',27:'AB12N'}},
+    {nome:'Mayara Ferreira Bernardo', siape:'2347456', cargo:'Nutricionista', vinculo:'EBSERH', ch:40, dias:{0:'FD8',3:'MT26',4:'MT26',5:'MT26',6:'MT26',7:'MT26',10:'MT26',11:'MT26',12:'MT26',13:'MT26',14:'MT26',17:'MT26',18:'MT26',19:'MT26',20:'MT26',24:'MT26',25:'MT26',26:'MT26',27:'MT26',28:'MT26'}},
+    {nome:'Renata Pereira da Silva', siape:'1645057', cargo:'Nutricionista', vinculo:'RJU', ch:30, dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
+    {nome:'Renata Simone de Oliveira Bandeira', siape:'2250262', cargo:'Nutricionista', vinculo:'EBSERH', ch:40, dias:{3:'N8',4:'N8',5:'N8',6:'N8',7:'N8',10:'N8',11:'N8',14:'DSR',17:'N8',18:'N8',19:'N8',20:'N8',21:'N8',22:'DSR',24:'N8'}},
+    {nome:'Ludmilla Moema Lopes de Sousa', siape:'2347878', cargo:'Nutricionista', vinculo:'EBSERH', ch:40, dias:{0:'AFIN8',1:'AFIN8',2:'AFIN8',3:'AFIN8',4:'AFIN8',5:'AFIN8',6:'AFIN8',7:'AFIN8',8:'AFIN8',9:'AFIN8',10:'AFIN8',11:'AFIN8',12:'AFIN8',13:'AFIN8',14:'AFIN8',15:'AFIN8',16:'AFIN8',17:'AFIN8',18:'AFIN8',19:'AFIN8',20:'AFIN8'}},
+  ]
+};
+
+// Profissionais em múltiplas unidades (identificados dos PDFs)
+const multiUnidades = [
+  {
+    nome: 'Mariana Lúcia Correia Ramos Costa',
+    siape: '1726188',
+    cargo: 'Fisioterapeuta',
+    vinculo: 'EBSERH',
+    chContratual: 30,
+    unidades: [
+      {nome: 'Fisioterapia Enfermaria (UMULTI)', ch: 30, horas: 84},
+      {nome: 'Fisioterapia UNN', ch: 30, horas: 36},
+    ],
+    totalHoras: 120,
+    excesso: false
+  },
+  {
+    nome: 'Roberta Kelly Mendonça dos Santos',
+    siape: '2168111',
+    cargo: 'Fisioterapeuta',
+    vinculo: 'EBSERH',
+    chContratual: 30,
+    unidades: [
+      {nome: 'Fisioterapia UTI Adulto', ch: 30, horas: 54},
+      {nome: 'Fisioterapia UTI (segundo registro)', ch: 30, horas: 54},
+    ],
+    totalHoras: 108,
+    excesso: true
+  },
+  {
+    nome: 'Denise Sandrelly Cavalcanti de Lima',
+    siape: '1544220',
+    cargo: 'Nutricionista',
+    vinculo: 'RJU',
+    chContratual: 30,
+    unidades: [
+      {nome: 'Nutrição Clínica — Turno M', ch: 30, horas: 60},
+      {nome: 'Nutrição Clínica — Plantões D6', ch: 30, horas: 48},
+    ],
+    totalHoras: 108,
+    excesso: true
+  },
+  {
+    nome: 'Glaucia Queiroz Morais',
+    siape: '1791365',
+    cargo: 'Nutricionista',
+    vinculo: 'RJU',
+    chContratual: 30,
+    unidades: [
+      {nome: 'Nutrição Clínica — Turno M', ch: 30, horas: 72},
+      {nome: 'Nutrição Clínica — Plantões D6', ch: 30, horas: 24},
+    ],
+    totalHoras: 96,
+    excesso: false
+  },
+  {
+    nome: 'Jerluce Alvares Ferraz',
+    siape: '1791290',
+    cargo: 'Nutricionista',
+    vinculo: 'RJU',
+    chContratual: 30,
+    unidades: [
+      {nome: 'Nutrição Clínica — Turno M', ch: 30, horas: 24},
+      {nome: 'Nutrição Clínica — Turno T', ch: 30, horas: 48},
+      {nome: 'Nutrição Clínica — Plantões D6', ch: 30, horas: 24},
+    ],
+    totalHoras: 96,
+    excesso: false
+  }
+];
+
+function iniciais(nome) {
+  const p = nome.trim().split(' ');
+  return (p[0][0] + (p[1] ? p[1][0] : '')).toUpperCase();
+}
+
+function renderWorkerCard(w, destacar) {
+  const excesso = w.excesso;
+  return `<div class="worker-card">
+    <div class="worker-header">
+      <div class="avatar">${iniciais(w.nome)}</div>
+      <div>
+        <div class="worker-nome">${w.nome}</div>
+        <div class="worker-cargo">${w.cargo} · SIAPE ${w.siape} · CH ${w.chContratual}h/sem · ${w.vinculo}</div>
+      </div>
+      ${excesso ? '<span class="alerta-badge">⚠ CH excedida</span>' : '<span class="ok-badge">✓ Regular</span>'}
+    </div>
+    <div class="worker-body">
+      <div class="worker-unidades">
+        ${w.unidades.map(u => `
+          <div class="worker-unid${excesso ? ' alerta' : ''}">
+            <div>
+              <div class="unid-nome">${u.nome}</div>
+              <div style="font-size:11px;color:var(--cinza-texto)">${u.horas}h escaladas</div>
+            </div>
+            <div class="unid-ch${excesso ? ' excesso' : ''}">${u.horas}h</div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="worker-total">
+        <span class="total-ch-label">Total escalado — Maio</span>
+        <span class="total-ch-valor${excesso ? ' excesso' : ''}">${w.totalHoras}h</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderAuditoriaLinha(w) {
+  const dif = w.totalHoras - (w.chContratual * 4);
+  const difStr = dif > 0 ? `+${dif}h` : `${dif}h`;
+  const cor = dif > 0 ? 'color:var(--vermelho)' : 'color:var(--verde)';
+  return `<tr>
+    <td class="td-nome">${w.nome}</td>
+    <td style="font-family:var(--mono);font-size:12px">${w.siape}</td>
+    <td style="font-size:12px">${w.cargo}</td>
+    <td style="font-size:12px">${w.vinculo}</td>
+    <td style="font-family:var(--mono);font-weight:600;text-align:center">${w.chContratual * 4}h/mês</td>
+    <td style="font-size:12px">${w.unidades.map(u=>u.nome).join('; ')}</td>
+    <td style="font-family:var(--mono);font-weight:600;text-align:center">${w.totalHoras}h</td>
+    <td style="font-family:var(--mono);font-weight:600;text-align:center;${cor}">${difStr}</td>
+    <td style="font-size:11px">${w.excesso ? '<span style="background:var(--vermelho);color:white;padding:2px 6px;border-radius:3px">CH Excedida</span>' : '—'}</td>
+    <td>${w.excesso ? '<span class="alerta-badge">Verificar</span>' : '<span class="ok-badge">Conforme</span>'}</td>
+  </tr>`;
+}
+
+// Renderizar tabelas de unidades
+function renderTabela(tbodyId, profs) {
+  const tbody = document.getElementById(tbodyId);
+  if (!tbody) return;
+  const diasObj = profs.map(p => {
+    const arr = new Array(31).fill('');
+    if (p.dias) {
+      Object.entries(p.dias).forEach(([k, v]) => { arr[parseInt(k)] = v; });
+    }
+    return {...p, diasArr: arr};
+  });
+  tbody.innerHTML = diasObj.map(p => {
+    const d = p.diasArr;
+    let html = `<tr>
+      <td class="td-nome">${p.nome}<br><span style="font-size:10px;color:#888">${p.siape}</span></td>
+      <td class="td-cargo" style="font-size:11px">${p.cargo}</td>
+      <td class="td-cargo" style="font-size:11px">${p.vinculo}</td>
+      <td style="font-family:var(--mono);font-weight:600;color:var(--azul-med);font-size:12px">${p.ch}h</td>`;
+    for (let i = 0; i < 31; i++) {
+      const cod = d[i] || '';
+      const fds = FDS.includes(i) ? ' class="fim-semana-cell"' : '';
+      if (cod) {
+        html += `<td${fds}><span class="badge-jornada ${classeJornada(cod)}">${cod}</span></td>`;
+      } else {
+        html += `<td${fds}><span class="sem-dado">·</span></td>`;
+      }
+    }
+    html += '</tr>';
+    return html;
+  }).join('');
+}
+
+renderTabela('tbody-fisiomulti', dados.fisiomulti);
+renderTabela('tbody-fisionn', dados.fisionn);
+renderTabela('tbody-fisiouti', dados.fisiouti);
+renderTabela('tbody-fono', dados.fono);
+renderTabela('tbody-to', dados.to);
+renderTabela('tbody-nutri', dados.nutri);
+
+// Visão por trabalhador
+document.getElementById('worker-grid-multi').innerHTML = multiUnidades.map(w => renderWorkerCard(w, true)).join('');
+
+// Todos os profissionais (amostra)
+const todosSample = [
+  ...dados.fisiomulti.slice(0,3),
+  ...dados.fisionn.slice(0,2),
+  ...dados.fisiouti.slice(0,2),
+  ...dados.fono.slice(0,2),
+  ...dados.to.slice(0,2),
+  ...dados.nutri.slice(0,2),
+].map(p => ({
+  nome: p.nome,
+  siape: p.siape,
+  cargo: p.cargo,
+  vinculo: p.vinculo,
+  chContratual: p.ch,
+  unidades: [{nome: 'Unidade correspondente', ch: p.ch, horas: p.ch * 4}],
+  totalHoras: p.ch * 4,
+  excesso: false
+}));
+document.getElementById('worker-grid-todos').innerHTML = todosSample.map(w => renderWorkerCard(w, false)).join('');
+
+// Auditoria
+document.getElementById('tbody-auditoria').innerHTML = multiUnidades.map(w => renderAuditoriaLinha(w)).join('');
+
+// Navegação
+function mostrarTela(id, el) {
+  document.querySelectorAll('.tela').forEach(t => t.classList.remove('ativa'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('ativo'));
+  document.getElementById('tela-' + id).classList.add('ativa');
+  el.classList.add('ativo');
+}
+
+function mostrarUnidade(id, el) {
+  document.querySelectorAll('.bloco-unidade').forEach(b => b.style.display = 'none');
+  document.querySelectorAll('.unid-tab').forEach(t => t.classList.remove('ativo'));
+  document.getElementById('bloco-' + id).style.display = 'block';
+  el.classList.add('ativo');
+}
+
+function filtrarUnidade() { }
+</script>
+</body>
+</html>
