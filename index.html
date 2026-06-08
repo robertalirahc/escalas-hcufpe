@@ -13,7 +13,7 @@ header{background:var(--azul);color:white;padding:0 2rem;display:flex;align-item
 .logo{background:var(--azul-med);border-radius:6px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:12px;flex-shrink:0}
 header h1{font-size:14px;font-weight:500}
 header .sub{font-size:12px;color:#8ab0d8;margin-left:auto}
-.tabs{background:var(--branco);border-bottom:1.5px solid var(--cinza-borda);display:flex;gap:0;padding:0 1.5rem;overflow-x:auto}
+.tabs{background:var(--branco);border-bottom:1.5px solid var(--cinza-borda);display:flex;padding:0 1.5rem;overflow-x:auto}
 .tab{padding:11px 18px;font-size:13px;font-weight:500;color:var(--cinza-texto);cursor:pointer;border-bottom:2.5px solid transparent;white-space:nowrap;transition:all .15s}
 .tab:hover{color:var(--azul-med)}
 .tab.ativo{color:var(--azul-med);border-bottom-color:var(--azul-med)}
@@ -27,36 +27,66 @@ header .sub{font-size:12px;color:#8ab0d8;margin-left:auto}
 .filtros{background:var(--branco);border:1px solid var(--cinza-borda);border-radius:8px;padding:.875rem 1rem;margin-bottom:1.25rem;display:flex;gap:.75rem;align-items:flex-end;flex-wrap:wrap}
 .fg{display:flex;flex-direction:column;gap:3px}
 .fg label{font-size:11px;font-weight:600;color:var(--cinza-texto);text-transform:uppercase;letter-spacing:.06em}
-.fg select,.fg input{border:1px solid var(--cinza-borda);border-radius:5px;padding:6px 9px;font-size:13px;font-family:var(--fonte);color:#1a2030;background:white;min-width:150px}
-.btn{background:var(--azul-med);color:white;border:none;border-radius:5px;padding:7px 16px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--fonte)}
-.btn-sm{background:white;color:var(--azul-med);border:1px solid var(--azul-med);border-radius:5px;padding:5px 12px;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--fonte)}
+.fg select,.fg input{border:1px solid var(--cinza-borda);border-radius:5px;padding:6px 9px;font-size:13px;font-family:var(--fonte);color:#1a2030;background:white;min-width:140px}
+.btn{background:var(--azul-med);color:white;border:none;border-radius:5px;padding:7px 14px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--fonte)}
+.btn-sm{background:white;color:var(--azul-med);border:1px solid var(--azul-med);border-radius:5px;padding:6px 12px;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--fonte)}
+.btn-pdf{background:#c0392b;color:white;border:none;border-radius:5px;padding:7px 14px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--fonte)}
 .secao-titulo{font-size:12px;font-weight:600;color:var(--azul);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.875rem;display:flex;align-items:center;gap:8px}
 .secao-titulo::after{content:'';flex:1;height:1px;background:var(--cinza-borda)}
-.unid-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
-.unid-tab{padding:5px 11px;border-radius:99px;border:1px solid var(--cinza-borda);font-size:12px;font-weight:500;cursor:pointer;background:white;color:var(--cinza-texto);transition:all .12s}
-.unid-tab:hover{border-color:var(--azul-med);color:var(--azul-med)}
-.unid-tab.ativo{background:var(--azul);color:white;border-color:var(--azul)}
+/* TABELA */
 .wrapper-tabela{background:var(--branco);border:1px solid var(--cinza-borda);border-radius:8px;overflow:hidden;margin-bottom:1rem}
 .cab-unid{padding:10px 14px;background:var(--azul);color:white;display:flex;align-items:center;justify-content:space-between}
 .cab-unid h3{font-size:13px;font-weight:500}
 .cab-unid span{font-size:11px;color:#8ab0d8}
 .table-scroll{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:12px}
 thead tr th{background:#f0f2f6;font-weight:600;color:var(--cinza-texto);padding:7px 5px;text-align:center;border-bottom:1.5px solid var(--cinza-borda);white-space:nowrap;font-size:11px}
-thead tr th.th-nome{text-align:left;padding-left:12px;min-width:210px;position:sticky;left:0;background:#f0f2f6;z-index:2;font-size:12px}
+thead tr th.th-nome{text-align:left;padding-left:12px;min-width:200px;position:sticky;left:0;background:#f0f2f6;z-index:2}
 thead tr .fds{background:#e8edf5}
 tbody tr{border-bottom:1px solid #eef0f4}
 tbody tr:last-child{border-bottom:none}
 tbody tr:hover{background:#fafbfd}
-tbody tr td{padding:7px 5px;text-align:center;vertical-align:middle}
-tbody tr td.td-nome{text-align:left;padding-left:12px;font-weight:600;font-size:13px;position:sticky;left:0;background:white;z-index:1;min-width:210px}
+tbody tr td{padding:6px 5px;text-align:center;vertical-align:middle}
+tbody tr td.td-nome{text-align:left;padding-left:12px;font-weight:600;font-size:13px;position:sticky;left:0;background:white;z-index:1}
 tbody tr:hover td.td-nome{background:#fafbfd}
 .bj{display:inline-block;padding:2px 5px;border-radius:3px;font-family:var(--mono);font-size:11px;font-weight:600;white-space:nowrap}
 .jM{background:#e8f0fb;color:#1a3a5c}.jT{background:#fff3e0;color:#7b4a00}.jD{background:#e1f5ee;color:#0f6e56}.jN{background:#1a3a5c;color:#8ab0d8}.jFE{background:#fdecea;color:var(--vermelho)}.jAFIN,.jAFEB{background:#fef9e7;color:var(--amarelo)}.jCH{background:var(--roxo-claro);color:var(--roxo)}.jAB{background:#f0f2f6;color:#444}.jDSR{background:#f0f2f6;color:#888}.jFD{background:#f9f0e6;color:#8b5e2d}.jDN{background:#d4edda;color:#155724}
 .fds-cell{background:#f5f7fb}
-.sem-dado{color:#ccc;font-size:10px}
+.sem-dado{color:#ccc;font-size:9px}
 .legenda{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px;background:#fafbfd;border-top:1px solid var(--cinza-borda)}
-.leg-item{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--cinza-texto)}
+.leg-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--cinza-texto)}
+/* WORKER CARDS */
+.worker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;margin-bottom:1.5rem}
+.worker-card{background:var(--branco);border:1px solid var(--cinza-borda);border-radius:10px;overflow:hidden}
+.worker-header{padding:14px 16px;border-bottom:1px solid var(--cinza-borda);display:flex;align-items:flex-start;gap:10px}
+.avatar{width:40px;height:40px;border-radius:50%;background:var(--azul-claro);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--azul-med);flex-shrink:0}
+.worker-nome{font-size:14px;font-weight:700;line-height:1.3}
+.worker-cargo{font-size:11px;color:var(--cinza-texto);margin-top:3px;line-height:1.5}
+.worker-body{padding:12px 16px}
+.worker-unids{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.worker-unid{padding:9px 12px;background:var(--cinza-bg);border-radius:6px;border-left:3px solid var(--azul-med)}
+.worker-unid.multi{border-left-color:var(--amarelo)}
+.worker-unid.excesso{border-left-color:var(--vermelho);background:var(--vermelho-claro)}
+.wu-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.wu-nome{font-size:12px;font-weight:600}
+.wu-posto{font-size:11px;color:var(--cinza-texto);margin-top:1px}
+.wu-horas{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--azul-med);flex-shrink:0}
+.wu-horas.excesso{color:var(--vermelho)}
+.worker-total{margin-top:10px;padding-top:10px;border-top:1px dashed var(--cinza-borda);display:flex;justify-content:space-between;align-items:center}
+.wt-label{font-size:11px;color:var(--cinza-texto);text-transform:uppercase;letter-spacing:.05em}
+.wt-valor{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--azul)}
+.wt-valor.excesso{color:var(--vermelho)}
+.reg-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--verde);color:white;white-space:nowrap;flex-shrink:0}
+.ch-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--vermelho);color:white;white-space:nowrap;flex-shrink:0}
+.fe-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--amarelo);color:white;white-space:nowrap;flex-shrink:0}
+.mini-card{background:var(--branco);border:1px solid var(--cinza-borda);border-radius:7px;padding:10px 12px;cursor:pointer;transition:border-color .15s}
+.mini-card:hover{border-color:var(--azul-med)}
+.mini-nome{font-size:13px;font-weight:600}
+.mini-info{font-size:11px;color:var(--cinza-texto);margin-top:2px}
+.mini-badge{font-size:10px;padding:2px 7px;border-radius:99px;margin-top:5px;display:inline-block;font-weight:600}
+.badge-afas{background:var(--vermelho-claro);color:var(--vermelho)}
+.badge-ok{background:var(--verde-claro);color:var(--verde)}
+.badge-multi{background:var(--amarelo-claro);color:var(--amarelo)}
 /* POR DIA */
 .dia-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
 .dia-card{background:var(--branco);border:1px solid var(--cinza-borda);border-radius:8px;overflow:hidden}
@@ -64,58 +94,22 @@ tbody tr:hover td.td-nome{background:#fafbfd}
 .dia-card-header.mat{background:#e8f0fb;color:#1a3a5c}
 .dia-card-header.vest{background:#fff3e0;color:#7b4a00}
 .dia-card-header.not{background:#1a3a5c;color:#8ab0d8}
+.dia-card-header.afas{background:#fef9e7;color:#7b4a00}
 .dia-card-body{padding:8px 12px}
-.dia-prof{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid #f0f2f6;font-size:12px}
+.dia-prof{display:flex;justify-content:space-between;align-items:flex-start;padding:5px 0;border-bottom:1px solid #f0f2f6;font-size:12px}
 .dia-prof:last-child{border-bottom:none}
-.dia-prof-nome{font-weight:500}
-.dia-prof-unid{font-size:11px;color:var(--cinza-texto)}
-/* POR PROFISSIONAL — worker cards */
-.worker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;margin-bottom:1.5rem}
-.worker-card{background:var(--branco);border:1px solid var(--cinza-borda);border-radius:10px;overflow:hidden}
-.worker-card:hover{border-color:#a0b8d8}
-.worker-header{padding:14px 16px;border-bottom:1px solid var(--cinza-borda);display:flex;align-items:center;gap:10px}
-.avatar{width:40px;height:40px;border-radius:50%;background:var(--azul-claro);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--azul-med);flex-shrink:0}
-.worker-nome{font-size:14px;font-weight:700;line-height:1.2}
-.worker-cargo{font-size:11px;color:var(--cinza-texto);margin-top:2px}
-.worker-body{padding:12px 16px}
-.worker-unids{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
-.worker-unid{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--cinza-bg);border-radius:6px;border-left:3px solid var(--azul-med)}
-.worker-unid.excesso{border-left-color:var(--vermelho);background:var(--vermelho-claro)}
-.wu-nome{font-size:12px;font-weight:600}
-.wu-info{font-size:11px;color:var(--cinza-texto);margin-top:1px}
-.wu-horas{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--azul-med)}
-.wu-horas.excesso{color:var(--vermelho)}
-.worker-total{margin-top:10px;padding-top:10px;border-top:1px dashed var(--cinza-borda);display:flex;justify-content:space-between;align-items:center}
-.wt-label{font-size:11px;color:var(--cinza-texto);text-transform:uppercase;letter-spacing:.05em}
-.wt-valor{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--azul)}
-.wt-valor.excesso{color:var(--vermelho)}
-.reg-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--verde);color:white;white-space:nowrap}
-.ch-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--vermelho);color:white;white-space:nowrap}
-.fe-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--amarelo);color:white;white-space:nowrap}
-/* mini lista */
-.lista-profs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-top:.75rem}
-.mini-card{background:var(--branco);border:1px solid var(--cinza-borda);border-radius:7px;padding:10px 12px;cursor:pointer;transition:border-color .15s}
-.mini-card:hover{border-color:var(--azul-med)}
-.mini-nome{font-size:13px;font-weight:600}
-.mini-info{font-size:11px;color:var(--cinza-texto);margin-top:2px}
-.mini-badge{font-size:10px;padding:2px 7px;border-radius:99px;margin-top:5px;display:inline-block;font-weight:600}
-.badge-multi{background:var(--amarelo-claro);color:var(--amarelo)}
-.badge-afas{background:var(--vermelho-claro);color:var(--vermelho)}
-.badge-ok{background:var(--verde-claro);color:var(--verde)}
+.dia-prof-nome{font-weight:600;font-size:13px}
+.dia-prof-info{font-size:11px;color:var(--cinza-texto)}
 /* AFASTAMENTOS */
 .afas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
 .afas-card{background:var(--branco);border:1px solid var(--cinza-borda);border-radius:8px;padding:12px 14px;border-left:4px solid}
-.afas-card.fe{border-left-color:#c0392b}
-.afas-card.afin{border-left-color:var(--amarelo)}
-.afas-card.afeb{border-left-color:#8b5e2d}
-.afas-card.ch{border-left-color:var(--roxo)}
-.afas-card.ab{border-left-color:#888}
+.afas-card.fe{border-left-color:#c0392b}.afas-card.afin{border-left-color:var(--amarelo)}.afas-card.afeb{border-left-color:#8b5e2d}.afas-card.ch{border-left-color:var(--roxo)}.afas-card.ab{border-left-color:#888}
 .afas-tipo{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
 .afas-nome{font-size:13px;font-weight:600}
 .afas-info{font-size:11px;color:var(--cinza-texto);margin-top:2px}
 .afas-dias{font-family:var(--mono);font-size:11px;margin-top:6px;color:var(--cinza-texto)}
 /* AUDITORIA */
-.audit-table td,.audit-table th{padding:7px 10px;font-size:12px}
+.audit-table td,.audit-table th{padding:8px 10px;font-size:12px}
 .audit-table{width:100%}
 .ok-badge{font-size:10px;background:var(--verde);color:white;padding:2px 7px;border-radius:99px;font-weight:600}
 .alerta-badge{font-size:10px;background:var(--vermelho);color:white;padding:2px 7px;border-radius:99px;font-weight:600}
@@ -126,52 +120,41 @@ tbody tr:hover td.td-nome{background:#fafbfd}
 <header>
   <div class="logo">HC</div>
   <h1>Escalas Mensais de Trabalho — Hospital das Clínicas / UFPE</h1>
-  <span class="sub">Maio 2026 &nbsp;·&nbsp; Transparência Pública</span>
+  <span class="sub" id="header-mes">Maio 2026 · Transparência Pública</span>
 </header>
 <div class="tabs">
   <div class="tab ativo" onclick="mostrarTela('unidades',this)">Por Unidade</div>
   <div class="tab" onclick="mostrarTela('pordia',this)">Por Dia</div>
-  <div class="tab" onclick="mostrarTela('profissional',this)">Por Profissional</div>
+  <div class="tab" onclick="mostrarTela('trabalhador',this)">Por Trabalhador</div>
   <div class="tab" onclick="mostrarTela('afastamentos',this)">Afastamentos</div>
   <div class="tab" onclick="mostrarTela('auditoria',this)">Auditoria</div>
 </div>
 <div class="container">
 
-<!-- ===== POR UNIDADE ===== -->
+<!-- POR UNIDADE -->
 <div class="tela ativa" id="tela-unidades">
   <div class="cards-resumo">
-    <div class="card-r"><div class="label">Unidades com escala</div><div class="valor">9</div><div class="sub">Maio 2026</div></div>
-    <div class="card-r"><div class="label">Total profissionais</div><div class="valor" id="total-profs">—</div><div class="sub">escalados no mês</div></div>
-    <div class="card-r"><div class="label">Em férias/afastados</div><div class="valor" id="total-afas">—</div><div class="sub">este mês</div></div>
-    <div class="card-r"><div class="label">Múltiplas unidades</div><div class="valor" id="total-multi">—</div><div class="sub">a verificar</div></div>
+    <div class="card-r"><div class="label">Unidades</div><div class="valor" id="cnt-unidades">—</div></div>
+    <div class="card-r"><div class="label">Profissionais</div><div class="valor" id="cnt-profs">—</div></div>
+    <div class="card-r"><div class="label">Férias/Afastados</div><div class="valor" id="cnt-afas-u">—</div></div>
+    <div class="card-r"><div class="label">Múltiplas unidades</div><div class="valor" id="cnt-multi-u">—</div></div>
   </div>
   <div class="filtros">
-    <div class="fg">
-      <label>Mês</label>
-      <select id="filtro-mes">
-        <option value="Maio 2026">Maio 2026</option>
-        <option value="Abril 2026">Abril 2026</option>
-        <option value="Março 2026">Março 2026</option>
-      </select>
+    <div class="fg"><label>Mês</label>
+      <select id="f-mes"><option value="Maio 2026">Maio 2026</option><option value="Abril 2026">Abril 2026</option><option value="Março 2026">Março 2026</option></select>
     </div>
-    <div class="fg">
-      <label>Unidade</label>
-      <select id="filtro-unidade" onchange="aplicarFiltros()">
+    <div class="fg"><label>Unidade</label>
+      <select id="f-unidade" onchange="renderUnidades()">
         <option value="">Todas</option>
-        <option value="fisiomulti">Fisioterapia Enfermaria</option>
-        <option value="fisionn">Fisioterapia UNN</option>
-        <option value="fisiouti">Fisioterapia UTI Adulto</option>
-        <option value="fisioambu">Ambulatório de Fisioterapia</option>
-        <option value="fono">Fonoaudiologia</option>
-        <option value="to">Terapia Ocupacional</option>
-        <option value="nutri">Nutrição Clínica</option>
-        <option value="ucrianca">Unidade da Criança</option>
-        <option value="uue">Urgência e Emergência</option>
       </select>
     </div>
-    <div class="fg">
-      <label>Categoria</label>
-      <select id="filtro-categoria" onchange="aplicarFiltros()">
+    <div class="fg"><label>Posto de Serviço</label>
+      <select id="f-posto" onchange="renderUnidades()">
+        <option value="">Todos</option>
+      </select>
+    </div>
+    <div class="fg"><label>Categoria</label>
+      <select id="f-cat" onchange="renderUnidades()">
         <option value="">Todas</option>
         <option value="Fisioterapeuta">Fisioterapeuta</option>
         <option value="Fonoaudióloga">Fonoaudióloga</option>
@@ -181,45 +164,60 @@ tbody tr:hover td.td-nome{background:#fafbfd}
         <option value="Médico">Médico</option>
       </select>
     </div>
-    <div class="fg">
-      <label>Buscar trabalhador</label>
-      <input type="text" id="filtro-nome" placeholder="Nome ou SIAPE..." oninput="aplicarFiltros()" style="min-width:180px">
+    <div class="fg"><label>Buscar</label>
+      <input type="text" id="f-nome" placeholder="Nome ou SIAPE..." oninput="renderUnidades()" style="min-width:170px">
     </div>
-    <button class="btn" onclick="exportarPDFUnidade()">Exportar PDF</button>
-    <button class="btn-sm" onclick="limparFiltros()">Limpar</button>
+    <button class="btn-pdf" onclick="exportarPDF('unidades')">📄 Exportar PDF</button>
+    <button class="btn-sm" onclick="limparFiltrosUnidade()">Limpar</button>
   </div>
   <div id="blocos-unidades"></div>
 </div>
 
-<!-- ===== POR DIA ===== -->
+<!-- POR DIA -->
 <div class="tela" id="tela-pordia">
   <div class="filtros">
-    <div class="fg">
-      <label>Selecione o dia</label>
-      <select id="sel-dia" onchange="renderPorDia()">
-        <option value="">— escolha um dia —</option>
+    <div class="fg"><label>Ano</label>
+      <select id="d-ano">
+        <option value="2026">2026</option>
+        <option value="2025">2025</option>
       </select>
     </div>
-    <div class="fg">
-      <label>Unidade</label>
-      <select id="sel-dia-unid" onchange="renderPorDia()">
+    <div class="fg"><label>Mês</label>
+      <select id="d-mes">
+        <option value="5">Maio</option>
+        <option value="4">Abril</option>
+        <option value="3">Março</option>
+        <option value="6">Junho</option>
+      </select>
+    </div>
+    <div class="fg"><label>Dia</label>
+      <select id="d-dia" onchange="renderPorDia()">
+        <option value="">— escolha —</option>
+      </select>
+    </div>
+    <div class="fg"><label>Unidade</label>
+      <select id="d-unidade" onchange="renderPorDia()">
         <option value="">Todas</option>
       </select>
     </div>
+    <div class="fg"><label>Posto de Serviço</label>
+      <select id="d-posto" onchange="renderPorDia()">
+        <option value="">Todos</option>
+      </select>
+    </div>
+    <button class="btn-pdf" onclick="exportarPDF('pordia')">📄 Exportar PDF</button>
   </div>
   <div id="resultado-dia"></div>
 </div>
 
-<!-- ===== POR PROFISSIONAL ===== -->
-<div class="tela" id="tela-profissional">
+<!-- POR TRABALHADOR -->
+<div class="tela" id="tela-trabalhador">
   <div class="filtros">
-    <div class="fg">
-      <label>Buscar por nome ou SIAPE</label>
-      <input type="text" id="busca-prof" placeholder="Ex: Karla, 2255310..." oninput="buscarProf()" style="min-width:260px">
+    <div class="fg"><label>Buscar nome ou SIAPE</label>
+      <input type="text" id="t-nome" placeholder="Ex: Karla, 2255310..." oninput="renderTrabalhador()" style="min-width:220px">
     </div>
-    <div class="fg">
-      <label>Categoria</label>
-      <select id="filtro-prof-cat" onchange="buscarProf()">
+    <div class="fg"><label>Categoria</label>
+      <select id="t-cat" onchange="renderTrabalhador()">
         <option value="">Todas</option>
         <option value="Fisioterapeuta">Fisioterapeuta</option>
         <option value="Fonoaudióloga">Fonoaudióloga</option>
@@ -228,37 +226,68 @@ tbody tr:hover td.td-nome{background:#fafbfd}
         <option value="Médico">Médico</option>
       </select>
     </div>
-    <button class="btn-sm" onclick="document.getElementById('busca-prof').value='';document.getElementById('filtro-prof-cat').value='';buscarProf()">Limpar</button>
+    <div class="fg"><label>Unidade</label>
+      <select id="t-unidade" onchange="renderTrabalhador()">
+        <option value="">Todas</option>
+      </select>
+    </div>
+    <button class="btn-pdf" onclick="exportarPDF('trabalhador')">📄 Exportar PDF</button>
+    <button class="btn-sm" onclick="document.getElementById('t-nome').value='';document.getElementById('t-cat').value='';document.getElementById('t-unidade').value='';renderTrabalhador()">Limpar</button>
   </div>
-  <div id="resultado-prof"></div>
+  <div id="resultado-trabalhador"></div>
 </div>
 
-<!-- ===== AFASTAMENTOS ===== -->
+<!-- AFASTAMENTOS -->
 <div class="tela" id="tela-afastamentos">
   <div class="cards-resumo">
     <div class="card-r" style="border-left:3px solid var(--vermelho)"><div class="label">Férias</div><div class="valor" style="color:var(--vermelho)" id="cnt-fe">—</div></div>
     <div class="card-r" style="border-left:3px solid var(--amarelo)"><div class="label">Afastamento INSS</div><div class="valor" style="color:var(--amarelo)" id="cnt-afin">—</div></div>
     <div class="card-r" style="border-left:3px solid #8b5e2d"><div class="label">Afastamento EBSERH</div><div class="valor" style="color:#8b5e2d" id="cnt-afeb">—</div></div>
-    <div class="card-r" style="border-left:3px solid var(--roxo)"><div class="label">Comp. de Horas</div><div class="valor" style="color:var(--roxo)" id="cnt-ch">—</div></div>
+    <div class="card-r" style="border-left:3px solid var(--roxo)"><div class="label">Comp. Horas</div><div class="valor" style="color:var(--roxo)" id="cnt-ch">—</div></div>
+  </div>
+  <div style="margin-bottom:1rem;display:flex;justify-content:flex-end">
+    <button class="btn-pdf" onclick="exportarPDF('afastamentos')">📄 Exportar PDF</button>
   </div>
   <div class="afas-grid" id="afas-grid"></div>
 </div>
 
-<!-- ===== AUDITORIA ===== -->
+<!-- AUDITORIA -->
 <div class="tela" id="tela-auditoria">
   <div class="cards-resumo">
-    <div class="card-r" style="border-left:3px solid var(--vermelho)"><div class="label">Alertas CH</div><div class="valor" style="color:var(--vermelho)" id="cnt-alerta">—</div><div class="sub">carga horária irregular</div></div>
-    <div class="card-r" style="border-left:3px solid var(--amarelo)"><div class="label">Múltiplas unidades</div><div class="valor" style="color:var(--amarelo)" id="cnt-multi-audit">—</div><div class="sub">verificar distribuição</div></div>
-    <div class="card-r" style="border-left:3px solid var(--verde)"><div class="label">Sem ocorrências</div><div class="valor" style="color:var(--verde)" id="cnt-ok">—</div></div>
+    <div class="card-r" style="border-left:3px solid var(--vermelho)"><div class="label">Alertas CH</div><div class="valor" style="color:var(--vermelho)" id="cnt-alerta">—</div></div>
+    <div class="card-r" style="border-left:3px solid var(--amarelo)"><div class="label">Múltiplas unidades</div><div class="valor" style="color:var(--amarelo)" id="cnt-multi-a">—</div></div>
+    <div class="card-r" style="border-left:3px solid var(--verde)"><div class="label">Conformes</div><div class="valor" style="color:var(--verde)" id="cnt-ok-a">—</div></div>
+    <div class="card-r" style="border-left:3px solid var(--amarelo)"><div class="label">Afastados</div><div class="valor" style="color:var(--amarelo)" id="cnt-afas-a">—</div></div>
+  </div>
+  <div class="filtros">
+    <div class="fg"><label>Buscar</label>
+      <input type="text" id="a-nome" placeholder="Nome ou SIAPE..." oninput="renderAuditoria()" style="min-width:200px">
+    </div>
+    <div class="fg"><label>Unidade</label>
+      <select id="a-unidade" onchange="renderAuditoria()">
+        <option value="">Todas</option>
+      </select>
+    </div>
+    <div class="fg"><label>Situação</label>
+      <select id="a-sit" onchange="renderAuditoria()">
+        <option value="">Todas</option>
+        <option value="alerta">Alerta CH</option>
+        <option value="multi">Múltiplas unidades</option>
+        <option value="afastado">Afastado</option>
+        <option value="conforme">Conforme</option>
+      </select>
+    </div>
+    <button class="btn-pdf" onclick="exportarPDF('auditoria')">📄 Exportar PDF</button>
+    <button class="btn-sm" onclick="document.getElementById('a-nome').value='';document.getElementById('a-unidade').value='';document.getElementById('a-sit').value='';renderAuditoria()">Limpar</button>
   </div>
   <div class="wrapper-tabela">
-    <div class="cab-unid"><h3>Visão consolidada — Auditoria Maio 2026</h3></div>
+    <div class="cab-unid"><h3>Visão consolidada — Auditoria</h3><span id="audit-count">—</span></div>
     <div class="table-scroll">
       <table class="audit-table">
         <thead><tr>
           <th class="th-nome" style="text-align:left;padding-left:12px;min-width:200px;position:sticky;left:0;background:#f0f2f6">Profissional</th>
-          <th>SIAPE</th><th>Cargo</th><th>Vínculo</th><th>Unidade(s)</th>
-          <th>CH Contratual</th><th>Dias escalados</th><th>Ocorrências</th><th>Situação</th>
+          <th>SIAPE</th><th>Cargo</th><th>Vínculo</th><th>Unidade(s)</th><th>Posto(s)</th>
+          <th>CH Contratual/mês</th><th>Dias escalados</th><th>Dias afastado</th><th>Ocorrências</th><th>Situação</th>
         </tr></thead>
         <tbody id="tbody-auditoria"></tbody>
       </table>
@@ -267,99 +296,139 @@ tbody tr:hover td.td-nome{background:#fafbfd}
 </div>
 
 </div><!-- /container -->
-
 <script>
 // ===== DADOS =====
-const DIAS_SEM = ['Sex','Sáb','Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
-const FDS = [0,1,2,6,7,8,9,13,14,15,16,20,21,22,23,27,28,29,30];
-const UNIDADES = [
-  {id:'fisiomulti',nome:'Fisioterapia Enfermaria',sigla:'UMULTI',cat:'Fisioterapia'},
-  {id:'fisionn',nome:'Fisioterapia UNN',sigla:'UNN',cat:'Fisioterapia'},
-  {id:'fisiouti',nome:'Fisioterapia UTI Adulto',sigla:'UTI-A',cat:'Fisioterapia'},
-  {id:'fisioambu',nome:'Ambulatório de Fisioterapia',sigla:'AMBU',cat:'Fisioterapia'},
-  {id:'fono',nome:'Serviço de Fonoaudiologia',sigla:'FONO',cat:'Fonoaudiologia'},
-  {id:'to',nome:'Terapia Ocupacional',sigla:'TO',cat:'T. Ocupacional'},
-  {id:'nutri',nome:'Nutrição Clínica',sigla:'NUTRI',cat:'Nutrição'},
-  {id:'ucrianca',nome:'Unidade da Criança e Adolescente',sigla:'UCRIANÇA',cat:'Medicina'},
-  {id:'uue',nome:'Urgência e Emergência',sigla:'UUE',cat:'Medicina'},
+const DIAS_SEM=['Sex','Sáb','Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
+const FDS_IDX=[0,1,2,6,7,8,9,13,14,15,16,20,21,22,23,27,28,29,30];
+
+const UNIDADES=[
+  {id:'fisiomulti',nome:'Fisioterapia Enfermaria',sigla:'UMULTI'},
+  {id:'fisionn',nome:'Fisioterapia UNN',sigla:'UNN'},
+  {id:'fisiouti',nome:'Fisioterapia UTI Adulto',sigla:'UTI-A'},
+  {id:'fisioambu',nome:'Ambulatório de Fisioterapia',sigla:'AMBU'},
+  {id:'fono',nome:'Serviço de Fonoaudiologia',sigla:'FONO'},
+  {id:'to',nome:'Terapia Ocupacional',sigla:'TO'},
+  {id:'nutri',nome:'Nutrição Clínica',sigla:'NUTRI'},
+  {id:'ucrianca',nome:'Unidade da Criança e Adolescente',sigla:'UCRIANÇA'},
+  {id:'uue',nome:'Urgência e Emergência',sigla:'UUE'},
 ];
-const PROFS = [
-  {id:'p001',nome:'Celia Katiuscia Duarte Dantas',siape:'3246958',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',dias:{2:'CH12D',3:'CH12D',4:'D6',5:'D6',6:'D6',7:'D6',8:'D6',9:'D6',10:'D6',11:'D6',13:'M15',29:'M15',0:'N8'}},
-  {id:'p002',nome:'Gabriela Carneiro Gomes Silva',siape:'2160403',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',dias:{0:'FE6',1:'FE6',2:'FE6',3:'FE6',4:'FE6',5:'FE6',6:'FE6',7:'FE6',8:'FE6',9:'FE6',10:'FE6',11:'FE6',12:'FE6',13:'FE6',14:'FE6',15:'FE6',16:'FE6',17:'FE6',18:'FE6',19:'FE6',20:'FE6'}},
-  {id:'p003',nome:'Geisiane Galvão da Silva',siape:'3246958',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',dias:{3:'D6',4:'FE12D',5:'D6',7:'N8',8:'N8',9:'FE12N',10:'FE12N',11:'FE12N',12:'N8',13:'N8'}},
-  {id:'p004',nome:'Helga Cecília Muniz de Souza',siape:'1039211',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',dias:{3:'D6',4:'D6',5:'CH12D',6:'D6',7:'AB12D',8:'FE12D',9:'FE12D',11:'N8',12:'N8',13:'N8',14:'FE12N',15:'N8'}},
-  {id:'p005',nome:'Karla Neves Leite',siape:'2255310',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',dias:{2:'CH12D',3:'D6',4:'D6',5:'D6',7:'N8',8:'N8',9:'N8',10:'N8',11:'N8',12:'N8',13:'N8',14:'N8'}},
-  {id:'p006',nome:'Keilla Vamara Bilro de Souza',siape:'2232227',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',dias:{3:'D6',4:'D6',5:'D6',6:'D6',7:'D6',11:'N8',12:'N8',13:'N8',14:'N8',15:'N8'}},
-  {id:'p007',nome:'Marcela Cavalcanti Machado Silva',siape:'2315794',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',dias:{3:'T15',4:'T15',5:'T15',6:'T15',7:'T15',8:'T15',10:'T15',11:'T15',12:'T15',13:'T15',14:'T15',15:'T15',17:'T15',18:'T15',19:'T15',20:'T15',24:'T15',25:'T15',26:'T15',27:'T15'}},
-  {id:'p008',nome:'Mariana Lúcia Correia Ramos Costa',siape:'1726188',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',dias:{3:'D6',4:'D6',5:'D6',6:'D6',7:'D6',13:'M15',21:'N8',22:'N8',23:'T15',24:'T15',25:'T15',26:'T15'}},
-  {id:'p009',nome:'Manuela Correa de Araújo',siape:'1096491',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',dias:{3:'T15',4:'T15',5:'T15',6:'T15',7:'T15',8:'T15',10:'T15',11:'T15',12:'T15',13:'T15',17:'T15',18:'T15',19:'T15',20:'D6',21:'CH12D'}},
-  {id:'p010',nome:'Thiago Henrique Mucarbel Soares',siape:'1526364',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',dias:{0:'FE12D',1:'FE12N',3:'D6',4:'D6',5:'D6',7:'N8',8:'N8',9:'N8',10:'N8',11:'N8'}},
-  {id:'p011',nome:'Lindbergh Barbosa Afonso',siape:'2224742',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',dias:{3:'D6',4:'D6',5:'D6',6:'D6',7:'D6',8:'D6',9:'D6',10:'D6',11:'D6',13:'M15',19:'M15'}},
-  {id:'p012',nome:'Paula Eyla Cristina Rodrigues Duarte',siape:'2232333',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',dias:{3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',8:'M15',10:'M15',11:'T15',12:'T15',13:'T15',14:'T15',15:'T15',17:'T15',19:'AB12D',20:'D6'}},
-  {id:'p013',nome:'Romero Souza Leão de Albergaria Castro',siape:'2160400',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',dias:{3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',8:'M15',10:'D6',11:'D6',12:'D6',13:'D6',14:'D6',15:'D6',16:'D6',17:'CH12D'}},
-  {id:'p014',nome:'Rosalina de Paula Ferreira Cunha',siape:'2224352',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',dias:{0:'AB6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',8:'M15',10:'M15',11:'M15',13:'T15',14:'T15',15:'T15',16:'T15',17:'T15',18:'T15',19:'T15',20:'T15'}},
-  {id:'p015',nome:'Alessandra Real S Barbosa',siape:'2149458',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',dias:{7:'N8',8:'N8',9:'AB12D',10:'FE6',11:'FE6',12:'FE6',13:'AB12N',14:'N8',15:'N8'}},
-  {id:'p016',nome:'Cláudio Gonçalves de Albuquerque',siape:'1884452',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',dias:{3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',8:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',15:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
-  {id:'p017',nome:'Marília Izabel de Araújo Gomes',siape:'2315774',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',dias:{7:'N8',8:'N8',9:'N8',10:'D6',11:'N8',12:'D6',13:'D6',14:'N8',15:'D6',16:'N8'}},
-  {id:'p018',nome:'Nayla Raabe Vencao de Moura',siape:'1305639',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',dias:{3:'D6',4:'D6',5:'D6',6:'N8',7:'D6',8:'N8',9:'N8',10:'D6',11:'N8',12:'D6',13:'D6'}},
-  {id:'p019',nome:'Paulo Roberto Autran Gurgel do Amaral',siape:'2347467',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',dias:{7:'N8',8:'D6',9:'D6',10:'D6',11:'D6',12:'N8',13:'D6',14:'D6',15:'D6',16:'N8',17:'N8'}},
-  {id:'p020',nome:'Patricia Verçosa de Castro Silveira',siape:'3497706',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',dias:{7:'N8',8:'N8',9:'D6',10:'N8',11:'N8',12:'D6',13:'N8',14:'AB12D'}},
-  {id:'p021',nome:'Lirian Fabiani Matias Falcao Alcoforado',siape:'2149418',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',dias:{3:'D6',4:'D6',5:'AB12N',6:'AB12N',7:'D6',8:'N8',9:'N8',10:'D6',11:'N8',12:'D6',13:'D6'}},
-  {id:'p022',nome:'Thiago Nunes de Azevedo Ferraz de Carvalho',siape:'1189576',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',dias:{3:'D6',4:'D6',5:'AB12N',6:'D6',7:'N8',8:'D6',9:'N8',10:'N8',11:'D6'}},
-  {id:'p023',nome:'Alessandra Teixeira da Camara Araujo',siape:'2114870',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',dias:{3:'D6',4:'D6',5:'D6',6:'D6',7:'N8',8:'D6',9:'N8',10:'D6',11:'N8'}},
-  {id:'p024',nome:'Karla Michelle de Lima Alves',siape:'2149094',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',dias:{3:'D6',4:'N8',5:'N8',6:'D6',7:'N8',8:'N8',9:'D6',10:'N8',11:'D6',12:'D6',13:'N8'}},
-  {id:'p025',nome:'Silvia Elane Macena de Araújo Lima',siape:'3762815',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',dias:{7:'N8',8:'D6',9:'D6',10:'D6',11:'N8',12:'D6',13:'N8',14:'N8',15:'D6',16:'N8',17:'D6'}},
-  {id:'p026',nome:'Winea Leila Vasconcelos Marques',siape:'1775803',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',dias:{7:'N8',8:'D6',9:'N8',10:'N8',11:'D6',12:'N8',13:'N8',14:'D6',15:'N8',16:'D6'}},
-  {id:'p027',nome:'Yeda Soraya Medeiros',siape:'1919885',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',dias:{2:'CH12D',3:'CH12N',4:'D6',5:'N8',6:'N8',7:'N8',8:'N8',9:'D6',10:'N8',11:'N8',12:'D6',13:'N8'}},
-  {id:'p028',nome:'Roberta Machado Barros Tenório',siape:'2168114',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',dias:{3:'D6',4:'N8',5:'N8',6:'N8',7:'D6',8:'D6',9:'D6',10:'D6',11:'D6',12:'N8'}},
-  {id:'p029',nome:'Cibelle Andrade Lima',siape:'2224327',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',30:'FD6'}},
-  {id:'p030',nome:'Caio César Araújo Morais',siape:'1258453',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',30:'FD6'}},
-  {id:'p031',nome:'Maria Gabriela de Lima Hansen',siape:'3497019',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',dias:{0:'AFIN6',1:'AFIN6',2:'AFIN6',3:'AFIN6',4:'AFIN6',5:'AFIN6',6:'AFIN6',7:'AFIN6',8:'AFIN6',9:'AFIN6',10:'AFIN6',11:'AFIN6',12:'AFIN6',13:'AFIN6',14:'AFIN6',15:'AFIN6',16:'AFIN6',17:'AFIN6',18:'AFIN6',19:'AFIN6',20:'AFIN6'}},
-  {id:'p032',nome:'Mayara Costa Barros',siape:'2205345',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',dias:{3:'D6',4:'D6',5:'D6',6:'N8',7:'N8',8:'N8',10:'D6',11:'N8',12:'D6',13:'D6',14:'D6'}},
-  {id:'p033',nome:'Renata Baltar da Silva',siape:'2241567',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',dias:{0:'FE12D',1:'FE12D',2:'FE12N',3:'FE12N',4:'FE12D',5:'FE12D',6:'FE12D',13:'N8',14:'D6'}},
-  {id:'p034',nome:'Cynara Guerra de Souza',siape:'2176203',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',dias:{7:'N8',8:'N8',9:'N8',10:'N8',11:'N8',12:'D6',13:'D6',14:'N8',15:'N8',16:'D6',17:'N8'}},
-  {id:'p035',nome:'Tarciana Galvao Santiago',siape:'3243298',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',dias:{2:'AB12D',7:'N8',8:'N8',9:'D6',10:'N8',11:'D6',12:'D6',13:'D6'}},
-  {id:'p036',nome:'Viviane Wanderley Mastroianni',siape:'2168111',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',dias:{7:'N8',8:'D6',9:'N8',10:'D6',11:'N8',12:'D6',13:'N8',14:'D6',15:'D6'}},
-  {id:'p037',nome:'Jeozadak Neves Marques',siape:'3401398',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',dias:{2:'AB12D',3:'D6',4:'D6',5:'D6',6:'D6',7:'D6',8:'D6',13:'N8',14:'N8'}},
-  {id:'p038',nome:'Eveline do Nascimento Nóbrega',siape:'1178591',cargo:'Fisioterapeuta',vinculo:'RJU',ch:30,unidade:'fisioambu',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
-  {id:'p039',nome:'Fernanda Cristina Santos Silva Ramos',siape:'1432550',cargo:'Fisioterapeuta',vinculo:'RJU',ch:30,unidade:'fisioambu',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
-  {id:'p040',nome:'Jacqueline de Melo Barcelar',siape:'1432542',cargo:'Fisioterapeuta',vinculo:'RJU',ch:30,unidade:'fisioambu',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
-  {id:'p041',nome:'Joselito Vitorino da Silva',siape:'1134711',cargo:'Fisioterapeuta',vinculo:'RJU',ch:30,unidade:'fisioambu',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
-  {id:'p042',nome:'Michele Santiago de Carvalho',siape:'1432685',cargo:'Fisioterapeuta',vinculo:'RJU',ch:30,unidade:'fisioambu',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
-  {id:'p043',nome:'Alexsandra Glória Apolonio dos Santos',siape:'1460918',cargo:'Fonoaudióloga',vinculo:'EBSERH',ch:30,unidade:'fono',dias:{0:'FD6',3:'M13',4:'M13',5:'D5',6:'M13',7:'M13',10:'M13',11:'D5',12:'M13',13:'M13',14:'M13',15:'D5',17:'M13',18:'M13',19:'M13',20:'D5',24:'M13'}},
-  {id:'p044',nome:'Érika da Rocha Mahon',siape:'1295877',cargo:'Fonoaudióloga',vinculo:'RJU',ch:30,unidade:'fono',dias:{0:'FD6',3:'M15',4:'T15',5:'M15',6:'M15',7:'M15',10:'M15',11:'T15',12:'M15',13:'M15',14:'M15',17:'M15',18:'T15',19:'M15',20:'M15',21:'M15',24:'M15',25:'T15',26:'M15',27:'M15',28:'M15'}},
-  {id:'p045',nome:'Fabiana dos Santos Lira',siape:'1583073',cargo:'Fonoaudióloga',vinculo:'EBSERH',ch:40,unidade:'fono',dias:{0:'FD8',3:'MT26',4:'MT26',5:'MT26',6:'MT26',7:'MT26',10:'MT26',11:'MT26',12:'MT26',13:'MT26',14:'MT26',17:'MT26',18:'MT26',19:'MT26',20:'MT26',24:'MT26',25:'MT26',26:'MT26',27:'MT26',28:'MT26'}},
-  {id:'p046',nome:'Karina Polo Norte Danda Soares',siape:'2168087',cargo:'Fonoaudióloga',vinculo:'EBSERH',ch:30,unidade:'fono',dias:{0:'FE6',1:'FE6',2:'FE12D',3:'FE6',10:'M15',11:'M15',12:'D5',13:'M15',14:'M15',15:'M15',17:'D5',18:'M15',19:'M15',20:'M15',21:'D5',24:'M15',25:'M15'}},
-  {id:'p047',nome:'Maria das Graças Duarte',siape:'2214837',cargo:'Fonoaudióloga',vinculo:'EBSERH',ch:30,unidade:'fono',dias:{0:'FD6',1:'FE6',2:'FE6',3:'FE6',4:'FE6',5:'FE6',6:'FE6',7:'FE6',8:'FE6',11:'M13',12:'M13',13:'M13',14:'M13',15:'M13',17:'M13',18:'M13',19:'M13',20:'M13',21:'M13',24:'M13',25:'M13',26:'M13',27:'M13',28:'M13'}},
-  {id:'p048',nome:'Ana Maria Fontes Leite de Sá',siape:'2232182',cargo:'Fonoaudióloga',vinculo:'EBSERH',ch:30,unidade:'fono',dias:{0:'FD6',3:'M13',4:'M13',5:'M13',6:'M13',7:'M13',10:'M13',11:'M13',12:'M13',13:'M13',14:'M13',17:'M13',18:'M13',19:'M13',20:'M13',24:'M13',25:'M13',26:'M13',27:'M13',28:'M13'}},
-  {id:'p049',nome:'Rebeca Domingues Raposo',siape:'1542425',cargo:'Fonoaudióloga',vinculo:'EBSERH',ch:40,unidade:'fono',dias:{0:'FD8',3:'MT26',4:'MT26',5:'MT26',6:'MT26',7:'MT26',10:'MT26',11:'MT26',12:'MT26',13:'MT26',14:'MT26',17:'MT26',18:'MT26',19:'MT26',20:'MT26',24:'MT26',25:'MT26',26:'MT26',27:'MT26',28:'MT26'}},
-  {id:'p050',nome:'Luciana Santos Gerosino da Silva',siape:'1663621',cargo:'Fonoaudióloga',vinculo:'EBSERH',ch:30,unidade:'fono',dias:{0:'FD6',3:'T15',4:'T15',5:'T15',6:'D6',10:'T15',11:'T15',12:'T15',13:'D6',17:'T15',18:'T15',19:'T15',20:'D6',24:'T15',25:'T15',26:'T15',27:'D6'}},
-  {id:'p051',nome:'Amanda Cavalcanti Belo',siape:'2173535',cargo:'Terapeuta Ocupacional',vinculo:'CLT',ch:30,unidade:'to',dias:{0:'D5',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',9:'D5',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',15:'M15',17:'M15',18:'M15',19:'M15',20:'M15',21:'FE6',22:'FE6',23:'FE6'}},
-  {id:'p052',nome:'Ana Alice Pedro da Silva',siape:'1791454',cargo:'Terapeuta Ocupacional',vinculo:'RJU',ch:30,unidade:'to',dias:{0:'FD0',3:'M13',4:'D5',5:'D5',10:'M13',11:'D5',12:'D5',17:'M13',18:'D5',19:'D5',24:'M13',25:'D5',26:'D5'}},
-  {id:'p053',nome:'Daniella Sousa de Oliveira',siape:'1109928',cargo:'Terapeuta Ocupacional',vinculo:'CLT',ch:30,unidade:'to',dias:{0:'AFIN6',1:'AFIN6',2:'AFIN6',3:'AFIN6',4:'AFIN6',5:'AFIN6',6:'AFIN6',7:'AFIN6',8:'AFIN6',9:'AFIN6',10:'AFIN6',11:'AFIN6',12:'AFIN6'}},
-  {id:'p054',nome:'Débora Danielle A. dos Santos',siape:'1983027',cargo:'Terapeuta Ocupacional',vinculo:'CLT',ch:30,unidade:'to',dias:{0:'FD6',3:'M13',4:'M13',5:'M13',6:'M16',10:'M13',11:'M13',12:'M13',13:'M13',14:'M16',17:'M13',18:'M13',19:'M13',20:'M16',21:'M13',22:'D5',23:'M13',24:'M13',25:'M16',26:'M13',27:'M13'}},
-  {id:'p055',nome:'Naianna Ribeiro M. dos Santos',siape:'2173787',cargo:'Terapeuta Ocupacional',vinculo:'CLT',ch:30,unidade:'to',dias:{3:'M13',4:'M13',5:'M13',6:'D5',10:'M13',11:'M13',12:'M13',13:'D5',17:'M13',18:'M13',19:'M13',20:'D5',24:'M13',25:'M13',26:'M13',27:'D5'}},
-  {id:'p056',nome:'Tatiana Caldas Neves da Silva',siape:'1902523',cargo:'Terapeuta Ocupacional',vinculo:'RJU',ch:30,unidade:'to',dias:{3:'D8',4:'T16',5:'M17',6:'T16',7:'D8',10:'T16',11:'M17',12:'T16',13:'D8',17:'T16',18:'M17',19:'T16',20:'D8',24:'T16',25:'M17',26:'T16'}},
-  {id:'p057',nome:'Renata Batista Marinho de Magalhães',siape:'1785452',cargo:'Terapeuta Ocupacional',vinculo:'CLT',ch:30,unidade:'to',dias:{0:'FD6',3:'D5',4:'M13',5:'T16',6:'T16',7:'T16',8:'T16',11:'M13',12:'T16',13:'T16',14:'T16',15:'T16',18:'M13',19:'T16',20:'T16',21:'T16',22:'AB6',23:'AB6',24:'CH6',25:'CH6',26:'CH6',27:'CH6'}},
-  {id:'p058',nome:'Aline Rafaelly Apolônio da Silva',siape:'1791303',cargo:'Nutricionista',vinculo:'RJU',ch:30,unidade:'nutri',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
-  {id:'p059',nome:'Amanda de Azevedo Araújo',siape:'1857350',cargo:'Nutricionista',vinculo:'RJU',ch:30,unidade:'nutri',dias:{7:'N8',8:'AFEB12',9:'AFEB12',10:'DSR',11:'N8',12:'N8',13:'N8',14:'N8',15:'N8',17:'N8'}},
-  {id:'p060',nome:'Helânia Virgínia Dantas dos Santos',siape:'2224548',cargo:'Nutricionista',vinculo:'EBSERH',ch:40,unidade:'nutri',dias:{0:'FD8',3:'MT26',4:'MT26',5:'MT26',6:'MT26',7:'MT26',10:'MT26',11:'MT26',12:'MT26',13:'MT26',14:'MT26',17:'MT26',18:'MT26',19:'MT26',20:'MT26',24:'MT26',25:'MT26',26:'MT26',27:'MT26',28:'MT26'}},
-  {id:'p061',nome:'Leila Virginia da Silva Prado',siape:'2237773',cargo:'Nutricionista',vinculo:'EBSERH',ch:40,unidade:'nutri',dias:{2:'AB12N',3:'N8',4:'N8',5:'N8',6:'N8',7:'N8',10:'N8',11:'N8',21:'DSR',22:'DSR',24:'N8',25:'N8',27:'AB12N'}},
-  {id:'p062',nome:'Mayara Ferreira Bernardo',siape:'2347456',cargo:'Nutricionista',vinculo:'EBSERH',ch:40,unidade:'nutri',dias:{0:'FD8',3:'MT26',4:'MT26',5:'MT26',6:'MT26',7:'MT26',10:'MT26',11:'MT26',12:'MT26',13:'MT26',14:'MT26',17:'MT26',18:'MT26',19:'MT26',20:'MT26',24:'MT26',25:'MT26',26:'MT26',27:'MT26',28:'MT26'}},
-  {id:'p063',nome:'Renata Simone de Oliveira Bandeira',siape:'2250262',cargo:'Nutricionista',vinculo:'EBSERH',ch:40,unidade:'nutri',dias:{3:'N8',4:'N8',5:'N8',6:'N8',7:'N8',10:'N8',11:'N8',14:'DSR',17:'N8',18:'N8',19:'N8',20:'N8',21:'N8',22:'DSR',24:'N8'}},
-  {id:'p064',nome:'Ludmilla Moema Lopes de Sousa',siape:'2347878',cargo:'Nutricionista',vinculo:'EBSERH',ch:40,unidade:'nutri',dias:{0:'AFIN8',1:'AFIN8',2:'AFIN8',3:'AFIN8',4:'AFIN8',5:'AFIN8',6:'AFIN8',7:'AFIN8',8:'AFIN8',9:'AFIN8',10:'AFIN8',11:'AFIN8',12:'AFIN8',13:'AFIN8',14:'AFIN8',15:'AFIN8',16:'AFIN8',17:'AFIN8',18:'AFIN8',19:'AFIN8',20:'AFIN8'}},
-  {id:'p065',nome:'Adilson Da Silva Morato Filho',siape:'1485872',cargo:'Médico',vinculo:'HUBrasil',ch:24,unidade:'ucrianca',dias:{2:'FE6',5:'T15',6:'M15',7:'M15',10:'M15',11:'M15',12:'T15'}},
-  {id:'p066',nome:'Barbara Barros De Figueiredo',siape:'1282163',cargo:'Médico',vinculo:'HUBrasil',ch:24,unidade:'ucrianca',dias:{1:'FE120',5:'T15',6:'T15',7:'D6',10:'T15',11:'T15',15:'T15',16:'D6',22:'T15',23:'T15',24:'D6',29:'T15',30:'T15'}},
-  {id:'p067',nome:'Clarissa Maria Ayres De Melo Maranhao',siape:'3510985',cargo:'Médico',vinculo:'HUBrasil',ch:24,unidade:'ucrianca',dias:{1:'FE120',3:'M15',7:'T15',8:'D6',14:'T15',15:'D6',21:'T15',22:'D6',28:'M15'}},
-  {id:'p068',nome:'Daniela Dos Santos Bastos',siape:'3372849',cargo:'Médico',vinculo:'HUBrasil',ch:24,unidade:'ucrianca',dias:{1:'FE6',3:'M15',6:'M15',7:'M15',12:'M15',13:'M15',14:'M15',17:'M15',19:'M15',20:'M15',26:'M15',27:'M15',28:'M15'}},
-  {id:'p069',nome:'Alice Marcelle de Souza Ferraz',siape:'######',cargo:'Médico',vinculo:'',ch:24,unidade:'uue',dias:{3:'M15',4:'N8',5:'M15',6:'D6',7:'N8',11:'M15',12:'D6'}},
-  {id:'p070',nome:'Carolina Arruda Asfora',siape:'######',cargo:'Médico',vinculo:'',ch:24,unidade:'uue',dias:{3:'T15',4:'D6',5:'DN5',6:'D6',7:'T15',8:'D6',9:'T15',14:'N8'}},
-  {id:'p071',nome:'Diego Lima Alves da Silva',siape:'######',cargo:'Médico',vinculo:'',ch:24,unidade:'uue',dias:{7:'N8',8:'N8',9:'N8',10:'N8',11:'N8'}},
-  {id:'p072',nome:'Antonio Marcial Pinheiro de Alencar',siape:'2165660',cargo:'Médico',vinculo:'',ch:24,unidade:'uue',dias:{7:'N8',8:'D6',9:'N8',10:'D6',11:'FE12N',12:'FE12D',13:'FE12N',14:'FE12D',15:'N8'}},
-  {id:'p073',nome:'Fernando de Santa Cruz Oliveira',siape:'3447521',cargo:'Médico',vinculo:'',ch:24,unidade:'uue',dias:{3:'D6',4:'D6',5:'D6',6:'N8',7:'D6',8:'D6',9:'N8',10:'D6',11:'D6',12:'N8',13:'D6',14:'D6'}},
+
+// Postos de serviço por unidade
+const POSTOS=[
+  {id:'fisio-enfermaria-geral',nome:'Equipe Geral',unidade:'fisiomulti'},
+  {id:'fisio-dip',nome:'Equipe DIP',unidade:'fisiomulti'},
+  {id:'fisio-unn-uti',nome:'UTI Neonatal',unidade:'fisionn'},
+  {id:'fisio-ucinco',nome:'UCINCO / UCINCA',unidade:'fisionn'},
+  {id:'fisio-uti-geral',nome:'UTI Adulto Geral',unidade:'fisiouti'},
+  {id:'fisio-ambu-geral',nome:'Ambulatório Geral',unidade:'fisioambu'},
+  {id:'fono-audio',nome:'Audiologia',unidade:'fono'},
+  {id:'fono-ambu',nome:'Ambulatório',unidade:'fono'},
+  {id:'fono-enf',nome:'Enfermarias',unidade:'fono'},
+  {id:'fono-uti',nome:'UTI',unidade:'fono'},
+  {id:'fono-unn',nome:'UNN',unidade:'fono'},
+  {id:'to-geral',nome:'Geral',unidade:'to'},
+  {id:'nutri-geral',nome:'Nutrição Geral',unidade:'nutri'},
+  {id:'nutri-noturno',nome:'Nutrição Noturno',unidade:'nutri'},
+  {id:'ucrianca-geral',nome:'Pediatria Geral',unidade:'ucrianca'},
+  {id:'uue-clinica',nome:'Clínica Médica',unidade:'uue'},
+  {id:'uue-cirurgia',nome:'Cirurgia Geral',unidade:'uue'},
+  {id:'uue-pediatria',nome:'Clínica Pediatria',unidade:'uue'},
+];
+
+const PROFS=[
+  // FISIOTERAPIA ENFERMARIA - EQUIPE GERAL
+  {id:'p001',nome:'Celia Katiuscia Duarte Dantas',siape:'3246958',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',posto:'fisio-enfermaria-geral',dias:{0:'N8',2:'CH12D',3:'CH12D',4:'D6',5:'D6',6:'D6',7:'D6',8:'D6',9:'D6',10:'D6',11:'D6',13:'M15',29:'M15'}},
+  {id:'p002',nome:'Gabriela Carneiro Gomes Silva',siape:'2160403',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',posto:'fisio-enfermaria-geral',dias:{0:'FE6',1:'FE6',2:'FE6',3:'FE6',4:'FE6',5:'FE6',6:'FE6',7:'FE6',8:'FE6',9:'FE6',10:'FE6',11:'FE6',12:'FE6',13:'FE6',14:'FE6',15:'FE6',16:'FE6',17:'FE6',18:'FE6',19:'FE6',20:'FE6'}},
+  {id:'p003',nome:'Geisiane Galvão da Silva',siape:'3246958',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',posto:'fisio-enfermaria-geral',dias:{3:'D6',4:'FE12D',5:'D6',7:'N8',8:'N8',9:'FE12N',10:'FE12N',11:'FE12N',12:'N8',13:'N8'}},
+  {id:'p004',nome:'Helga Cecília Muniz de Souza',siape:'1039211',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',posto:'fisio-enfermaria-geral',dias:{3:'D6',4:'D6',5:'CH12D',6:'D6',7:'AB12D',8:'FE12D',9:'FE12D',11:'N8',12:'N8',13:'N8',14:'FE12N',15:'N8'}},
+  {id:'p005',nome:'Karla Neves Leite',siape:'2255310',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',posto:'fisio-enfermaria-geral',dias:{2:'CH12D',3:'D6',4:'D6',5:'D6',7:'N8',8:'N8',9:'N8',10:'N8',11:'N8',12:'N8',13:'N8',14:'N8'}},
+  {id:'p006',nome:'Keilla Vamara Bilro de Souza',siape:'2232227',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',posto:'fisio-enfermaria-geral',dias:{3:'D6',4:'D6',5:'D6',6:'D6',7:'D6',11:'N8',12:'N8',13:'N8',14:'N8',15:'N8'}},
+  {id:'p007',nome:'Marcela Cavalcanti Machado Silva',siape:'2315794',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',posto:'fisio-enfermaria-geral',dias:{3:'T15',4:'T15',5:'T15',6:'T15',7:'T15',8:'T15',10:'T15',11:'T15',12:'T15',13:'T15',14:'T15',15:'T15',17:'T15',18:'T15',19:'T15',20:'T15',24:'T15',25:'T15',26:'T15',27:'T15'}},
+  {id:'p008',nome:'Mariana Lúcia Correia Ramos Costa',siape:'1726188',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',posto:'fisio-enfermaria-geral',dias:{3:'D6',4:'D6',5:'D6',6:'D6',7:'D6',13:'M15',21:'N8',22:'N8',23:'T15',24:'T15',25:'T15',26:'T15'}},
+  {id:'p009',nome:'Manuela Correa de Araújo',siape:'1096491',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',posto:'fisio-enfermaria-geral',dias:{3:'T15',4:'T15',5:'T15',6:'T15',7:'T15',8:'T15',10:'T15',11:'T15',12:'T15',13:'T15',17:'T15',18:'T15',19:'T15',20:'D6',21:'CH12D'}},
+  {id:'p010',nome:'Thiago Henrique Mucarbel Soares',siape:'1526364',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',posto:'fisio-enfermaria-geral',dias:{0:'FE12D',1:'FE12N',3:'D6',4:'D6',5:'D6',7:'N8',8:'N8',9:'N8',10:'N8',11:'N8'}},
+  // FISIOTERAPIA ENFERMARIA - EQUIPE DIP
+  {id:'p011',nome:'Lindbergh Barbosa Afonso',siape:'2224742',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',posto:'fisio-dip',dias:{3:'D6',4:'D6',5:'D6',6:'D6',7:'D6',8:'D6',9:'D6',10:'D6',11:'D6',13:'M15',19:'M15'}},
+  {id:'p012',nome:'Paula Eyla Cristina Rodrigues Duarte',siape:'2232333',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',posto:'fisio-dip',dias:{3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',8:'M15',10:'M15',11:'T15',12:'T15',13:'T15',14:'T15',15:'T15',17:'T15',19:'AB12D',20:'D6'}},
+  {id:'p013',nome:'Romero Souza Leão de Albergaria Castro',siape:'2160400',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',posto:'fisio-dip',dias:{3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',8:'M15',10:'D6',11:'D6',12:'D6',13:'D6',14:'D6',15:'D6',16:'D6',17:'CH12D'}},
+  {id:'p014',nome:'Rosalina de Paula Ferreira Cunha',siape:'2224352',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiomulti',posto:'fisio-dip',dias:{0:'AB6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',8:'M15',10:'M15',11:'M15',13:'T15',14:'T15',15:'T15',16:'T15',17:'T15',18:'T15',19:'T15',20:'T15'}},
+  // FISIOTERAPIA UNN - UTI NEONATAL
+  {id:'p015',nome:'Alessandra Real S Barbosa',siape:'2149458',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',posto:'fisio-unn-uti',dias:{7:'N8',8:'N8',9:'AB12D',10:'FE6',11:'FE6',12:'FE6',13:'AB12N',14:'N8',15:'N8'}},
+  {id:'p016',nome:'Cláudio Gonçalves de Albuquerque',siape:'1884452',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',posto:'fisio-unn-uti',dias:{3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',8:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',15:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
+  {id:'p017',nome:'Marília Izabel de Araújo Gomes',siape:'2315774',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',posto:'fisio-unn-uti',dias:{7:'N8',8:'N8',9:'N8',10:'D6',11:'N8',12:'D6',13:'D6',14:'N8',15:'D6',16:'N8'}},
+  {id:'p018',nome:'Nayla Raabe Vencao de Moura',siape:'1305639',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',posto:'fisio-unn-uti',dias:{3:'D6',4:'D6',5:'D6',6:'N8',7:'D6',8:'N8',9:'N8',10:'D6',11:'N8',12:'D6',13:'D6'}},
+  {id:'p019',nome:'Paulo Roberto Autran Gurgel do Amaral',siape:'2347467',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',posto:'fisio-unn-uti',dias:{7:'N8',8:'D6',9:'D6',10:'D6',11:'D6',12:'N8',13:'D6',14:'D6',15:'D6',16:'N8',17:'N8'}},
+  {id:'p020',nome:'Patricia Verçosa de Castro Silveira',siape:'3497706',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',posto:'fisio-unn-uti',dias:{7:'N8',8:'N8',9:'D6',10:'N8',11:'N8',12:'D6',13:'N8',14:'AB12D'}},
+  {id:'p021',nome:'Lirian Fabiani Matias Falcao Alcoforado',siape:'2149418',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',posto:'fisio-unn-uti',dias:{3:'D6',4:'D6',5:'AB12N',6:'AB12N',7:'D6',8:'N8',9:'N8',10:'D6',11:'N8',12:'D6',13:'D6'}},
+  {id:'p022',nome:'Thiago Nunes de Azevedo Ferraz de Carvalho',siape:'1189576',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',posto:'fisio-unn-uti',dias:{3:'D6',4:'D6',5:'AB12N',6:'D6',7:'N8',8:'D6',9:'N8',10:'N8',11:'D6'}},
+  // FISIOTERAPIA UNN - UCINCO
+  {id:'p023',nome:'Alessandra Teixeira da Camara Araujo',siape:'2114870',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',posto:'fisio-ucinco',dias:{3:'D6',4:'D6',5:'D6',6:'D6',7:'N8',8:'D6',9:'N8',10:'D6',11:'N8'}},
+  {id:'p024',nome:'Karla Michelle de Lima Alves',siape:'2149094',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',posto:'fisio-ucinco',dias:{3:'D6',4:'N8',5:'N8',6:'D6',7:'N8',8:'N8',9:'D6',10:'N8',11:'D6',12:'D6',13:'N8'}},
+  {id:'p025',nome:'Silvia Elane Macena de Araújo Lima',siape:'3762815',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',posto:'fisio-ucinco',dias:{7:'N8',8:'D6',9:'D6',10:'D6',11:'N8',12:'D6',13:'N8',14:'N8',15:'D6',16:'N8',17:'D6'}},
+  {id:'p026',nome:'Winea Leila Vasconcelos Marques',siape:'1775803',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',posto:'fisio-ucinco',dias:{7:'N8',8:'D6',9:'N8',10:'N8',11:'D6',12:'N8',13:'N8',14:'D6',15:'N8',16:'D6'}},
+  {id:'p027',nome:'Yeda Soraya Medeiros',siape:'1919885',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',posto:'fisio-ucinco',dias:{2:'CH12D',3:'CH12N',4:'D6',5:'N8',6:'N8',7:'N8',8:'N8',9:'D6',10:'N8',11:'N8',12:'D6',13:'N8'}},
+  {id:'p028',nome:'Roberta Machado Barros Tenório',siape:'2168114',cargo:'Fisioterapeuta',vinculo:'CLT',ch:30,unidade:'fisionn',posto:'fisio-ucinco',dias:{3:'D6',4:'N8',5:'N8',6:'N8',7:'D6',8:'D6',9:'D6',10:'D6',11:'D6',12:'N8'}},
+  // FISIOTERAPIA UTI ADULTO
+  {id:'p029',nome:'Cibelle Andrade Lima',siape:'2224327',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',posto:'fisio-uti-geral',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',30:'FD6'}},
+  {id:'p030',nome:'Caio César Araújo Morais',siape:'1258453',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',posto:'fisio-uti-geral',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',30:'FD6'}},
+  {id:'p031',nome:'Maria Gabriela de Lima Hansen',siape:'3497019',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',posto:'fisio-uti-geral',dias:{0:'AFIN6',1:'AFIN6',2:'AFIN6',3:'AFIN6',4:'AFIN6',5:'AFIN6',6:'AFIN6',7:'AFIN6',8:'AFIN6',9:'AFIN6',10:'AFIN6',11:'AFIN6',12:'AFIN6',13:'AFIN6',14:'AFIN6',15:'AFIN6',16:'AFIN6',17:'AFIN6',18:'AFIN6',19:'AFIN6',20:'AFIN6'}},
+  {id:'p032',nome:'Mayara Costa Barros',siape:'2205345',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',posto:'fisio-uti-geral',dias:{3:'D6',4:'D6',5:'D6',6:'N8',7:'N8',8:'N8',10:'D6',11:'N8',12:'D6',13:'D6',14:'D6'}},
+  {id:'p033',nome:'Renata Baltar da Silva',siape:'2241567',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',posto:'fisio-uti-geral',dias:{0:'FE12D',1:'FE12D',2:'FE12N',3:'FE12N',4:'FE12D',5:'FE12D',6:'FE12D',13:'N8',14:'D6'}},
+  {id:'p034',nome:'Cynara Guerra de Souza',siape:'2176203',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',posto:'fisio-uti-geral',dias:{7:'N8',8:'N8',9:'N8',10:'N8',11:'N8',12:'D6',13:'D6',14:'N8',15:'N8',16:'D6',17:'N8'}},
+  {id:'p035',nome:'Tarciana Galvao Santiago',siape:'3243298',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',posto:'fisio-uti-geral',dias:{2:'AB12D',7:'N8',8:'N8',9:'D6',10:'N8',11:'D6',12:'D6',13:'D6'}},
+  {id:'p036',nome:'Viviane Wanderley Mastroianni',siape:'2168111',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',posto:'fisio-uti-geral',dias:{7:'N8',8:'D6',9:'N8',10:'D6',11:'N8',12:'D6',13:'N8',14:'D6',15:'D6'}},
+  {id:'p037',nome:'Jeozadak Neves Marques',siape:'3401398',cargo:'Fisioterapeuta',vinculo:'EBSERH',ch:30,unidade:'fisiouti',posto:'fisio-uti-geral',dias:{2:'AB12D',3:'D6',4:'D6',5:'D6',6:'D6',7:'D6',8:'D6',13:'N8',14:'N8'}},
+  // AMBULATÓRIO FISIOTERAPIA
+  {id:'p038',nome:'Eveline do Nascimento Nóbrega',siape:'1178591',cargo:'Fisioterapeuta',vinculo:'RJU',ch:30,unidade:'fisioambu',posto:'fisio-ambu-geral',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
+  {id:'p039',nome:'Fernanda Cristina Santos Silva Ramos',siape:'1432550',cargo:'Fisioterapeuta',vinculo:'RJU',ch:30,unidade:'fisioambu',posto:'fisio-ambu-geral',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
+  {id:'p040',nome:'Jacqueline de Melo Barcelar',siape:'1432542',cargo:'Fisioterapeuta',vinculo:'RJU',ch:30,unidade:'fisioambu',posto:'fisio-ambu-geral',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
+  {id:'p041',nome:'Joselito Vitorino da Silva',siape:'1134711',cargo:'Fisioterapeuta',vinculo:'RJU',ch:30,unidade:'fisioambu',posto:'fisio-ambu-geral',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
+  {id:'p042',nome:'Michele Santiago de Carvalho',siape:'1432685',cargo:'Fisioterapeuta',vinculo:'RJU',ch:30,unidade:'fisioambu',posto:'fisio-ambu-geral',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
+  // FONOAUDIOLOGIA
+  {id:'p043',nome:'Alexsandra Glória Apolonio dos Santos',siape:'1460918',cargo:'Fonoaudióloga',vinculo:'EBSERH',ch:30,unidade:'fono',posto:'fono-audio',dias:{0:'FD6',3:'M13',4:'M13',5:'D5',6:'M13',7:'M13',10:'M13',11:'D5',12:'M13',13:'M13',14:'M13',15:'D5',17:'M13',18:'M13',19:'M13',20:'D5',24:'M13'}},
+  {id:'p044',nome:'Érika da Rocha Mahon',siape:'1295877',cargo:'Fonoaudióloga',vinculo:'RJU',ch:30,unidade:'fono',posto:'fono-audio',dias:{0:'FD6',3:'M15',4:'T15',5:'M15',6:'M15',7:'M15',10:'M15',11:'T15',12:'M15',13:'M15',14:'M15',17:'M15',18:'T15',19:'M15',20:'M15',21:'M15',24:'M15',25:'T15',26:'M15',27:'M15',28:'M15'}},
+  {id:'p045',nome:'Fabiana dos Santos Lira',siape:'1583073',cargo:'Fonoaudióloga',vinculo:'EBSERH',ch:40,unidade:'fono',posto:'fono-audio',dias:{0:'FD8',3:'MT26',4:'MT26',5:'MT26',6:'MT26',7:'MT26',10:'MT26',11:'MT26',12:'MT26',13:'MT26',14:'MT26',17:'MT26',18:'MT26',19:'MT26',20:'MT26',24:'MT26',25:'MT26',26:'MT26',27:'MT26',28:'MT26'}},
+  {id:'p046',nome:'Karina Polo Norte Danda Soares',siape:'2168087',cargo:'Fonoaudióloga',vinculo:'EBSERH',ch:30,unidade:'fono',posto:'fono-ambu',dias:{0:'FE6',1:'FE6',2:'FE12D',3:'FE6',10:'M15',11:'M15',12:'D5',13:'M15',14:'M15',15:'M15',17:'D5',18:'M15',19:'M15',20:'M15',21:'D5',24:'M15',25:'M15'}},
+  {id:'p047',nome:'Maria das Graças Duarte',siape:'2214837',cargo:'Fonoaudióloga',vinculo:'EBSERH',ch:30,unidade:'fono',posto:'fono-ambu',dias:{0:'FD6',1:'FE6',2:'FE6',3:'FE6',4:'FE6',5:'FE6',6:'FE6',7:'FE6',8:'FE6',11:'M13',12:'M13',13:'M13',14:'M13',15:'M13',17:'M13',18:'M13',19:'M13',20:'M13',21:'M13',24:'M13',25:'M13',26:'M13',27:'M13',28:'M13'}},
+  {id:'p048',nome:'Ana Maria Fontes Leite de Sá',siape:'2232182',cargo:'Fonoaudióloga',vinculo:'EBSERH',ch:30,unidade:'fono',posto:'fono-uti',dias:{0:'FD6',3:'M13',4:'M13',5:'M13',6:'M13',7:'M13',10:'M13',11:'M13',12:'M13',13:'M13',14:'M13',17:'M13',18:'M13',19:'M13',20:'M13',24:'M13',25:'M13',26:'M13',27:'M13',28:'M13'}},
+  {id:'p049',nome:'Rebeca Domingues Raposo',siape:'1542425',cargo:'Fonoaudióloga',vinculo:'EBSERH',ch:40,unidade:'fono',posto:'fono-unn',dias:{0:'FD8',3:'MT26',4:'MT26',5:'MT26',6:'MT26',7:'MT26',10:'MT26',11:'MT26',12:'MT26',13:'MT26',14:'MT26',17:'MT26',18:'MT26',19:'MT26',20:'MT26',24:'MT26',25:'MT26',26:'MT26',27:'MT26',28:'MT26'}},
+  {id:'p050',nome:'Luciana Santos Gerosino da Silva',siape:'1663621',cargo:'Fonoaudióloga',vinculo:'EBSERH',ch:30,unidade:'fono',posto:'fono-unn',dias:{0:'FD6',3:'T15',4:'T15',5:'T15',6:'D6',10:'T15',11:'T15',12:'T15',13:'D6',17:'T15',18:'T15',19:'T15',20:'D6',24:'T15',25:'T15',26:'T15',27:'D6'}},
+  // TERAPIA OCUPACIONAL
+  {id:'p051',nome:'Amanda Cavalcanti Belo',siape:'2173535',cargo:'Terapeuta Ocupacional',vinculo:'CLT',ch:30,unidade:'to',posto:'to-geral',dias:{0:'D5',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',9:'D5',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',15:'M15',17:'M15',18:'M15',19:'M15',20:'M15',21:'FE6',22:'FE6',23:'FE6'}},
+  {id:'p052',nome:'Ana Alice Pedro da Silva',siape:'1791454',cargo:'Terapeuta Ocupacional',vinculo:'RJU',ch:30,unidade:'to',posto:'to-geral',dias:{0:'FD0',3:'M13',4:'D5',5:'D5',10:'M13',11:'D5',12:'D5',17:'M13',18:'D5',19:'D5',24:'M13',25:'D5',26:'D5'}},
+  {id:'p053',nome:'Daniella Sousa de Oliveira',siape:'1109928',cargo:'Terapeuta Ocupacional',vinculo:'CLT',ch:30,unidade:'to',posto:'to-geral',dias:{0:'AFIN6',1:'AFIN6',2:'AFIN6',3:'AFIN6',4:'AFIN6',5:'AFIN6',6:'AFIN6',7:'AFIN6',8:'AFIN6',9:'AFIN6',10:'AFIN6',11:'AFIN6',12:'AFIN6'}},
+  {id:'p054',nome:'Débora Danielle A. dos Santos',siape:'1983027',cargo:'Terapeuta Ocupacional',vinculo:'CLT',ch:30,unidade:'to',posto:'to-geral',dias:{0:'FD6',3:'M13',4:'M13',5:'M13',6:'M16',10:'M13',11:'M13',12:'M13',13:'M13',14:'M16',17:'M13',18:'M13',19:'M13',20:'M16',21:'M13',22:'D5',23:'M13',24:'M13',25:'M16',26:'M13',27:'M13'}},
+  {id:'p055',nome:'Naianna Ribeiro M. dos Santos',siape:'2173787',cargo:'Terapeuta Ocupacional',vinculo:'CLT',ch:30,unidade:'to',posto:'to-geral',dias:{3:'M13',4:'M13',5:'M13',6:'D5',10:'M13',11:'M13',12:'M13',13:'D5',17:'M13',18:'M13',19:'M13',20:'D5',24:'M13',25:'M13',26:'M13',27:'D5'}},
+  {id:'p056',nome:'Tatiana Caldas Neves da Silva',siape:'1902523',cargo:'Terapeuta Ocupacional',vinculo:'RJU',ch:30,unidade:'to',posto:'to-geral',dias:{3:'D8',4:'T16',5:'M17',6:'T16',7:'D8',10:'T16',11:'M17',12:'T16',13:'D8',17:'T16',18:'M17',19:'T16',20:'D8',24:'T16',25:'M17',26:'T16'}},
+  {id:'p057',nome:'Renata Batista Marinho de Magalhães',siape:'1785452',cargo:'Terapeuta Ocupacional',vinculo:'CLT',ch:30,unidade:'to',posto:'to-geral',dias:{0:'FD6',3:'D5',4:'M13',5:'T16',6:'T16',7:'T16',8:'T16',11:'M13',12:'T16',13:'T16',14:'T16',15:'T16',18:'M13',19:'T16',20:'T16',21:'T16',22:'AB6',23:'AB6',24:'CH6',25:'CH6',26:'CH6',27:'CH6'}},
+  // NUTRIÇÃO
+  {id:'p058',nome:'Aline Rafaelly Apolônio da Silva',siape:'1791303',cargo:'Nutricionista',vinculo:'RJU',ch:30,unidade:'nutri',posto:'nutri-geral',dias:{0:'FD6',3:'M15',4:'M15',5:'M15',6:'M15',7:'M15',10:'M15',11:'M15',12:'M15',13:'M15',14:'M15',17:'M15',18:'M15',19:'M15',20:'M15',24:'M15',25:'M15',26:'M15',27:'M15',28:'M15'}},
+  {id:'p059',nome:'Amanda de Azevedo Araújo',siape:'1857350',cargo:'Nutricionista',vinculo:'RJU',ch:30,unidade:'nutri',posto:'nutri-noturno',dias:{7:'N8',8:'AFEB12',9:'AFEB12',10:'DSR',11:'N8',12:'N8',13:'N8',14:'N8',15:'N8',17:'N8'}},
+  {id:'p060',nome:'Helânia Virgínia Dantas dos Santos',siape:'2224548',cargo:'Nutricionista',vinculo:'EBSERH',ch:40,unidade:'nutri',posto:'nutri-geral',dias:{0:'FD8',3:'MT26',4:'MT26',5:'MT26',6:'MT26',7:'MT26',10:'MT26',11:'MT26',12:'MT26',13:'MT26',14:'MT26',17:'MT26',18:'MT26',19:'MT26',20:'MT26',24:'MT26',25:'MT26',26:'MT26',27:'MT26',28:'MT26'}},
+  {id:'p061',nome:'Leila Virginia da Silva Prado',siape:'2237773',cargo:'Nutricionista',vinculo:'EBSERH',ch:40,unidade:'nutri',posto:'nutri-noturno',dias:{2:'AB12N',3:'N8',4:'N8',5:'N8',6:'N8',7:'N8',10:'N8',11:'N8',21:'DSR',22:'DSR',24:'N8',25:'N8',27:'AB12N'}},
+  {id:'p062',nome:'Mayara Ferreira Bernardo',siape:'2347456',cargo:'Nutricionista',vinculo:'EBSERH',ch:40,unidade:'nutri',posto:'nutri-geral',dias:{0:'FD8',3:'MT26',4:'MT26',5:'MT26',6:'MT26',7:'MT26',10:'MT26',11:'MT26',12:'MT26',13:'MT26',14:'MT26',17:'MT26',18:'MT26',19:'MT26',20:'MT26',24:'MT26',25:'MT26',26:'MT26',27:'MT26',28:'MT26'}},
+  {id:'p063',nome:'Renata Simone de Oliveira Bandeira',siape:'2250262',cargo:'Nutricionista',vinculo:'EBSERH',ch:40,unidade:'nutri',posto:'nutri-noturno',dias:{3:'N8',4:'N8',5:'N8',6:'N8',7:'N8',10:'N8',11:'N8',14:'DSR',17:'N8',18:'N8',19:'N8',20:'N8',21:'N8',22:'DSR',24:'N8'}},
+  {id:'p064',nome:'Ludmilla Moema Lopes de Sousa',siape:'2347878',cargo:'Nutricionista',vinculo:'EBSERH',ch:40,unidade:'nutri',posto:'nutri-geral',dias:{0:'AFIN8',1:'AFIN8',2:'AFIN8',3:'AFIN8',4:'AFIN8',5:'AFIN8',6:'AFIN8',7:'AFIN8',8:'AFIN8',9:'AFIN8',10:'AFIN8',11:'AFIN8',12:'AFIN8',13:'AFIN8',14:'AFIN8',15:'AFIN8',16:'AFIN8',17:'AFIN8',18:'AFIN8',19:'AFIN8',20:'AFIN8'}},
+  // UCRIANÇA
+  {id:'p065',nome:'Adilson Da Silva Morato Filho',siape:'1485872',cargo:'Médico',vinculo:'HUBrasil',ch:24,unidade:'ucrianca',posto:'ucrianca-geral',dias:{2:'FE6',5:'T15',6:'M15',7:'M15',10:'M15',11:'M15',12:'T15'}},
+  {id:'p066',nome:'Barbara Barros De Figueiredo',siape:'1282163',cargo:'Médico',vinculo:'HUBrasil',ch:24,unidade:'ucrianca',posto:'ucrianca-geral',dias:{1:'FE120',5:'T15',6:'T15',7:'D6',10:'T15',11:'T15',15:'T15',16:'D6',22:'T15',23:'T15',24:'D6',29:'T15',30:'T15'}},
+  {id:'p067',nome:'Clarissa Maria Ayres De Melo Maranhao',siape:'3510985',cargo:'Médico',vinculo:'HUBrasil',ch:24,unidade:'ucrianca',posto:'ucrianca-geral',dias:{1:'FE120',3:'M15',7:'T15',8:'D6',14:'T15',15:'D6',21:'T15',22:'D6',28:'M15'}},
+  {id:'p068',nome:'Daniela Dos Santos Bastos',siape:'3372849',cargo:'Médico',vinculo:'HUBrasil',ch:24,unidade:'ucrianca',posto:'ucrianca-geral',dias:{1:'FE6',3:'M15',6:'M15',7:'M15',12:'M15',13:'M15',14:'M15',17:'M15',19:'M15',20:'M15',26:'M15',27:'M15',28:'M15'}},
+  // UUE
+  {id:'p069',nome:'Alice Marcelle de Souza Ferraz',siape:'######',cargo:'Médico',vinculo:'',ch:24,unidade:'uue',posto:'uue-clinica',dias:{3:'M15',4:'N8',5:'M15',6:'D6',7:'N8',11:'M15',12:'D6'}},
+  {id:'p070',nome:'Carolina Arruda Asfora',siape:'######',cargo:'Médico',vinculo:'',ch:24,unidade:'uue',posto:'uue-clinica',dias:{3:'T15',4:'D6',5:'DN5',6:'D6',7:'T15',8:'D6',9:'T15',14:'N8'}},
+  {id:'p071',nome:'Diego Lima Alves da Silva',siape:'######',cargo:'Médico',vinculo:'',ch:24,unidade:'uue',posto:'uue-clinica',dias:{7:'N8',8:'N8',9:'N8',10:'N8',11:'N8'}},
+  {id:'p072',nome:'Antonio Marcial Pinheiro de Alencar',siape:'2165660',cargo:'Médico',vinculo:'',ch:24,unidade:'uue',posto:'uue-cirurgia',dias:{7:'N8',8:'D6',9:'N8',10:'D6',11:'FE12N',12:'FE12D',13:'FE12N',14:'FE12D',15:'N8'}},
+  {id:'p073',nome:'Fernando de Santa Cruz Oliveira',siape:'3447521',cargo:'Médico',vinculo:'',ch:24,unidade:'uue',posto:'uue-cirurgia',dias:{3:'D6',4:'D6',5:'D6',6:'N8',7:'D6',8:'D6',9:'N8',10:'D6',11:'D6',12:'N8',13:'D6',14:'D6'}},
+  {id:'p074',nome:'Ana Beatriz Moura Raulino',siape:'######',cargo:'Médico',vinculo:'',ch:24,unidade:'uue',posto:'uue-pediatria',dias:{3:'M15',4:'N8',5:'M15',6:'M15',7:'N8',10:'M15',11:'M15',12:'N8',13:'M15',14:'M15',15:'N8',17:'M15',18:'M15'}},
+  {id:'p075',nome:'Gledys Felipe Carvalho',siape:'######',cargo:'Médico',vinculo:'',ch:24,unidade:'uue',posto:'uue-pediatria',dias:{3:'T15',4:'T15',5:'T15',6:'T15',7:'M15',8:'T15',9:'T15',10:'D6',11:'T15',12:'T15',16:'N8'}},
 ];
 
 // ===== FUNÇÕES AUXILIARES =====
+function nomeUnidade(id){const u=UNIDADES.find(x=>x.id===id);return u?u.nome:id;}
+function nomePosto(id){const p=POSTOS.find(x=>x.id===id);return p?p.nome:id;}
+function iniciais(n){const p=n.trim().split(' ');return(p[0][0]+(p[1]?p[1][0]:'')).toUpperCase();}
+
 function classeJ(cod){
   if(!cod)return'';
   if(cod.startsWith('FE'))return'jFE';
@@ -370,218 +439,318 @@ function classeJ(cod){
   if(cod.startsWith('FD'))return'jFD';
   if(cod==='DSR')return'jDSR';
   if(cod.startsWith('DN'))return'jDN';
+  if(cod.startsWith('MT'))return'jM';
   if(cod.startsWith('M'))return'jM';
   if(cod.startsWith('T'))return'jT';
   if(cod.startsWith('D'))return'jD';
   if(cod.startsWith('N'))return'jN';
   return'jAB';
 }
+
 function turno(cod){
   if(!cod||cod==='DSR'||cod.startsWith('FD'))return null;
   if(cod.startsWith('FE')||cod.startsWith('AFIN')||cod.startsWith('AFEB'))return'afastado';
-  if(cod.startsWith('M')||cod.startsWith('MT'))return'mat';
+  if(cod.startsWith('MT')||cod.startsWith('M'))return'mat';
   if(cod.startsWith('T'))return'vest';
-  if(cod.startsWith('D')||cod.startsWith('DN'))return'mat';
+  if(cod.startsWith('DN'))return'mat';
+  if(cod.startsWith('D'))return'mat';
   if(cod.startsWith('N'))return'not';
   if(cod.startsWith('CH')||cod.startsWith('AB'))return'mat';
-  return'mat';
-}
-function iniciais(n){const p=n.trim().split(' ');return(p[0][0]+(p[1]?p[1][0]:'')).toUpperCase();}
-function nomeUnidade(id){const u=UNIDADES.find(x=>x.id===id);return u?u.nome:id;}
-
-// ===== INICIALIZAR =====
-function init(){
-  // Resumo
-  document.getElementById('total-profs').textContent=PROFS.length;
-  const afas=PROFS.filter(p=>Object.values(p.dias).some(d=>d&&(d.startsWith('AFIN')||d.startsWith('AFEB')||d.startsWith('FE')))).length;
-  document.getElementById('total-afas').textContent=afas;
-  const siapeCount={};
-  PROFS.forEach(p=>{if(p.siape&&p.siape!=='######'){siapeCount[p.siape]=(siapeCount[p.siape]||[]);siapeCount[p.siape].push(p.unidade);}});
-  const multi=Object.values(siapeCount).filter(v=>[...new Set(v)].length>1).length;
-  document.getElementById('total-multi').textContent=multi||'—';
-
-  // Renderizar todas as unidades inicialmente
-  aplicarFiltros();
-
-  // Seletor de dias
-  const selDia=document.getElementById('sel-dia');
-  const selDiaUnid=document.getElementById('sel-dia-unid');
-  for(let i=0;i<31;i++){
-    const o=document.createElement('option');
-    o.value=i;o.textContent=`Dia ${i+1} (${DIAS_SEM[i]})`;
-    selDia.appendChild(o);
-  }
-  UNIDADES.forEach(u=>{
-    const o=document.createElement('option');
-    o.value=u.id;o.textContent=u.nome;
-    selDiaUnid.appendChild(o);
-  });
-
-  // Lista profissionais
-  buscarProf();
-  // Afastamentos
-  renderAfastamentos();
-  // Auditoria
-  renderAuditoria();
+  return null;
 }
 
-function renderTabelaUnidade(u,profs){
-  if(!profs.length)return`<div style="padding:2rem;text-align:center;color:var(--cinza-texto);font-size:13px">Nenhum profissional cadastrado nesta unidade.</div>`;
-  let h=`<div class="wrapper-tabela"><div class="cab-unid"><h3>${u.nome}</h3><span>${profs.length} profissionais · Maio 2026</span></div><div class="table-scroll"><table><thead><tr><th class="th-nome">Profissional</th><th>Cargo</th><th>Vínculo</th><th>CH</th>`;
-  for(let i=0;i<31;i++){h+=`<th class="${FDS.includes(i)?'fds':''}">${i+1}<br><span style="font-weight:400;font-size:9px">${DIAS_SEM[i]}</span></th>`;}
-  h+=`</tr></thead><tbody>`;
-  profs.forEach(p=>{
-    h+=`<tr><td class="td-nome">${p.nome}<br><span style="font-size:10px;color:#888">${p.siape}</span></td><td style="font-size:11px;white-space:nowrap">${p.cargo}</td><td style="font-size:11px">${p.vinculo}</td><td style="font-family:var(--mono);font-weight:600;color:var(--azul-med);font-size:11px">${p.ch}h</td>`;
-    for(let i=0;i<31;i++){
-      const cod=p.dias[i]||'';
-      const fc=FDS.includes(i)?'class="fds-cell"':'';
-      h+=cod?`<td ${fc}><span class="bj ${classeJ(cod)}">${cod}</span></td>`:`<td ${fc}><span class="sem-dado">·</span></td>`;
-    }
-    h+=`</tr>`;
-  });
-  h+=`</tbody></table></div><div class="legenda"><span style="font-size:11px;font-weight:600;color:var(--cinza-texto);margin-right:4px">Legenda:</span><span class="leg-item"><span class="bj jM">M</span> Matutino</span><span class="leg-item"><span class="bj jT">T</span> Vespertino</span><span class="leg-item"><span class="bj jD">D</span> Plantão Diurno</span><span class="leg-item"><span class="bj jN">N</span> Plantão Noturno</span><span class="leg-item"><span class="bj jDN">DN</span> Diurno/Noturno</span><span class="leg-item"><span class="bj jFE">FE</span> Férias</span><span class="leg-item"><span class="bj jAFIN">AFIN</span> Afastamento INSS</span><span class="leg-item"><span class="bj jAFEB">AFEB</span> Afastamento EBSERH</span><span class="leg-item"><span class="bj jCH">CH</span> Comp. Horas</span><span class="leg-item"><span class="bj jAB">AB</span> Abono</span><span class="leg-item"><span class="bj jDSR">DSR</span> Descanso</span></div></div>`;
-  return h;
-}
-
-function renderPorDia(){
-  const dia=parseInt(document.getElementById('sel-dia').value);
-  const unidFiltro=document.getElementById('sel-dia-unid').value;
-  const el=document.getElementById('resultado-dia');
-  if(isNaN(dia)){el.innerHTML='';return;}
-  const ds=DIAS_SEM[dia];
-  let profsNoDia=PROFS.filter(p=>{
-    const cod=p.dias[dia];
-    if(!cod)return false;
-    if(unidFiltro&&p.unidade!==unidFiltro)return false;
-    return true;
-  });
-  if(!profsNoDia.length){el.innerHTML=`<div style="padding:2rem;text-align:center;color:var(--cinza-texto)">Nenhum profissional escalado neste dia.</div>`;return;}
-  const mat=profsNoDia.filter(p=>turno(p.dias[dia])==='mat');
-  const vest=profsNoDia.filter(p=>turno(p.dias[dia])==='vest');
-  const not=profsNoDia.filter(p=>turno(p.dias[dia])==='not');
-  const afas=profsNoDia.filter(p=>turno(p.dias[dia])==='afastado');
-  function bloco(lista,cls,titulo){
-    if(!lista.length)return'';
-    return`<div class="dia-card"><div class="dia-card-header ${cls}">${titulo} — ${lista.length} profissionais</div><div class="dia-card-body">${lista.map(p=>`<div class="dia-prof"><div><div class="dia-prof-nome">${p.nome}</div><div class="dia-prof-unid">${nomeUnidade(p.unidade)} · ${p.cargo}</div></div><span class="bj ${classeJ(p.dias[dia])}">${p.dias[dia]}</span></div>`).join('')}</div></div>`;
-  }
-  el.innerHTML=`<div class="secao-titulo">Dia ${dia+1} de Maio (${ds}) — ${profsNoDia.length} profissionais</div><div class="dia-grid">${bloco(mat,'mat','Turno Matutino')}${bloco(vest,'vest','Turno Vespertino')}${bloco(not,'not','Turno Noturno')}${bloco(afas,'mat','Afastados/Férias')}</div>`;
-}
-
-// ===== POR TRABALHADOR =====
-function calcularHorasProfissional(p){
-  // Estima horas pelo código de jornada
-  const horasCodigo={'M15':6,'M13':6,'M17':6,'M26':8,'MT26':8,'MT17':8,'T15':6,'T16':6,'T13':6,'D6':12,'D8':12,'D5':12,'D11':12,'N8':12,'N8':12,'DN5':24};
+function estimarHoras(p){
+  const mapa={M15:6,M13:6,M17:6,M16:6,M10:4,MT26:8,MT17:8,T15:6,T16:6,T13:6,T14:6,T9:4,D6:12,D8:12,D5:12,D11:12,D12:12,N8:12,DN5:24,DN:24};
   let total=0;
   Object.values(p.dias).forEach(cod=>{
-    if(!cod||cod.startsWith('FE')||cod.startsWith('AF')||cod==='DSR'||cod.startsWith('FD')) return;
-    // tenta achar no mapa ou extrai número do código
-    if(horasCodigo[cod]){total+=horasCodigo[cod];return;}
-    const num=parseInt(cod.replace(/[^0-9]/g,''));
-    if(!isNaN(num)&&num>0&&num<=24) total+=num<=8?num*2:num;
-    else if(cod.startsWith('M')||cod.startsWith('T')) total+=6;
-    else if(cod.startsWith('D')||cod.startsWith('N')) total+=12;
-    else if(cod.startsWith('DN')) total+=24;
+    if(!cod||cod.startsWith('FE')||cod.startsWith('AFIN')||cod.startsWith('AFEB')||cod==='DSR'||cod.startsWith('FD')||cod.startsWith('AB'))return;
+    if(mapa[cod]){total+=mapa[cod];return;}
+    const base=cod.replace(/\d+/g,'');
+    if(base.startsWith('MT'))total+=8;
+    else if(base.startsWith('M')||base.startsWith('T'))total+=6;
+    else if(base.startsWith('DN'))total+=24;
+    else if(base.startsWith('D')||base.startsWith('N'))total+=12;
   });
   return total;
 }
 
-function renderWorkerCard(siape, profs){
-  const p = profs[0];
-  const todasUnids = [...new Set(profs.map(x=>x.unidade))];
-  const chContratual = p.ch * 4; // aprox mensal
-  const diasFe = Object.values(p.dias).filter(d=>d&&d.startsWith('FE')).length;
-  const diasAfas = Object.values(p.dias).filter(d=>d&&(d.startsWith('AFIN')||d.startsWith('AFEB'))).length;
-
-  // Calcular horas por unidade
-  const horasPorUnidade = todasUnids.map(uid=>{
-    const pp = profs.find(x=>x.unidade===uid)||p;
-    const horas = calcularHorasProfissional(pp);
-    return {uid, nome:nomeUnidade(uid), horas};
+// ===== POPULAR SELECTS =====
+function popularSelects(){
+  const selects={
+    'f-unidade':document.getElementById('f-unidade'),
+    'd-unidade':document.getElementById('d-unidade'),
+    't-unidade':document.getElementById('t-unidade'),
+    'a-unidade':document.getElementById('a-unidade'),
+  };
+  UNIDADES.forEach(u=>{
+    Object.values(selects).forEach(sel=>{
+      const o=document.createElement('option');
+      o.value=u.id;o.textContent=u.nome;
+      sel.appendChild(o);
+    });
   });
-  const totalHoras = horasPorUnidade.reduce((s,u)=>s+u.horas,0);
-  const excesso = totalHoras > chContratual * 1.1;
-
-  let badge='';
-  if(diasAfas>5) badge=`<span class="fe-badge">⚠ Afastado</span>`;
-  else if(diasFe>5) badge=`<span class="fe-badge">Férias</span>`;
-  else if(excesso) badge=`<span class="ch-badge">▲ CH excedida</span>`;
-  else badge=`<span class="reg-badge">✓ Regular</span>`;
-
-  const unidsHtml = horasPorUnidade.map(u=>`
-    <div class="worker-unid${excesso&&todasUnids.length>1?' excesso':''}">
-      <div>
-        <div class="wu-nome">${u.nome}</div>
-        <div class="wu-info">${u.horas}h escaladas</div>
-      </div>
-      <div class="wu-horas${excesso?' excesso':''}">${u.horas}h</div>
-    </div>`).join('');
-
-  return`<div class="worker-card">
-    <div class="worker-header">
-      <div class="avatar">${iniciais(p.nome)}</div>
-      <div style="flex:1;min-width:0">
-        <div class="worker-nome">${p.nome}</div>
-        <div class="worker-cargo">${p.cargo} · SIAPE ${p.siape} · CH ${p.ch}h/sem · ${p.vinculo||'—'}</div>
-      </div>
-      ${badge}
-    </div>
-    <div class="worker-body">
-      <div class="worker-unids">${unidsHtml}</div>
-      <div class="worker-total">
-        <span class="wt-label">Total escalado — Maio</span>
-        <span class="wt-valor${excesso?' excesso':''}">${totalHoras}h</span>
-      </div>
-    </div>
-  </div>`;
+  // Seletor de dias
+  const selDia=document.getElementById('d-dia');
+  for(let i=0;i<31;i++){
+    const o=document.createElement('option');
+    o.value=i;o.textContent=`${i+1} — ${DIAS_SEM[i]}`;
+    selDia.appendChild(o);
+  }
+  // Postos
+  popularPostos('f-posto','');
+  popularPostos('d-posto','');
 }
 
-function buscarProf(){
-  const q = document.getElementById('busca-prof').value.toLowerCase().trim();
-  const cat = document.getElementById('filtro-prof-cat').value.toLowerCase();
-  const el = document.getElementById('resultado-prof');
+function popularPostos(selId, unidId){
+  const sel=document.getElementById(selId);
+  if(!sel)return;
+  const val=sel.value;
+  sel.innerHTML='<option value="">Todos</option>';
+  const lista=unidId?POSTOS.filter(p=>p.unidade===unidId):POSTOS;
+  lista.forEach(p=>{
+    const o=document.createElement('option');
+    o.value=p.id;o.textContent=p.nome;
+    sel.appendChild(o);
+  });
+  if(val)sel.value=val;
+}
 
-  // Agrupa profissionais por SIAPE
-  const grupos = {};
-  PROFS.forEach(p=>{
-    if(q && !p.nome.toLowerCase().includes(q) && !p.siape.includes(q)) return;
-    if(cat && !p.cargo.toLowerCase().includes(cat)) return;
-    const key = p.siape!=='######' ? p.siape : p.id;
-    if(!grupos[key]) grupos[key]=[];
+// ===== POR UNIDADE =====
+function renderUnidades(){
+  const unidSel=document.getElementById('f-unidade').value;
+  const postoSel=document.getElementById('f-posto').value;
+  const catSel=document.getElementById('f-cat').value.toLowerCase();
+  const nomeSel=document.getElementById('f-nome').value.toLowerCase().trim();
+  popularPostos('f-posto',unidSel);
+
+  const unidsVer=unidSel?UNIDADES.filter(u=>u.id===unidSel):UNIDADES;
+  const blocos=document.getElementById('blocos-unidades');
+  blocos.innerHTML='';
+
+  unidsVer.forEach(u=>{
+    let profs=PROFS.filter(p=>p.unidade===u.id);
+    if(postoSel)profs=profs.filter(p=>p.posto===postoSel);
+    if(catSel)profs=profs.filter(p=>p.cargo.toLowerCase().includes(catSel));
+    if(nomeSel)profs=profs.filter(p=>p.nome.toLowerCase().includes(nomeSel)||(p.siape&&p.siape.includes(nomeSel)));
+    if(!profs.length&&(catSel||nomeSel||postoSel))return;
+
+    // Agrupar por posto
+    const postosDaUnidade=[...new Set(profs.map(p=>p.posto))];
+    let tabelasHtml='';
+    postosDaUnidade.forEach(postoId=>{
+      const profsPostos=profs.filter(p=>p.posto===postoId);
+      const nomePosLabel=nomePosto(postoId);
+      tabelasHtml+=`<div style="margin-bottom:.5rem">
+        <div style="padding:6px 14px;background:#e8f0fb;font-size:11px;font-weight:600;color:var(--azul);border-top:1px solid var(--cinza-borda)">
+          Posto de Serviço: ${nomePosLabel} — ${profsPostos.length} profissional(is)
+        </div>
+        ${renderTabelaCorpo(profsPostos)}
+      </div>`;
+    });
+
+    const bloco=document.createElement('div');
+    bloco.className='wrapper-tabela';
+    bloco.innerHTML=`
+      <div class="cab-unid"><h3>${u.nome}</h3><span>${profs.length} profissionais · Maio 2026</span></div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr>
+            <th class="th-nome">Profissional / SIAPE</th>
+            <th>Cargo</th><th>Posto</th><th>Vínculo</th><th>CH</th>
+            ${Array.from({length:31},(_,i)=>`<th class="${FDS_IDX.includes(i)?'fds':''}">${i+1}<br><span style="font-weight:400;font-size:9px">${DIAS_SEM[i]}</span></th>`).join('')}
+          </tr></thead>
+          <tbody>${profs.map(p=>renderLinhaProf(p)).join('')}</tbody>
+        </table>
+      </div>
+      <div class="legenda">
+        <span style="font-size:11px;font-weight:600;color:var(--cinza-texto);margin-right:4px">Legenda:</span>
+        ${[['jM','M','Matutino'],['jT','T','Vespertino'],['jD','D','Plantão Diurno'],['jN','N','Plantão Noturno'],['jDN','DN','24h'],['jFE','FE','Férias'],['jAFIN','AF','Afastamento'],['jCH','CH','Comp.Horas'],['jAB','AB','Abono'],['jDSR','DSR','Descanso']].map(([c,s,l])=>`<span class="leg-item"><span class="bj ${c}">${s}</span> ${l}</span>`).join('')}
+      </div>`;
+    blocos.appendChild(bloco);
+  });
+
+  if(!blocos.children.length){
+    blocos.innerHTML='<div style="padding:2rem;text-align:center;color:var(--cinza-texto);font-size:13px">Nenhum resultado encontrado.</div>';
+  }
+}
+
+function renderLinhaProf(p){
+  let html=`<tr>
+    <td class="td-nome">${p.nome}<br><span style="font-size:10px;color:#999;font-weight:400">SIAPE: ${p.siape}</span></td>
+    <td style="font-size:11px;white-space:nowrap">${p.cargo}</td>
+    <td style="font-size:11px;color:var(--cinza-texto)">${nomePosto(p.posto)}</td>
+    <td style="font-size:11px">${p.vinculo||'—'}</td>
+    <td style="font-family:var(--mono);font-weight:600;color:var(--azul-med);font-size:11px">${p.ch}h</td>`;
+  for(let i=0;i<31;i++){
+    const cod=p.dias[i]||'';
+    const fc=FDS_IDX.includes(i)?'class="fds-cell"':'';
+    html+=cod?`<td ${fc}><span class="bj ${classeJ(cod)}">${cod}</span></td>`:`<td ${fc}><span class="sem-dado">·</span></td>`;
+  }
+  return html+'</tr>';
+}
+
+function renderTabelaCorpo(profs){
+  return profs.map(p=>renderLinhaProf(p)).join('');
+}
+
+function limparFiltrosUnidade(){
+  ['f-unidade','f-posto','f-cat'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('f-nome').value='';
+  renderUnidades();
+}
+
+// ===== POR DIA =====
+function renderPorDia(){
+  const dia=parseInt(document.getElementById('d-dia').value);
+  const unidF=document.getElementById('d-unidade').value;
+  const postoF=document.getElementById('d-posto').value;
+  const ano=document.getElementById('d-ano').value;
+  const mes=document.getElementById('d-mes');
+  const mesNome=mes.options[mes.selectedIndex].text;
+  const el=document.getElementById('resultado-dia');
+  if(isNaN(dia)){el.innerHTML='<div style="padding:2rem;text-align:center;color:var(--cinza-texto)">Selecione um dia para ver os profissionais escalados.</div>';return;}
+
+  popularPostos('d-posto',unidF);
+
+  let lista=PROFS.filter(p=>{
+    if(!p.dias[dia])return false;
+    if(unidF&&p.unidade!==unidF)return false;
+    if(postoF&&p.posto!==postoF)return false;
+    return true;
+  });
+
+  const mat=lista.filter(p=>turno(p.dias[dia])==='mat');
+  const vest=lista.filter(p=>turno(p.dias[dia])==='vest');
+  const not=lista.filter(p=>turno(p.dias[dia])==='not');
+  const afas=lista.filter(p=>turno(p.dias[dia])==='afastado');
+
+  function bloco(profs,cls,titulo){
+    if(!profs.length)return'';
+    return`<div class="dia-card">
+      <div class="dia-card-header ${cls}">${titulo} — ${profs.length} profissional(is)</div>
+      <div class="dia-card-body">
+        ${profs.map(p=>`<div class="dia-prof">
+          <div>
+            <div class="dia-prof-nome">${p.nome}</div>
+            <div class="dia-prof-info">${nomeUnidade(p.unidade)} · ${nomePosto(p.posto)} · ${p.cargo}</div>
+          </div>
+          <span class="bj ${classeJ(p.dias[dia])}">${p.dias[dia]}</span>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }
+
+  el.innerHTML=`
+    <div class="secao-titulo">Dia ${dia+1} de ${mesNome} de ${ano} (${DIAS_SEM[dia]}) — ${lista.length} profissionais</div>
+    <div class="dia-grid">
+      ${bloco(mat,'mat','Turno Matutino')}
+      ${bloco(vest,'vest','Turno Vespertino')}
+      ${bloco(not,'not','Turno Noturno')}
+      ${bloco(afas,'afas','Afastados / Férias')}
+    </div>`;
+}
+
+// ===== POR TRABALHADOR =====
+function renderTrabalhador(){
+  const q=document.getElementById('t-nome').value.toLowerCase().trim();
+  const cat=document.getElementById('t-cat').value.toLowerCase();
+  const unidF=document.getElementById('t-unidade').value;
+  const el=document.getElementById('resultado-trabalhador');
+
+  // Filtrar profissionais
+  let lista=PROFS.filter(p=>{
+    if(q&&!p.nome.toLowerCase().includes(q)&&!p.siape.includes(q))return false;
+    if(cat&&!p.cargo.toLowerCase().includes(cat))return false;
+    if(unidF&&p.unidade!==unidF)return false;
+    return true;
+  });
+
+  // Agrupar por SIAPE (ou id se SIAPE inválido)
+  const grupos={};
+  lista.forEach(p=>{
+    const key=p.siape!=='######'?p.siape:p.id;
+    if(!grupos[key])grupos[key]=[];
     grupos[key].push(p);
   });
 
-  const keys = Object.keys(grupos);
+  const keys=Object.keys(grupos);
   if(!keys.length){
-    el.innerHTML=`<div style="padding:2rem;text-align:center;color:var(--cinza-texto);font-size:13px">Nenhum profissional encontrado.</div>`;
+    el.innerHTML='<div style="padding:2rem;text-align:center;color:var(--cinza-texto)">Nenhum profissional encontrado.</div>';
     return;
   }
 
-  // Separa multi-unidades dos demais
-  const multi = keys.filter(k=>([...new Set(grupos[k].map(p=>p.unidade))].length>1));
-  const simples = keys.filter(k=>([...new Set(grupos[k].map(p=>p.unidade))].length===1));
+  // Separa multi-unidade dos demais
+  const multi=keys.filter(k=>[...new Set(grupos[k].map(p=>p.unidade))].length>1);
+  const simples=keys.filter(k=>[...new Set(grupos[k].map(p=>p.unidade))].length===1);
 
-  let html = '';
-  if(multi.length){
-    html += `<div class="secao-titulo">Profissionais com escala em múltiplas unidades</div>`;
-    html += `<div class="worker-grid">${multi.map(k=>renderWorkerCard(k,grupos[k])).join('')}</div>`;
-  }
-  html += `<div class="secao-titulo">${multi.length?'Demais profissionais':'Todos os profissionais'}</div>`;
-  html += `<div class="lista-profs">${simples.map(k=>{
-    const p=grupos[k][0];
-    const diasAfas=Object.values(p.dias).filter(d=>d&&(d.startsWith('AFIN')||d.startsWith('AFEB'))).length;
+  function workerCard(key){
+    const profs=grupos[key];
+    const p=profs[0];
+    const unids=[...new Set(profs.map(x=>x.unidade))];
+    const isMulti=unids.length>1;
+    const chContratual=p.ch*4;
+
+    // Horas por unidade+posto
+    const itens=profs.map(pp=>({
+      unid:pp.unidade,posto:pp.posto,
+      horas:estimarHoras(pp)
+    }));
+    const totalHoras=itens.reduce((s,x)=>s+x.horas,0);
+    const excesso=totalHoras>chContratual*1.15;
+
     const diasFe=Object.values(p.dias).filter(d=>d&&d.startsWith('FE')).length;
-    let badge='';
-    if(diasAfas>0)badge=`<span class="mini-badge badge-afas">Afastado</span>`;
-    else if(diasFe>0)badge=`<span class="mini-badge badge-afas">Férias</span>`;
-    else badge=`<span class="mini-badge badge-ok">Ativo</span>`;
-    return`<div class="mini-card"><div class="mini-nome">${p.nome}</div><div class="mini-info">${p.cargo} · ${nomeUnidade(p.unidade)}</div><div class="mini-info" style="color:#aaa">SIAPE: ${p.siape}</div>${badge}</div>`;
-  }).join('')}</div>`;
+    const diasAfas=Object.values(p.dias).filter(d=>d&&(d.startsWith('AFIN')||d.startsWith('AFEB'))).length;
 
-  el.innerHTML = html;
+    let badge='';
+    if(diasAfas>5)badge=`<span class="fe-badge">⚠ Afastado</span>`;
+    else if(diasFe>10)badge=`<span class="fe-badge">🏖 Férias</span>`;
+    else if(excesso)badge=`<span class="ch-badge">▲ CH excedida</span>`;
+    else badge=`<span class="reg-badge">✓ Regular</span>`;
+
+    const unidsHtml=itens.map(it=>`
+      <div class="worker-unid${isMulti?' multi':''}${excesso?' excesso':''}">
+        <div class="wu-row">
+          <div>
+            <div class="wu-nome">${nomeUnidade(it.unid)}</div>
+            <div class="wu-posto">Posto: ${nomePosto(it.posto)} · ${it.horas}h escaladas</div>
+          </div>
+          <div class="wu-horas${excesso?' excesso':''}">${it.horas}h</div>
+        </div>
+      </div>`).join('');
+
+    return`<div class="worker-card">
+      <div class="worker-header">
+        <div class="avatar">${iniciais(p.nome)}</div>
+        <div style="flex:1;min-width:0">
+          <div class="worker-nome">${p.nome}</div>
+          <div class="worker-cargo">
+            ${p.cargo} · SIAPE ${p.siape}<br>
+            CH ${p.ch}h/sem (≈${chContratual}h/mês) · ${p.vinculo||'—'}
+          </div>
+        </div>
+        ${badge}
+      </div>
+      <div class="worker-body">
+        <div class="worker-unids">${unidsHtml}</div>
+        <div class="worker-total">
+          <span class="wt-label">Total escalado — Maio 2026</span>
+          <span class="wt-valor${excesso?' excesso':''}">${totalHoras}h</span>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  let html='';
+  if(multi.length){
+    html+=`<div class="secao-titulo">Profissionais com escala em múltiplas unidades</div>`;
+    html+=`<div class="worker-grid">${multi.map(k=>workerCard(k)).join('')}</div>`;
+  }
+  html+=`<div class="secao-titulo">${multi.length?'Demais profissionais':'Todos os profissionais'} (${simples.length})</div>`;
+  html+=`<div class="worker-grid">${simples.map(k=>workerCard(k)).join('')}</div>`;
+  el.innerHTML=html;
 }
 
-function renderListaProfs(lista){ buscarProf(); }
-
+// ===== AFASTAMENTOS =====
 function renderAfastamentos(){
   const afas=[];
   PROFS.forEach(p=>{
@@ -600,193 +769,224 @@ function renderAfastamentos(){
   document.getElementById('cnt-afin').textContent=afas.filter(a=>a.tipo==='afin').length;
   document.getElementById('cnt-afeb').textContent=afas.filter(a=>a.tipo==='afeb').length;
   document.getElementById('cnt-ch').textContent=afas.filter(a=>a.tipo==='ch').length;
-  document.getElementById('afas-grid').innerHTML=afas.map(a=>`<div class="afas-card ${a.tipo}"><div class="afas-tipo">${a.label}</div><div class="afas-nome">${a.p.nome}</div><div class="afas-info">${a.p.cargo} · ${nomeUnidade(a.p.unidade)}</div><div class="afas-dias">Dias: ${a.dias.join(', ')}</div></div>`).join('');
+  document.getElementById('afas-grid').innerHTML=afas.map(a=>`
+    <div class="afas-card ${a.tipo}">
+      <div class="afas-tipo">${a.label}</div>
+      <div class="afas-nome">${a.p.nome}</div>
+      <div class="afas-info">${a.p.cargo} · ${nomeUnidade(a.p.unidade)} · ${nomePosto(a.p.posto)}</div>
+      <div class="afas-dias">Dias: ${a.dias.join(', ')}</div>
+    </div>`).join('');
 }
 
+// ===== AUDITORIA =====
 function renderAuditoria(){
-  const tbody=document.getElementById('tbody-auditoria');
-  let alertas=0,multi=0,ok=0;
-  const rows=PROFS.map(p=>{
-    const diasTrab=Object.values(p.dias).filter(d=>d&&!d.startsWith('FE')&&!d.startsWith('AF')&&d!=='DSR'&&!d.startsWith('FD')).length;
-    const ocorr=[];
-    const diasFe=Object.values(p.dias).filter(d=>d&&d.startsWith('FE')).length;
-    const diasAfin=Object.values(p.dias).filter(d=>d&&d.startsWith('AFIN')).length;
-    const diasAfeb=Object.values(p.dias).filter(d=>d&&d.startsWith('AFEB')).length;
-    if(diasFe>0)ocorr.push(`Férias: ${diasFe}d`);
-    if(diasAfin>0)ocorr.push(`AFIN: ${diasAfin}d`);
-    if(diasAfeb>0)ocorr.push(`AFEB: ${diasAfeb}d`);
-    const todos=PROFS.filter(x=>x.siape===p.siape&&x.siape!=='######');
-    const unids=[...new Set(todos.map(x=>x.unidade))];
+  const q=document.getElementById('a-nome').value.toLowerCase().trim();
+  const unidF=document.getElementById('a-unidade').value;
+  const sitF=document.getElementById('a-sit').value;
+
+  // Agrupar por SIAPE
+  const grupos={};
+  PROFS.forEach(p=>{
+    const key=p.siape!=='######'?p.siape:p.id;
+    if(!grupos[key])grupos[key]=[];
+    grupos[key].push(p);
+  });
+
+  let alertas=0,multi=0,okCnt=0,afasCnt=0;
+  const rows=[];
+
+  Object.keys(grupos).forEach(key=>{
+    const profs=grupos[key];
+    const p=profs[0];
+    if(q&&!p.nome.toLowerCase().includes(q)&&!p.siape.includes(q))return;
+    if(unidF&&!profs.some(x=>x.unidade===unidF))return;
+
+    const unids=[...new Set(profs.map(x=>x.unidade))];
+    const postos=[...new Set(profs.map(x=>x.posto))];
     const isMulti=unids.length>1;
-    if(isMulti){ocorr.push('Múltiplas unidades');multi++;}
+    const chContratual=p.ch*4;
+    const totalHoras=profs.reduce((s,pp)=>s+estimarHoras(pp),0);
+    const diasTrab=Object.values(p.dias).filter(d=>d&&!d.startsWith('FE')&&!d.startsWith('AF')&&d!=='DSR'&&!d.startsWith('FD')).length;
+    const diasAfas=Object.values(p.dias).filter(d=>d&&(d.startsWith('AFIN')||d.startsWith('AFEB'))).length;
+    const diasFe=Object.values(p.dias).filter(d=>d&&d.startsWith('FE')).length;
+
+    const ocorr=[];
+    if(diasFe>0)ocorr.push(`Férias: ${diasFe}d`);
+    if(diasAfas>0)ocorr.push(`Afastamento: ${diasAfas}d`);
+    if(isMulti)ocorr.push(`${unids.length} unidades`);
+
     let sit,badge;
-    if(diasAfin>10){alertas++;sit='Verificar';badge='alerta-badge';}
-    else if(isMulti){sit='Atenção';badge='aviso-badge';}
-    else{ok++;sit='Conforme';badge='ok-badge';}
-    return`<tr><td class="td-nome" style="position:sticky;left:0;background:white">${p.nome}</td><td style="font-family:var(--mono);font-size:11px">${p.siape}</td><td style="font-size:11px">${p.cargo}</td><td style="font-size:11px">${p.vinculo}</td><td style="font-size:11px">${unids.map(nomeUnidade).join('; ')}</td><td style="font-family:var(--mono);text-align:center">${p.ch*4}h</td><td style="font-family:var(--mono);text-align:center">${diasTrab}</td><td style="font-size:11px">${ocorr.join(' · ')||'—'}</td><td><span class="${badge}">${sit}</span></td></tr>`;
-  });
-  document.getElementById('cnt-alerta').textContent=alertas;
-  document.getElementById('cnt-multi-audit').textContent=multi;
-  document.getElementById('cnt-ok').textContent=ok;
-  tbody.innerHTML=rows.join('');
-}
+    const excesso=totalHoras>chContratual*1.15;
+    if(excesso){sit='Alerta CH';badge='alerta-badge';alertas++;}
+    else if(isMulti){sit='Múltiplas unidades';badge='aviso-badge';multi++;}
+    else if(diasAfas>5){sit='Afastado';badge='aviso-badge';afasCnt++;}
+    else{sit='Conforme';badge='ok-badge';okCnt++;}
 
-// ===== FILTROS POR UNIDADE =====
-let unidadeAtiva = null;
-
-function aplicarFiltros(){
-  const unidSel = document.getElementById('filtro-unidade').value;
-  const cat = document.getElementById('filtro-categoria').value.toLowerCase();
-  const nome = document.getElementById('filtro-nome').value.toLowerCase().trim();
-  const blocos = document.getElementById('blocos-unidades');
-
-  // Quais unidades mostrar
-  const unidsParaMostrar = unidSel ? UNIDADES.filter(u=>u.id===unidSel) : UNIDADES;
-
-  blocos.innerHTML = '';
-  unidsParaMostrar.forEach(u=>{
-    let profs = PROFS.filter(p=>p.unidade===u.id);
-    if(cat) profs = profs.filter(p=>p.cargo.toLowerCase().includes(cat));
-    if(nome) profs = profs.filter(p=>p.nome.toLowerCase().includes(nome)||(p.siape&&p.siape.includes(nome)));
-    if(!profs.length && (cat||nome)) return; // omite unidade sem resultados
-    const bloco = document.createElement('div');
-    bloco.innerHTML = renderTabelaUnidade(u, profs);
-    blocos.appendChild(bloco);
-  });
-}
-
-function limparFiltros(){
-  document.getElementById('filtro-unidade').value='';
-  document.getElementById('filtro-categoria').value='';
-  document.getElementById('filtro-nome').value='';
-  aplicarFiltros();
-}
-
-// ===== EXPORTAR PDF DA UNIDADE SELECIONADA =====
-function exportarPDFUnidade(){
-  const unidSel = document.getElementById('filtro-unidade').value;
-  const cat = document.getElementById('filtro-categoria').value.toLowerCase();
-  const nome = document.getElementById('filtro-nome').value.toLowerCase().trim();
-  const mes = document.getElementById('filtro-mes').value;
-
-  const unidsParaExportar = unidSel ? UNIDADES.filter(u=>u.id===unidSel) : UNIDADES;
-
-  const estilo = `<style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Arial,sans-serif;font-size:11px;color:#000;padding:10mm}
-    .pagina{page-break-after:always;margin-bottom:0}
-    .pagina:last-child{page-break-after:avoid}
-    .cab{margin-bottom:8px}
-    .cab h1{font-size:14px;color:#1a3a5c;margin-bottom:2px}
-    .cab h2{font-size:12px;color:#1a3a5c;margin-bottom:1px}
-    .cab p{font-size:10px;color:#666}
-    table{width:100%;border-collapse:collapse;table-layout:fixed}
-    th{background:#1a3a5c;color:white;padding:5px 3px;font-size:9px;text-align:center;border:1px solid #0d2a45}
-    th.th-nome{text-align:left;padding-left:8px;width:180px;font-size:10px}
-    th.th-info{width:55px;font-size:9px}
-    td{padding:4px 2px;text-align:center;border:1px solid #e0e0e0;font-size:9px}
-    td.td-nome{text-align:left;padding-left:8px;font-weight:bold;font-size:11px;border-right:2px solid #ccc}
-    td.td-info{font-size:10px}
-    .bj{display:inline-block;padding:2px 3px;border-radius:2px;font-size:9px;font-weight:bold}
-    .jM{background:#e8f0fb;color:#1a3a5c}
-    .jT{background:#fff3e0;color:#7b4a00}
-    .jD{background:#e1f5ee;color:#0f6e56}
-    .jN{background:#1a3a5c;color:#ddd}
-    .jFE{background:#fdecea;color:#c0392b}
-    .jAFIN,.jAFEB{background:#fef9e7;color:#b7950b}
-    .jCH{background:#f0ebfe;color:#6c3fc5}
-    .jAB,.jDSR,.jFD{background:#f0f2f6;color:#666}
-    .jDN{background:#d4edda;color:#155724}
-    .fds{background:#f0f4f8}
-    tr:nth-child(even) td{background:#fafafa}
-    tr:nth-child(even) td.td-nome{background:#fafafa}
-    tr:nth-child(even) td.fds{background:#eef2f8}
-    .legenda{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;font-size:9px}
-    .leg{display:flex;align-items:center;gap:3px}
-    @media print{
-      @page{size:A4 landscape;margin:8mm}
-      body{padding:0}
+    if(sitF){
+      if(sitF==='alerta'&&!excesso)return;
+      if(sitF==='multi'&&!isMulti)return;
+      if(sitF==='afastado'&&diasAfas<=5)return;
+      if(sitF==='conforme'&&(excesso||isMulti||diasAfas>5))return;
     }
-  </style>`;
 
-  let conteudo = '';
-
-  unidsParaExportar.forEach(u=>{
-    let profs = PROFS.filter(p=>p.unidade===u.id);
-    if(cat) profs = profs.filter(p=>p.cargo.toLowerCase().includes(cat));
-    if(nome) profs = profs.filter(p=>p.nome.toLowerCase().includes(nome)||(p.siape&&p.siape.includes(nome)));
-    if(!profs.length) return;
-
-    // Divide em dois blocos: dias 1-16 e dias 17-31
-    const metades = [[0,15],[16,30]];
-    metades.forEach(([inicio,fim],mi)=>{
-      const labelMes = mi===0 ? `Dias 1–16` : `Dias 17–31`;
-      conteudo += `<div class="pagina">`;
-      conteudo += `<div class="cab">
-        <h1>Hospital das Clínicas / UFPE — Escala Mensal de Trabalho</h1>
-        <h2>${u.nome} &nbsp;·&nbsp; ${mes} &nbsp;·&nbsp; ${labelMes}</h2>
-        <p>Gerado em ${new Date().toLocaleDateString('pt-BR')} &nbsp;·&nbsp; ${profs.length} profissional(is)</p>
-      </div>`;
-      conteudo += `<table><thead><tr>
-        <th class="th-nome">Profissional</th>
-        <th class="th-info">Cargo</th>
-        <th class="th-info">Vínculo</th>
-        <th class="th-info">CH/sem</th>`;
-      for(let i=inicio;i<=fim;i++){
-        const fds=[0,1,2,6,7,8,9,13,14,15,16,20,21,22,23,27,28,29,30].includes(i);
-        const ds=DIAS_SEM[i];
-        conteudo+=`<th class="${fds?'fds':''}">${i+1}<br>${ds}</th>`;
-      }
-      conteudo+=`</tr></thead><tbody>`;
-      profs.forEach(p=>{
-        conteudo+=`<tr>
-          <td class="td-nome">${p.nome}<br><span style="font-weight:normal;font-size:9px;color:#666">SIAPE: ${p.siape}</span></td>
-          <td class="td-info">${p.cargo}</td>
-          <td class="td-info">${p.vinculo||'—'}</td>
-          <td class="td-info" style="font-weight:bold">${p.ch}h</td>`;
-        for(let i=inicio;i<=fim;i++){
-          const cod=p.dias[i]||'';
-          const fds=[0,1,2,6,7,8,9,13,14,15,16,20,21,22,23,27,28,29,30].includes(i);
-          conteudo+=cod
-            ?`<td class="${fds?'fds':''}"><span class="bj ${classeJ(cod)}">${cod}</span></td>`
-            :`<td class="${fds?'fds':''}"><span style="color:#ddd">·</span></td>`;
-        }
-        conteudo+=`</tr>`;
-      });
-      conteudo+=`</tbody></table>`;
-      conteudo+=`<div class="legenda">
-        <strong>Legenda:</strong>
-        <span class="leg"><span class="bj jM">M</span> Matutino</span>
-        <span class="leg"><span class="bj jT">T</span> Vespertino</span>
-        <span class="leg"><span class="bj jD">D</span> Plantão Diurno</span>
-        <span class="leg"><span class="bj jN">N</span> Plantão Noturno</span>
-        <span class="leg"><span class="bj jDN">DN</span> Diurno/Noturno</span>
-        <span class="leg"><span class="bj jFE">FE</span> Férias</span>
-        <span class="leg"><span class="bj jAFIN">AF</span> Afastamento</span>
-        <span class="leg"><span class="bj jCH">CH</span> Comp. Horas</span>
-        <span class="leg"><span class="bj jAB">AB</span> Abono</span>
-        <span class="leg"><span class="bj jDSR">DSR</span> Descanso</span>
-      </div>`;
-      conteudo += `</div>`;
-    });
+    rows.push(`<tr>
+      <td class="td-nome" style="position:sticky;left:0;background:white;font-weight:600;font-size:13px">${p.nome}</td>
+      <td style="font-family:var(--mono);font-size:11px">${p.siape}</td>
+      <td style="font-size:12px">${p.cargo}</td>
+      <td style="font-size:12px">${p.vinculo||'—'}</td>
+      <td style="font-size:11px">${unids.map(nomeUnidade).join('<br>')}</td>
+      <td style="font-size:11px">${postos.map(nomePosto).join('<br>')}</td>
+      <td style="font-family:var(--mono);text-align:center;font-weight:600">${chContratual}h</td>
+      <td style="font-family:var(--mono);text-align:center">${diasTrab}</td>
+      <td style="font-family:var(--mono);text-align:center;color:${diasAfas>0?'var(--amarelo)':'inherit'}">${diasAfas}</td>
+      <td style="font-size:11px">${ocorr.join(' · ')||'—'}</td>
+      <td><span class="${badge}">${sit}</span></td>
+    </tr>`);
   });
 
-  if(!conteudo){
-    alert('Nenhum profissional encontrado com os filtros selecionados.');
-    return;
+  document.getElementById('cnt-alerta').textContent=alertas;
+  document.getElementById('cnt-multi-a').textContent=multi;
+  document.getElementById('cnt-ok-a').textContent=okCnt;
+  document.getElementById('cnt-afas-a').textContent=afasCnt;
+  document.getElementById('audit-count').textContent=`${rows.length} profissional(is)`;
+  document.getElementById('tbody-auditoria').innerHTML=rows.join('');
+}
+
+// ===== EXPORTAR PDF =====
+const CSS_PDF=`<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,sans-serif;font-size:10px;padding:8mm}h1{font-size:13px;color:#1a3a5c;margin-bottom:3px}h2{font-size:11px;color:#1a3a5c;margin:12px 0 4px;border-bottom:1px solid #ccc;padding-bottom:2px}p.sub{font-size:9px;color:#666;margin-bottom:10px}.pagina{page-break-after:always}.pagina:last-child{page-break-after:avoid}table{width:100%;border-collapse:collapse;table-layout:fixed;margin-bottom:8px}th{background:#1a3a5c;color:white;padding:4px 3px;font-size:8px;text-align:center;border:1px solid #0d2a45}th.tl{text-align:left;padding-left:6px;width:160px}th.ti{width:55px}td{padding:3px 2px;text-align:center;border:1px solid #e0e0e0;font-size:8px}td.tl{text-align:left;padding-left:6px;font-weight:bold;font-size:10px}td.ti{font-size:9px}.bj{display:inline-block;padding:1px 3px;border-radius:2px;font-size:8px;font-weight:bold}.jM{background:#e8f0fb;color:#1a3a5c}.jT{background:#fff3e0;color:#7b4a00}.jD{background:#e1f5ee;color:#0f6e56}.jN{background:#1a3a5c;color:#ddd}.jFE{background:#fdecea;color:#c0392b}.jAFIN,.jAFEB{background:#fef9e7;color:#b7950b}.jCH{background:#f0ebfe;color:#6c3fc5}.jAB,.jDSR,.jFD{background:#f0f2f6;color:#666}.jDN{background:#d4edda;color:#155724}.fds{background:#eef2f8}tr:nth-child(even)td{background:#fafafa}tr:nth-child(even)td.fds{background:#e8eef6}.wcard{border:1px solid #ccc;border-radius:6px;padding:8px;margin-bottom:8px;break-inside:avoid}.wcards{display:grid;grid-template-columns:1fr 1fr;gap:8px}.wc-nome{font-size:11px;font-weight:bold;margin-bottom:2px}.wc-info{font-size:9px;color:#666;margin-bottom:6px}.wu{padding:4px 6px;background:#f4f5f7;border-left:2px solid #2a5c9e;margin-bottom:3px;display:flex;justify-content:space-between}.wu-n{font-size:9px;font-weight:bold}.wu-h{font-size:10px;font-weight:bold;color:#2a5c9e}.wt{margin-top:6px;padding-top:4px;border-top:1px dashed #ccc;display:flex;justify-content:space-between}.wt-l{font-size:8px;color:#666;text-transform:uppercase}.wt-v{font-size:13px;font-weight:bold;color:#1a3a5c}@media print{@page{size:A4 landscape;margin:8mm}body{padding:0}}</style>`;
+
+function exportarPDF(tela){
+  const mes='Maio 2026';
+  const data=new Date().toLocaleDateString('pt-BR');
+  let conteudo='';
+
+  if(tela==='unidades'){
+    const unidSel=document.getElementById('f-unidade').value;
+    const unidsVer=unidSel?UNIDADES.filter(u=>u.id===unidSel):UNIDADES;
+    unidsVer.forEach(u=>{
+      let profs=PROFS.filter(p=>p.unidade===u.id);
+      if(!profs.length)return;
+      [[0,15],[16,30]].forEach(([ini,fim],mi)=>{
+        conteudo+=`<div class="pagina">
+          <h1>HC-UFPE · Escala Mensal de Trabalho</h1>
+          <h2>${u.nome} · ${mes} · Dias ${ini+1}–${fim+1}</h2>
+          <p class="sub">Gerado em ${data} · ${profs.length} profissional(is)</p>
+          <table><thead><tr>
+            <th class="tl">Profissional</th><th class="ti">Cargo</th><th class="ti">Posto</th><th class="ti">CH</th>
+            ${Array.from({length:fim-ini+1},(_,i)=>{const d=ini+i;const f=FDS_IDX.includes(d);return`<th class="${f?'fds':''}" style="width:17px">${d+1}<br>${DIAS_SEM[d]}</th>`;}).join('')}
+          </tr></thead><tbody>
+          ${profs.map(p=>{
+            let r=`<tr><td class="tl">${p.nome}<br><span style="font-weight:normal;font-size:8px;color:#666">SIAPE: ${p.siape}</span></td><td class="ti">${p.cargo}</td><td class="ti">${nomePosto(p.posto)}</td><td class="ti">${p.ch}h</td>`;
+            for(let d=ini;d<=fim;d++){const cod=p.dias[d]||'';const f=FDS_IDX.includes(d);r+=cod?`<td class="${f?'fds':''}"><span class="bj ${classeJ(cod)}">${cod}</span></td>`:`<td class="${f?'fds':''}"><span style="color:#ddd">·</span></td>`;}
+            return r+'</tr>';
+          }).join('')}
+          </tbody></table></div>`;
+      });
+    });
   }
 
+  else if(tela==='pordia'){
+    const dia=parseInt(document.getElementById('d-dia').value);
+    const ano=document.getElementById('d-ano').value;
+    const mesEl=document.getElementById('d-mes');
+    const mesNome=mesEl.options[mesEl.selectedIndex].text;
+    if(isNaN(dia)){alert('Selecione um dia.');return;}
+    let lista=PROFS.filter(p=>p.dias[dia]);
+    const mat=lista.filter(p=>turno(p.dias[dia])==='mat');
+    const vest=lista.filter(p=>turno(p.dias[dia])==='vest');
+    const not=lista.filter(p=>turno(p.dias[dia])==='not');
+    const afas=lista.filter(p=>turno(p.dias[dia])==='afastado');
+    function tabelaTurno(profs,titulo){
+      if(!profs.length)return'';
+      return`<h2>${titulo} — ${profs.length} profissional(is)</h2>
+      <table><thead><tr><th class="tl">Profissional</th><th class="ti">Cargo</th><th class="ti">Unidade</th><th class="ti">Posto</th><th class="ti">Jornada</th></tr></thead>
+      <tbody>${profs.map(p=>`<tr><td class="tl">${p.nome}</td><td class="ti">${p.cargo}</td><td class="ti">${nomeUnidade(p.unidade)}</td><td class="ti">${nomePosto(p.posto)}</td><td class="ti"><span class="bj ${classeJ(p.dias[dia])}">${p.dias[dia]}</span></td></tr>`).join('')}</tbody></table>`;
+    }
+    conteudo=`<h1>HC-UFPE · Profissionais em Serviço</h1>
+      <h2>Dia ${dia+1} de ${mesNome} de ${ano} (${DIAS_SEM[dia]}) · ${lista.length} profissional(is)</h2>
+      <p class="sub">Gerado em ${data}</p>
+      ${tabelaTurno(mat,'Turno Matutino')}${tabelaTurno(vest,'Turno Vespertino')}${tabelaTurno(not,'Turno Noturno')}${tabelaTurno(afas,'Afastados / Férias')}`;
+  }
+
+  else if(tela==='trabalhador'){
+    // Agrupa por SIAPE
+    const grupos={};
+    PROFS.forEach(p=>{const k=p.siape!=='######'?p.siape:p.id;if(!grupos[k])grupos[k]=[];grupos[k].push(p);});
+    const multi=Object.keys(grupos).filter(k=>[...new Set(grupos[k].map(p=>p.unidade))].length>1);
+    const simples=Object.keys(grupos).filter(k=>[...new Set(grupos[k].map(p=>p.unidade))].length===1);
+
+    function cardHtml(key){
+      const profs=grupos[key];const p=profs[0];
+      const itens=profs.map(pp=>({nome:nomeUnidade(pp.unidade),posto:nomePosto(pp.posto),horas:estimarHoras(pp)}));
+      const total=itens.reduce((s,x)=>s+x.horas,0);
+      return`<div class="wcard">
+        <div class="wc-nome">${p.nome}</div>
+        <div class="wc-info">${p.cargo} · SIAPE ${p.siape} · CH ${p.ch}h/sem · ${p.vinculo||'—'}</div>
+        ${itens.map(it=>`<div class="wu"><div><div class="wu-n">${it.nome}</div><div style="font-size:8px;color:#666">${it.posto}</div></div><div class="wu-h">${it.horas}h</div></div>`).join('')}
+        <div class="wt"><span class="wt-l">Total — Maio 2026</span><span class="wt-v">${total}h</span></div>
+      </div>`;
+    }
+    conteudo=`<h1>HC-UFPE · Escalas por Trabalhador — ${mes}</h1><p class="sub">Gerado em ${data}</p>`;
+    if(multi.length){conteudo+=`<h2>Profissionais em Múltiplas Unidades (${multi.length})</h2><div class="wcards">${multi.map(k=>cardHtml(k)).join('')}</div>`;}
+    conteudo+=`<h2>Demais Profissionais (${simples.length})</h2><div class="wcards">${simples.map(k=>cardHtml(k)).join('')}</div>`;
+  }
+
+  else if(tela==='afastamentos'){
+    const tipos=[['fe','Férias'],['afin','Afastamento INSS'],['afeb','Afastamento EBSERH'],['ch','Comp. de Horas'],['ab','Abono']];
+    conteudo=`<h1>HC-UFPE · Afastamentos e Ocorrências — ${mes}</h1><p class="sub">Gerado em ${data}</p>`;
+    tipos.forEach(([tipo,label])=>{
+      const afas=[];
+      PROFS.forEach(p=>{
+        const dias=Object.entries(p.dias).filter(([,d])=>d&&d.toLowerCase().startsWith(tipo==='fe'?'fe':tipo==='afin'?'afin':tipo==='afeb'?'afeb':tipo==='ch'?'ch':'ab'));
+        if(dias.length)afas.push({p,dias:dias.map(([d])=>+d+1)});
+      });
+      if(!afas.length)return;
+      conteudo+=`<h2>${label} — ${afas.length} profissional(is)</h2>
+      <table><thead><tr><th class="tl">Profissional</th><th class="ti">Cargo</th><th class="ti">Unidade</th><th class="ti">Posto</th><th>Dias</th></tr></thead>
+      <tbody>${afas.map(a=>`<tr><td class="tl">${a.p.nome}</td><td class="ti">${a.p.cargo}</td><td class="ti">${nomeUnidade(a.p.unidade)}</td><td class="ti">${nomePosto(a.p.posto)}</td><td>${a.dias.join(', ')}</td></tr>`).join('')}</tbody></table>`;
+    });
+  }
+
+  else if(tela==='auditoria'){
+    const rows=document.querySelectorAll('#tbody-auditoria tr');
+    const thead=document.querySelector('.audit-table thead').outerHTML;
+    conteudo=`<h1>HC-UFPE · Visão de Auditoria — ${mes}</h1><p class="sub">Gerado em ${data} · ${rows.length} profissional(is)</p>
+    <table style="font-size:9px">${thead}<tbody>${Array.from(rows).map(r=>r.outerHTML).join('')}</tbody></table>`;
+  }
+
+  if(!conteudo){alert('Nenhum dado para exportar.');return;}
   const win=window.open('','_blank');
-  win.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Escalas HC-UFPE — ${mes}</title>${estilo}</head><body>${conteudo}</body></html>`);
+  win.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>HC-UFPE · ${mes}</title>${CSS_PDF}</head><body>${conteudo}</body></html>`);
   win.document.close();
   setTimeout(()=>win.print(),700);
 }
 
+// ===== NAVEGAÇÃO =====
 function mostrarTela(id,el){
   document.querySelectorAll('.tela').forEach(t=>t.classList.remove('ativa'));
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('ativo'));
   document.getElementById('tela-'+id).classList.add('ativa');
   el.classList.add('ativo');
+}
+
+// ===== INIT =====
+function init(){
+  popularSelects();
+  // Resumo header
+  document.getElementById('cnt-unidades').textContent=UNIDADES.length;
+  document.getElementById('cnt-profs').textContent=PROFS.length;
+  const afas=PROFS.filter(p=>Object.values(p.dias).some(d=>d&&(d.startsWith('AFIN')||d.startsWith('AFEB')||d.startsWith('FE')))).length;
+  document.getElementById('cnt-afas-u').textContent=afas;
+  const grupos={};
+  PROFS.forEach(p=>{if(p.siape!=='######'){grupos[p.siape]=(grupos[p.siape]||[]);grupos[p.siape].push(p.unidade);}});
+  const multi=Object.values(grupos).filter(v=>[...new Set(v)].length>1).length;
+  document.getElementById('cnt-multi-u').textContent=multi;
+
+  renderUnidades();
+  renderAfastamentos();
+  renderAuditoria();
+  renderTrabalhador();
+  renderPorDia();
 }
 
 init();
